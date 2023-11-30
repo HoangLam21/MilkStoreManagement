@@ -1,0 +1,765 @@
+﻿<Page x:Class="MilkStoreManagement.View.HomeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MilkStoreManagement.View"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+      xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+      Background="Transparent"
+      x:Name="Homewd"
+      DataContext="{StaticResource HomeVM}"
+      Title="HomeView" Height="800" Width="1170">
+    <Border Margin="15,100,15,0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="360"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="170"></RowDefinition>
+                <RowDefinition Height="290"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Canvas>
+                    <Border
+                    CornerRadius="30"
+                    Height="160" Width="231"
+                    Background="White"
+                    VerticalAlignment="Center"
+                    BorderThickness="0.75" Canvas.Left="5" Canvas.Top="5" HorizontalAlignment="Left" >
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                        </Border.Effect>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid Height="135">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                    <ColumnDefinition Width="130"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <materialDesign:PackIcon 
+                                    Kind="BasketOutline" 
+                                    Foreground="#FFCA08" 
+                                    Height="50" Width="50"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,10,0"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="Số đơn hàng trong ngày:" 
+                                           VerticalAlignment="Top" HorizontalAlignment="Center"
+                                           FontSize="20"  
+                                           TextAlignment="Right" 
+                                           FontWeight="DemiBold" 
+                                           TextWrapping="Wrap" 
+                                           FontFamily="{StaticResource Custom}" 
+                                           Height="Auto" Width="120" Margin="0,5,0,0">
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="#383838" Opacity="0.5"/>
+                                        </TextBlock.Foreground>
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="1" x:Name="SoDonHang" 
+                                           VerticalAlignment="Bottom" 
+                                           Text="0" 
+                                           TextAlignment="Center" 
+                                           FontWeight="SemiBold" 
+                                           TextWrapping="Wrap" 
+                                           Margin="0,0,0,5"
+                                           FontSize="25" 
+                                           Foreground="Black" 
+                                           FontFamily="{StaticResource Custom}" 
+                                           Height="Auto">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Loaded">
+                                            <i:InvokeCommandAction Command="{Binding LoadDon}"
+                                                            CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                    <Border
+                    CornerRadius="30"
+                    Height="160" Width="231"
+                    Background="White"
+                    VerticalAlignment="Center"
+                    BorderThickness="0.75" Canvas.Left="278" Canvas.Top="5" HorizontalAlignment="Left">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                        </Border.Effect>
+                        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" ClipToBounds="False">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Grid Height="135" Width="185">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50"></ColumnDefinition>
+                                        <ColumnDefinition Width="130"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <materialDesign:PackIcon 
+                                    Kind="Cash" 
+                                    Foreground="#FFCA08" 
+                                    Height="50" Width="50"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,10,0"/>
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="auto"></RowDefinition>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Row="0" Text="Doanh thu trong ngày:" 
+                                           VerticalAlignment="Top" HorizontalAlignment="Center"
+                                           FontSize="20"  
+                                           TextAlignment="Center" 
+                                           FontWeight="DemiBold" 
+                                           TextWrapping="Wrap" 
+                                           FontFamily="{StaticResource Custom}" 
+                                           Height="Auto" Width="120" >
+                                            <TextBlock.Foreground>
+                                                <SolidColorBrush Color="#383838" Opacity="0.5"/>
+                                            </TextBlock.Foreground>
+                                        </TextBlock>
+                                        <TextBlock Grid.Row="1" x:Name="DoanhThu" 
+                                           VerticalAlignment="Bottom" 
+                                           Text="0 VNĐ" 
+                                           TextAlignment="Center" 
+                                           FontWeight="SemiBold" 
+                                           TextWrapping="Wrap" 
+                                           Margin="0,0,0,10"
+                                           FontSize="22" 
+                                           Foreground="Black" 
+                                           FontFamily="{StaticResource Custom}" 
+                                           Height="Auto">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Loaded">
+                                            <i:InvokeCommandAction Command="{Binding LoadDT}"
+                                                            CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
+                                            </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                        </TextBlock>
+                                    </Grid>
+                                </Grid>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <Border
+                    CornerRadius="30"
+                    Height="160" Width="231"
+                    Background="White"
+                    VerticalAlignment="Center"
+                    BorderThickness="0.75" Canvas.Right="0" Canvas.Top="5" HorizontalAlignment="Right">
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                        </Border.Effect>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Grid Height="135" Width="204" RenderTransformOrigin="0.602,0.454">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"></ColumnDefinition>
+                                    <ColumnDefinition Width="145"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <materialDesign:PackIcon 
+                                    Kind="BabyBottleOutline" 
+                                    Foreground="#FFCA08" 
+                                    Height="50" Width="60"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Center"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Grid.Row="0" Text="Số sản phẩm:" 
+                                           VerticalAlignment="Top" HorizontalAlignment="Center"
+                                           FontSize="20"  
+                                           Margin="0,15,0,0"
+                                           TextAlignment="Right" 
+                                           FontWeight="DemiBold" 
+                                           FontFamily="{StaticResource Custom}" 
+                                           Height="Auto" Width="120" >
+                                        <TextBlock.Foreground>
+                                            <SolidColorBrush Color="#383838" Opacity="0.5"/>
+                                        </TextBlock.Foreground>
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="1" x:Name="SoSanPham" 
+                                           Text="0 sản phẩm" 
+                                           VerticalAlignment="Bottom"
+                                           Margin="0,0,0,10"
+                                           TextAlignment="Center" 
+                                           FontWeight="SemiBold" 
+                                           TextWrapping="Wrap" 
+                                           FontSize="22" 
+                                           Foreground="Black" 
+                                           FontFamily="{StaticResource Custom}" 
+                                           Height="Auto">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Loaded">
+                                            <i:InvokeCommandAction Command="{Binding LoadSP}"
+                                                            CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
+                                            </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </Canvas>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Border
+                    CornerRadius="30"
+                    Height="270" Width="auto"
+                    Background="White"
+                    VerticalAlignment="Center"
+                    BorderThickness="0.75" HorizontalAlignment="Center" >
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                    </Border.Effect>
+                    <StackPanel Height="260" Width="780" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Grid Height="35">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" x:Name="ThongKe"
+                                Margin="30,5,0,0" Text="Thống kê sản phẩm bán ra"
+                                Foreground="#383838"
+                                FontSize="15" FontWeight="DemiBold">
+                            </TextBlock>
+                            <Border Grid.Column="1"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,5,30,0"
+                                    Height="28"
+                                    Width="54"
+                                    Background="White"
+                                    CornerRadius="10"
+                                    BorderBrush="Black" 
+                                    BorderThickness="1">
+                                <TextBlock
+                                    Margin="0,7,0,0"
+                                    Height="28" Width="54"
+                                    TextAlignment="Center"
+                                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                                    Text="Tuần"
+                                    Foreground="#383838"
+                                    FontSize="15" FontWeight="DemiBold">
+                                </TextBlock>
+                            </Border>
+                        </Grid>
+                        <syncfusion:SfChart 
+                            Height="220" Width="720">
+                            <syncfusion:SfChart.PrimaryAxis>
+                                <syncfusion:CategoryAxis/>
+                            </syncfusion:SfChart.PrimaryAxis>
+                            <syncfusion:SfChart.SecondaryAxis>
+                                <syncfusion:NumericalAxis/>
+                            </syncfusion:SfChart.SecondaryAxis>
+                            <syncfusion:SfChart.Resources>
+                                <DataTemplate x:Key="tooltipTemplate">
+                                    <Border Background="Transparent" Margin="-5"
+                                   Padding="4" CornerRadius="3">
+                                        <StackPanel Orientation="Horizontal" >
+                                            <TextBlock Text="{Binding Item.SP}" Foreground="Black" TextAlignment="Center" FontFamily="{StaticResource Custom1}"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                                <Style TargetType="Path" x:Key="tooltipStyle">
+                                    <Setter Property="Stroke" Value="White"/>
+                                    <Setter Property="Fill" Value="#FFE5D8"/>
+                                </Style>
+                            </syncfusion:SfChart.Resources>
+                            <syncfusion:SfChart.Behaviors>
+                                <syncfusion:ChartTooltipBehavior Style="{StaticResource tooltipStyle}" 
+                                 Position="Pointer"/>
+                            </syncfusion:SfChart.Behaviors>
+                            <syncfusion:ColumnSeries x:Name="Chart" ShowTooltip="True" TooltipTemplate="{StaticResource tooltipTemplate}" Palette="Custom" ItemsSource="{Binding Data}" XBindingPath="Time" YBindingPath="SP" EnableAnimation="True" AnimationDuration="00:00:01">
+                                <syncfusion:ColumnSeries.ColorModel>
+                                    <syncfusion:ChartColorModel>
+                                        <syncfusion:ChartColorModel.CustomBrushes>
+                                            <SolidColorBrush Color="#FFCA08"/>
+                                        </syncfusion:ChartColorModel.CustomBrushes>
+                                    </syncfusion:ChartColorModel>
+                                </syncfusion:ColumnSeries.ColorModel>
+                            </syncfusion:ColumnSeries>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Loaded">
+                                    <i:InvokeCommandAction Command="{Binding LoadChart}"
+                                                       CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </syncfusion:SfChart>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Border                    
+                        CornerRadius="30"
+                        Height="215" Width="377"
+                        Background="White"
+                        VerticalAlignment="Center"
+                        BorderThickness="0.75" HorizontalAlignment="Left" >
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Nhân viên ưu tú"
+                                   Margin="0,5,0,0"
+                                   FontSize="18"
+                                   Foreground="Black"
+                                   FontWeight="DemiBold"
+                                   VerticalAlignment="Top" HorizontalAlignment="Center">
+                                </TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="110"/>
+                                        <ColumnDefinition Width="157"/>
+                                        <ColumnDefinition Width="110"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <TextBlock Margin="15,0,0,0"
+                                Text="Mã nhân viên"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Width="80"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"  RenderTransformOrigin="0.754,0.476"
+                                />
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBlock
+                                HorizontalAlignment="Left"
+                                Text="Tên nhân viên" 
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12" Width="80" Margin="45,0,0,0"
+                                />
+                                    </Grid>
+                                    <Grid Grid.Column="2" Grid.ColumnSpan="2">
+                                        <TextBlock
+                                Text="Số đơn hàng" 
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Margin="15,0,0,0"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                                />
+                                    </Grid>
+                                </Grid>
+                                <Border Height="1" VerticalAlignment="Bottom"  Background="#FFCA08"/>
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="0,5,0,0">
+                                <ListView x:Name="ListViewNV" ItemsSource="{Binding listNV}"
+                                        SelectionMode="Single"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                        ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="2">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListViewItem">
+                                                        <Border x:Name="ItemBorder"
+                                                            Background="Transparent"
+                                                            Width="370"
+                                                            Height="38"
+                                                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                            CornerRadius="15" Margin="0,0,0,7">
+                                                            <Grid>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="110"/>
+                                                                    <ColumnDefinition Width="157"/>
+                                                                    <ColumnDefinition Width="110"/>
+                                                                    <ColumnDefinition/>
+                                                                </Grid.ColumnDefinitions>
+                                                                <Grid Grid.Column="0">
+                                                                    <TextBlock Margin="17,0,0,0"
+                                                                        Text="{Binding MANV}"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        FontFamily="{StaticResource Custom}"
+                                                                        FontSize="12"/>
+                                                                </Grid>
+                                                                <Grid Grid.Column="1">
+                                                                    <TextBlock Margin="50,0,0,0"
+                                                                        HorizontalAlignment="Left"
+                                                                        Text="{Binding TENNV}"
+                                                                        VerticalAlignment="Center"
+                                                                        FontFamily="{StaticResource Custom}"
+                                                                        FontSize="12"/>
+                                                                </Grid>
+                                                                <Grid Grid.Column="2">
+                                                                    <TextBlock Margin="30,0,0,0"
+                                                                        Text="{Binding SoDon}"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        FontFamily="{StaticResource Custom}"/>
+                                                                </Grid>
+                                                            </Grid>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="ItemBorder" Property="Background" Value="#FFF7DA"/>
+                                                            </Trigger>
+                                                            <Trigger Property="IsSelected" Value="True">
+                                                                <Setter TargetName="ItemBorder" Property="Background" Value="#FFF7DA"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel Orientation="Vertical"/>
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Loaded">
+                                            <i:InvokeCommandAction Command="{Binding LoadNV}"
+                                   CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </ListView>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Border                    
+                        CornerRadius="30"
+                        Height="215" Width="377"
+                        Background="White"
+                        VerticalAlignment="Center"
+                        BorderThickness="0.75"  HorizontalAlignment="Right" >
+                        <Border.Effect>
+                            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                        </Border.Effect>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"></RowDefinition>
+                                <RowDefinition Height="30"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock Text="Khách hàng thân thiết"
+                                   Margin="0,5,0,0"
+                                   FontSize="18"
+                                   Foreground="Black"
+                                   FontWeight="DemiBold"
+                                   VerticalAlignment="Top" HorizontalAlignment="Center">
+                                </TextBlock>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="110"/>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="115"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="0">
+                                        <TextBlock Margin="15,0,0,0"
+                                Text="Mã khách hàng"
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center" Width="90"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"  RenderTransformOrigin="0.754,0.476"
+                                />
+                                    </Grid>
+                                    <Grid Grid.Column="1">
+                                        <TextBlock
+                                HorizontalAlignment="Left"
+                                Text="Tên khách hàng" 
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12" Width="100" Margin="40,0,0,0"
+                                />
+                                    </Grid>
+                                    <Grid Grid.Column="2">
+                                        <TextBlock
+                                Text="Doanh số"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Margin="5,0,0,0"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                                />
+                                    </Grid>
+                                </Grid>
+                                <Border Height="1" VerticalAlignment="Bottom"  Background="#FFCA08" />
+                            </Grid>
+                            <Grid Grid.Row="2" Margin="0,5,0,0">
+                                <ListView x:Name="ListViewKH" ItemsSource="{Binding listKH}"
+                                        SelectionMode="Single"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                        ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="2">
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="ListViewItem">
+                                                        <Border x:Name="ItemBorder"
+                                                            Background="Transparent"
+                                                            Width="370"
+                                                            Height="38"
+                                                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                            CornerRadius="15" Margin="0,0,0,7">
+                                                            <Grid>
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="110"/>
+                                                                    <ColumnDefinition Width="150"/>
+                                                                    <ColumnDefinition Width="115"/>
+                                                                    <ColumnDefinition/>
+                                                                </Grid.ColumnDefinitions>
+                                                                <Grid Grid.Column="0">
+                                                                    <TextBlock Margin="17,0,0,0"
+                                                                        Text="{Binding MAKH}"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        FontFamily="{StaticResource Custom}"
+                                                                        FontSize="12"/>
+                                                                </Grid>
+                                                                <Grid Grid.Column="1">
+                                                                    <TextBlock Margin="50,0,0,0"
+                                                                        HorizontalAlignment="Left"
+                                                                        Text="{Binding TENKH}"
+                                                                        VerticalAlignment="Center"
+                                                                        FontFamily="{StaticResource Custom}"
+                                                                        FontSize="12"/>
+                                                                </Grid>
+                                                                <Grid Grid.Column="2">
+                                                                    <TextBlock Margin="20,0,0,0"
+                                                                        Text="{Binding DoanhSoKH}"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        FontFamily="{StaticResource Custom}"/>
+                                                                </Grid>
+                                                            </Grid>
+                                                        </Border>
+                                                        <ControlTemplate.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter TargetName="ItemBorder" Property="Background" Value="#FFF7DA"/>
+                                                            </Trigger>
+                                                            <Trigger Property="IsSelected" Value="True">
+                                                                <Setter TargetName="ItemBorder" Property="Background" Value="#FFF7DA"/>
+                                                            </Trigger>
+                                                        </ControlTemplate.Triggers>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel Orientation="Vertical"/>
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Loaded">
+                                            <i:InvokeCommandAction Command="{Binding LoadKH}"
+                                   CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </ListView>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Border                    
+                        CornerRadius="30"
+                        Height="160" Width="340"
+                        VerticalAlignment="Center"
+                        BorderThickness="0.75" HorizontalAlignment="Right" >
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                    </Border.Effect>
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Resource/Image/hello.jpg" Stretch="UniformToFill"></ImageBrush>
+                    </Border.Background>
+                    <TextBlock x:Name="TenNV" 
+                               Text="Hello, Giang" 
+                               FontSize="22" 
+                               FontWeight="DemiBold"
+                               Foreground="Black"
+                               Margin="50,22,0,0">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Loaded">
+                                <i:InvokeCommandAction Command="{Binding TenDangNhap_Loaded}"
+                                                                       CommandParameter="{Binding ElementName=Homewd}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </TextBlock>
+                </Border>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="2">
+                <Grid.RowSpan>2</Grid.RowSpan>
+                <Border                    
+                    CornerRadius="30"
+                    Height="505" Width="340"
+                    Background="White"
+                    VerticalAlignment="Center"
+                    BorderThickness="0.75" HorizontalAlignment="Left" Margin="20,0,0,0" >
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="45"></RowDefinition>
+                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Sản phẩm bán chạy"
+                                   Margin="20,5,0,0"
+                                   FontSize="20"
+                                   Foreground="Black"
+                                   FontWeight="DemiBold"
+                                   VerticalAlignment="Top" HorizontalAlignment="Left">
+                            </TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="130"/>
+                                    <ColumnDefinition Width="110"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <TextBlock Margin="15,0,0,0"
+                                Text="Mã sản phẩm"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Width="80"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"  RenderTransformOrigin="0.754,0.476"
+                                />
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBlock
+                                HorizontalAlignment="Left"
+                                Text="Tên sản phẩm"
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12" Width="80" Margin="40,0,0,0"
+                                />
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <TextBlock
+                                Text="Số lượng bán"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" Margin="5,0,0,0"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                                />
+                                </Grid>
+                            </Grid>
+                            <Border Height="1" VerticalAlignment="Bottom"  Background="#FFCA08" />
+                        </Grid>
+                        <Grid Grid.Row="2">
+                            <ListView x:Name="ListViewSP" ItemsSource="{Binding listSP}"
+                                        SelectionMode="Single"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                        ScrollViewer.VerticalScrollBarVisibility="Hidden" Width="340" Margin="0,15,0,0">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListViewItem">
+                                                    <Border x:Name="ItemBorder"
+                                                            Background="Transparent"
+                                                            Width="335"
+                                                            Height="35"
+                                                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                            CornerRadius="10" Margin="0,0,0,10">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="100"/>
+                                                                <ColumnDefinition Width="130"/>
+                                                                <ColumnDefinition Width="110"/>
+                                                                <ColumnDefinition/>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid Grid.Column="0">
+                                                                <TextBlock Margin="20,0,0,0"
+                                                            Text="{Binding MASP}"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            FontFamily="{StaticResource Custom}"
+                                                            FontSize="12"/>
+                                                            </Grid>
+                                                            <Grid Grid.Column="1">
+                                                                <TextBlock Margin="45,0,0,0"
+                                                            HorizontalAlignment="Left"
+                                                            Text="{Binding TENSP}"
+                                                            TextWrapping="Wrap"
+                                                            VerticalAlignment="Center"
+                                                            FontFamily="{StaticResource Custom}"
+                                                            FontSize="12"/>
+                                                            </Grid>
+                                                            <Grid Grid.Column="2">
+                                                                <TextBlock                                                             Text="{Binding SL}"
+                                                            HorizontalAlignment="Center"
+                                                            VerticalAlignment="Center"
+                                                            FontFamily="{StaticResource Custom}"
+                                                            FontSize="12" Margin="5,0,0,0"/>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter TargetName="ItemBorder" Property="Background" Value="#FFF7DA"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsSelected" Value="True">
+                                                            <Setter TargetName="ItemBorder" Property="Background" Value="#FFF7DA"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Vertical"/>
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Loaded">
+                                        <i:InvokeCommandAction Command="{Binding LoadListSP}"
+                                   CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ListView>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>

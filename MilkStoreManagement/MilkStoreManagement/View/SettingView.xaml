@@ -1,0 +1,342 @@
+﻿<Page x:Class="MilkStoreManagement.View.SettingView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MilkStoreManagement.View"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+      xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+      Background="Transparent"
+      x:Name="Settingwd"
+      DataContext="{StaticResource SettingVM}"
+      Title="HomeView" Height="800" Width="1170">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loadwd}"
+                                       CommandParameter="{Binding ElementName=Settingwd}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Border Margin="15,100,15,0" 
+            VerticalAlignment="Top"
+            HorizontalAlignment="Left" Width="1145" Height="682">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="400"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="0,0,0,15">
+                <materialDesign:ColorZone CornerRadius="15" Height="50" Mode="PrimaryMid" Margin="0,0,10,0" VerticalAlignment="Center">
+                    <materialDesign:ColorZone.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#FFCA08" Offset="0"/>
+                            <GradientStop Color="#f7f7df" Offset="1"/>
+                        </LinearGradientBrush>
+                    </materialDesign:ColorZone.Background>
+                    <TextBlock VerticalAlignment="Center" FontSize="28" Margin="20,0,10,0" FontFamily="{StaticResource Custom}" Foreground="Black">
+                            Thông tin cá nhân
+                    </TextBlock>
+                </materialDesign:ColorZone>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Border CornerRadius="30" Background="White" BorderThickness="0.75" Margin="0,0,10,20">
+                    <Border.Effect>
+                        <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="300"/>
+                            <RowDefinition Height="1*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="350"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Border Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" BorderThickness="1,0,0,0" BorderBrush="Black" />
+                        <Border Grid.RowSpan="2">
+                            <Ellipse Height="280" Width="280" 
+                             VerticalAlignment="Top" HorizontalAlignment="Center"
+                             Margin="0,15,0,0" StrokeThickness="5">
+                                <Ellipse.Effect>
+                                    <DropShadowEffect ShadowDepth="0"
+                                        Color="Black"
+                                        Opacity="10"
+                                        BlurRadius="10"/>
+                                </Ellipse.Effect>
+                                <Ellipse.Fill>
+                                    <ImageBrush x:Name="img" ImageSource="{Binding Ava}"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                        </Border>
+                        <Button HorizontalAlignment="Center" VerticalAlignment="Center"
+                                Content="Tải ảnh lên" FontFamily="{StaticResource Custom}"
+                                FontSize="18"
+                                Width="155" Height="45" Background="Transparent" Foreground="Black"
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                                Grid.Row="1">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatMidBgButton}">
+                                    <Setter Property="BorderBrush" Value="Black" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}"
+                                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="15">
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="15">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush StartPoint="0,1.95" EndPoint="0,0">
+                                                            <GradientStop Color="#FFCA08" Offset="0" />
+                                                            <GradientStop Color="White" Offset="1" />
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding AddImage}" CommandParameter="{Binding ElementName=img}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                        <Button HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Content="Cập nhật thông tin" FontFamily="{StaticResource Custom}"
+                            FontSize="18"
+                            Width="220" Height="45" Foreground="Black"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                            Grid.Row="1" Grid.Column="2">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatMidBgButton}">
+                                    <Setter Property="BorderBrush" Value="Black" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="15">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1.25">
+                                                            <GradientStop Color="#FFCA08" Offset="0" />
+                                                            <GradientStop Color="White" Offset="1" />
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding UpdateInfo}"
+                                   CommandParameter="{Binding ElementName=Settingwd}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                        <Grid Grid.Column="1" Margin="0,0,0,0.333" Grid.RowSpan="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="70"></RowDefinition>
+                                <RowDefinition Height="70"></RowDefinition>
+                                <RowDefinition Height="70"></RowDefinition>
+                                <RowDefinition Height="70"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="390"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <TextBox x:Name="NameBox" Margin="15,20,0,0" Foreground="Black" 
+                                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                                    VerticalAlignment="Top"
+                                    AcceptsReturn="True"
+                                    TextWrapping="Wrap" FontSize="15"
+                                    Width="355" 
+                                    HorizontalAlignment="Left"
+                                    MaxWidth="400" 
+                                    materialDesign:HintAssist.Foreground="#FFCA08"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+                                    FontFamily="{StaticResource Custom}"
+                                    materialDesign:HintAssist.Hint="Họ tên" Text="{Binding Name}"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <ComboBox x:Name="GTBox" Margin="12,20,35,0"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+                                    FontFamily="{StaticResource Custom}"
+                                    Style="{StaticResource MaterialDesignFilledComboBox}"
+                                    IsEnabled="{Binding Path=IsChecked, ElementName=FilledComboBoxEnabledCheckBox}"
+                                    materialDesign:HintAssist.Foreground="#FFCA08"
+                                    materialDesign:HintAssist.Hint="Giới tính" FontSize="15"
+                                    Width="355" SelectedIndex="{Binding Gioi}">
+                                        <ComboBoxItem
+                                        Content="Nam" />
+                                        <ComboBoxItem
+                                        Content="Nữ" />
+                                    </ComboBox>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="390"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <DatePicker x:Name="DateBox" Margin="15,20,0,0" Foreground="Black" 
+                                            Text="{Binding DoB}" FontFamily="{StaticResource Custom}"
+                                            Focusable="False" FontSize="15" materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08" 
+                                            materialDesign:HintAssist.Foreground="#FFCA08"
+                                            materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFilledDatePicker}" HorizontalAlignment="Left" Width="355">
+                                    </DatePicker>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBox x:Name="SDTBox" Margin="10,20,0,0"  Width="349"
+                                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                                    AcceptsReturn="True" 
+                                    materialDesign:HintAssist.Foreground="#FFCA08"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+                                    TextWrapping="Wrap" FontSize="15"
+                                    HorizontalAlignment="Left" 
+                                    FontFamily="{StaticResource Custom}"
+                                    materialDesign:HintAssist.Hint="Số điện thoại" Text="{Binding SDT}" />
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="2">
+                                <TextBox x:Name="AddressBox" Margin="15,20,0,0" Foreground="Black" 
+                                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                                    VerticalAlignment="Top"
+                                    AcceptsReturn="True"
+                                    TextWrapping="Wrap" FontSize="15"
+                                    Width="734" 
+                                    materialDesign:HintAssist.Foreground="#FFCA08"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+                                    HorizontalAlignment="Left"
+                                    FontFamily="{StaticResource Custom}"
+                                    materialDesign:HintAssist.Hint="Địa chỉ" Text="{Binding DiaChi}"/>
+                            </Grid>
+                            <Grid Grid.Row="3">
+                                <TextBox x:Name="MailBox" Margin="15,20,0,0" Foreground="Black" 
+                                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                                    VerticalAlignment="Top"
+                                    AcceptsReturn="True"
+                                    TextWrapping="Wrap" FontSize="15"
+                                    Width="734" 
+                                    materialDesign:HintAssist.Foreground="#FFCA08"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+                                    HorizontalAlignment="Left"
+                                    FontFamily="{StaticResource Custom}"
+                                    materialDesign:HintAssist.Hint="Email" Text="{Binding Email}"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid Grid.Row="2" Margin="0,15,0,15">
+                <materialDesign:ColorZone CornerRadius="15" Height="50" Mode="PrimaryMid" Margin="0,0,10,0" VerticalAlignment="Center">
+                    <materialDesign:ColorZone.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                            <GradientStop Color="#FFCA08" Offset="0"/>
+                            <GradientStop Color="#f7f7df" Offset="1"/>
+                        </LinearGradientBrush>
+                    </materialDesign:ColorZone.Background>
+                    <TextBlock VerticalAlignment="Center" FontSize="28" Margin="20,0,10,0" FontFamily="{StaticResource Custom}" Foreground="Black">
+                            Thông tin tài khoản
+                    </TextBlock>
+                </materialDesign:ColorZone>
+            </Grid>
+            <Grid Grid.Row="3">
+                <Border CornerRadius="30" Background="White" Margin="0,0,10,0">
+                    <Border.Effect>
+                        <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
+                    </Border.Effect>
+                </Border>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="350"></ColumnDefinition>
+                        <ColumnDefinition Width="350"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <TextBox Margin="50,0,0,0"  Width="310"
+                            Style="{StaticResource MaterialDesignFilledTextBox}"
+                            VerticalAlignment="Center"
+                            AcceptsReturn="True"
+                            TextWrapping="Wrap" FontSize="20"
+                            HorizontalAlignment="Center" Height="65"
+                            FontFamily="{StaticResource Custom}" IsEnabled="False"
+                            materialDesign:HintAssist.Foreground="Black"
+                            materialDesign:HintAssist.Hint="Tên đăng nhập" Text="{Binding TenTK}" />
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox Margin="50,0,0,0" Width="310"
+                                Style="{StaticResource MaterialDesignFilledTextBox}"
+                                VerticalAlignment="Center"
+                                AcceptsReturn="True" 
+                                TextWrapping="Wrap" FontSize="20"
+                                HorizontalAlignment="Center" Height="65"
+                                FontWeight="Light" FontStyle="Italic" IsEnabled="False"
+                                materialDesign:HintAssist.Hint="Mật khẩu"
+                                materialDesign:HintAssist.FontFamily="{StaticResource Custom}" Text="(không hiển thị)" />
+                    </Grid>
+                    <Grid Grid.Column="2">
+                        <Button FontFamily="{StaticResource Custom}"
+                            Foreground="Black"
+                            VerticalAlignment="Center" HorizontalAlignment="Left"
+                            Margin="70,0,0,0" Height="65" Width="300"
+                            Content="Đổi mật khẩu" FontSize="25">
+                            <Button.Style>
+                                <Style TargetType="Button" BasedOn="{StaticResource MaterialDesignFlatMidBgButton}">
+                                    <Setter Property="BorderBrush" Value="Black" />
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                                    CornerRadius="15">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1.25">
+                                                            <GradientStop Color="#FFCA08" Offset="0" />
+                                                            <GradientStop Color="White" Offset="1" />
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Button.Style>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding ChangePass}"
+                                                       CommandParameter="{Binding ElementName=Settingwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                    </Grid>
+                </Grid>
+                <StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>
