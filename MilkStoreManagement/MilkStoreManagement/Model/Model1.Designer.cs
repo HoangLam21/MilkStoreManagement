@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Giang\HK3\Lập trình trực quan\TH Lí thuyết\DOAN CHINH\Git_QA_MilkStore\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\Model\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\Model\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

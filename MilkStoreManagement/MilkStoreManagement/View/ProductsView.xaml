@@ -1,0 +1,248 @@
+﻿<Page x:Class="MilkStoreManagement.View.ProductsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MilkStoreManagement.View"
+               mc:Ignorable="d"
+        DataContext="{StaticResource ProductsVM}" 
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        d:DesignHeight="800"
+      x:Name="Productwd" Width="1170">
+
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCsCommand}"
+                                                   CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Border 
+                
+                Background="White"
+                CornerRadius="40" Margin="15,100,15,15" BorderThickness="0.75" 
+                >
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+        </Border.Effect>
+        <Grid Height="680" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*"/>
+                <ColumnDefinition Width="251*"/>
+                <ColumnDefinition Width="244*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.ColumnSpan="3" Margin="49,28,0,0" Grid.RowSpan="2">
+                <TextBlock VerticalAlignment="Top" 
+                       FontSize="24" 
+                       FontFamily="{StaticResource Custom}" Foreground="#383838" Height="30" FontWeight="Bold"
+                       >Sản phẩm</TextBlock>
+            </Grid>
+            <Grid Grid.Row="1" Grid.ColumnSpan="3" Height="80" VerticalAlignment="Center" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="309*"/>
+                    <ColumnDefinition Width="1046*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Horizontal" Margin="64,20,64,0" Grid.ColumnSpan="2">
+                    <Border
+                    Margin="0,0,0,0"
+                    Height="40"
+                    Width="120"
+                    CornerRadius="10"
+                    Background="#FFF7DA"
+                    >
+                        <ComboBox
+                    x:Name="cbxChon1"
+                    Style="{StaticResource MaterialDesignFilledComboBox}"
+                    materialDesign:TextFieldAssist.TextBoxViewMargin="8,-11,0,0"
+                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                    BorderThickness="0"
+                    materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
+                    materialDesign:HintAssist.Foreground="#FFF7DA"
+                    Background="#FFF7DA"
+                    FontFamily="{StaticResource Custom}"
+                    Height="38"
+                    FontSize="14"
+                    SelectedIndex="0"
+                    Width="110" >
+                            <ComboBoxItem Content="Tất cả"/>
+                            <ComboBoxItem Content="Sữa bột"/>
+                            <ComboBoxItem Content="Sữa tăng cân"/>
+                            <ComboBoxItem Content="Sữa tăng chiều cao"/>
+                            <ComboBoxItem Content="Sữa đặc"/>
+                            <ComboBoxItem Content="Sữa bầu"/>
+                            <ComboBoxItem Content="Sữa tươi"/>
+                            <ComboBoxItem Content="Sữa người lớn"/>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding Filter}"
+                                                   CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                    </Border>
+                    <Border
+                        Margin="8,0,0,0"
+                        Height="40"
+                        Width="120"
+                        CornerRadius="10"
+                        Background="#FFF7DA"
+                    >
+                        <ComboBox
+                            x:Name="cbxChon"
+                            Style="{StaticResource MaterialDesignFilledComboBox}"
+                            materialDesign:TextFieldAssist.TextBoxViewMargin="8,-11,0,0"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                            BorderThickness="0"
+                            materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
+                            materialDesign:HintAssist.Foreground="#FFF7DA"
+                            Background="#FFF7DA"
+                            FontFamily="{StaticResource Custom}"
+                            Height="38"
+                            FontSize="14"
+                            ItemsSource="{Binding listTK}"
+                            Width="110"
+                            VerticalContentAlignment="Center">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </Border>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,0,19,0">
+                        <TextBox
+                            x:Name="txbSearch"
+                            Width="479"
+                            Height="54"
+                            BorderBrush="#FFCA08"
+                            Foreground="Black"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            materialDesign:HintAssist.Hint="   Tìm kiếm..." 
+                            materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
+                            materialDesign:HintAssist.Foreground="White"
+                            materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                            materialDesign:TextFieldAssist.TextBoxViewMargin="10,3,0,0"
+                            BorderThickness="2"
+                            VerticalAlignment="Center" Padding="0,15,0,0"
+                            CaretBrush="White" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="TextChanged">
+                                    <i:InvokeCommandAction Command="{Binding SearchCommand}"
+                               CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                        <materialDesign:PackIcon Kind="Magnify" Width="47" Margin="-1,12,0,0" Foreground="#FFCA08" Height="39">
+                            <materialDesign:PackIcon.Effect>
+                                <DropShadowEffect ShadowDepth="3" Opacity="0.7"/>
+                            </materialDesign:PackIcon.Effect>
+                        </materialDesign:PackIcon>
+                    </StackPanel>
+
+                    <Button
+                        Width="162"
+                        Height="42"
+                        Margin="10,0,0,0"
+                        FontFamily="{StaticResource Custom}"
+                        materialDesign:ButtonAssist.CornerRadius="6"
+                        BorderThickness="0"
+                        Background="#FFCA08"
+                        RenderTransformOrigin="-0.162,0.621"
+                    >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Plus" Margin="-8,0,0,0" Width="18" RenderTransformOrigin="0.572,0.486" />
+                            <TextBlock Text="Thêm Sản Phẩm" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding AddPdPdCommand}" CommandParameter="{Binding ElementName=Productwd}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2" Grid.ColumnSpan="3" Margin="10,0,10,0">
+
+                <ListView x:Name="ListViewProduct" ItemsSource="{Binding listSP}"
+                      SelectionMode="Single" 
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="50,25,0,0"  
+                    >
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <Border
+                                    Margin="10"
+                                    Height="250"
+                                    Width="170"
+                                    Background="White"
+                                    CornerRadius="15"
+                                    >
+                                <Border.Style>
+                                    <Style TargetType="Border">
+                                        <Setter Property="Background" Value="White" />
+                                        <Style.Triggers>
+                                            <!-- Use DataTrigger to change the background color based on YourCondition -->
+                                            <DataTrigger Binding="{Binding YourCondition}" Value="True">
+                                                <Setter Property="Background" Value="#FFF7DA" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Border.Style>
+                                <StackPanel>
+                                    <Image  
+                                        Margin="0,10,0,0"
+                                        Source="{Binding HINHSP}" 
+                                        Height="154" 
+                                        Width="140"
+                                    />
+                                    <TextBlock
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="14"
+                                        HorizontalAlignment="Center"
+                                        Text="{Binding TENSP}"
+                                        TextWrapping="Wrap" 
+                                        TextAlignment="Center" 
+                                    />
+                                    <TextBlock
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="14"
+                                        HorizontalAlignment="Center">
+                                        <Run Text="{Binding KLG}" />
+                                        <Run Text="{Binding DVT}" />
+                                    </TextBlock>
+                                    <TextBlock
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="14"
+                                        HorizontalAlignment="Center"
+                                        Text="{Binding GIABAN, StringFormat={}{0:#,###} VNĐ}"
+                                    />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel/>
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding DetailPdCommand}"
+                                                   CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>

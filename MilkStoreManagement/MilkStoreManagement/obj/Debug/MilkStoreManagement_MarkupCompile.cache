@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Giang\HK3\Lập trình trực quan\TH Lí thuyết\DOAN CHINH\Git_QA_MilkStore\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\obj\Debug\
+E:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\obj\Debug\
 MilkStoreManagement
 none
 false
 DEBUG;TRACE
-D:\Giang\HK3\Lập trình trực quan\TH Lí thuyết\DOAN CHINH\Git_QA_MilkStore\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml
-8-320624318
+E:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml
+111871781813
 2739969757
-33711295166
-39-308378866
-Resource\MainResource.xaml;Resource\StylesResource.xaml;View\ChangePassword.xaml;View\ForgetPassView.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\SettingView.xaml;
+39210657763
+39589561096
+Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddProductView.xaml;View\ChangePassword.xaml;View\DetailProduct.xaml;View\ForgetPassView.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\ProductsView.xaml;View\SettingView.xaml;
 
 False
 
