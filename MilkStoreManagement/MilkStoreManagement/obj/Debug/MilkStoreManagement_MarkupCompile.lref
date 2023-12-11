@@ -1,13 +1,18 @@
 ﻿
-FE:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml;;
-FE:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\Resource\MainResource.xaml;;
-FE:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\ChangePassword.xaml;;
-FE:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\ForgetPassView.xaml;;
-FE:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\HomeView.xaml;;
-FE:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\LoginWindow.xaml;;
-FE:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\MainWindow.xaml;;
-FE:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\SettingView.xaml;;
-FE:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\AddProductView.xaml;;
-FE:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\DetailProduct.xaml;;
-FE:\Document\ME\HK3\3. Lập trình trực quan\1. LT\BT\MangeMilk\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\ProductsView.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\Resource\MainResource.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\AddProductView.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\ChangePassword.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\DetailProduct.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\ForgetPassView.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\HomeView.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\LoginWindow.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\MainWindow.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\ProductsView.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\SettingView.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\AddStaffView.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\DetailStaffView.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\StaffView.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\UpdateStaffView.xaml;;
+FC:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\View\OrderView.xaml;;
 

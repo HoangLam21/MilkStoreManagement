@@ -13,10 +13,10 @@ namespace MilkStoreManagement.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QUANLYSUAEntities : DbContext
+    public partial class QUANLYSUAEntities1 : DbContext
     {
-        public QUANLYSUAEntities()
-            : base("name=QUANLYSUAEntities")
+        public QUANLYSUAEntities1()
+            : base("name=QUANLYSUAEntities1")
         {
         }
     
@@ -25,8 +25,8 @@ namespace MilkStoreManagement.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CTPN> CTPNs { get; set; }
         public virtual DbSet<CTHD> CTHDs { get; set; }
+        public virtual DbSet<CTPN> CTPNs { get; set; }
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
         public virtual DbSet<LICHLAMVIEC> LICHLAMVIECs { get; set; }
