@@ -10,4 +10,9 @@
     <viewmodel:ProductsViewModel x:Key="ProductsVM"></viewmodel:ProductsViewModel>
     <viewmodel:DetailProductViewModel x:Key="DetailProductVM"></viewmodel:DetailProductViewModel>
     <viewmodel:AddProductViewModel x:Key="AddProductVM"></viewmodel:AddProductViewModel>
+    <viewmodel:StaffViewModel x:Key="StaffVM"></viewmodel:StaffViewModel>
+    <viewmodel:AddStaffViewModel x:Key="AddStaffVM"></viewmodel:AddStaffViewModel>
+    <viewmodel:DetailStaffViewModel x:Key="DetailStaffVM"></viewmodel:DetailStaffViewModel>
+    <viewmodel:UpdateStaffViewModel x:Key="UpdateStaffVM"></viewmodel:UpdateStaffViewModel>
+    <viewmodel:OrderViewModel x:Key="OrderVM"></viewmodel:OrderViewModel>
 </ResourceDictionary>

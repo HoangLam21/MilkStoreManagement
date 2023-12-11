@@ -103,12 +103,12 @@ namespace MilkStoreManagement.ViewModel
             temp.EMAIL = p.MailBox.Text;
             string rd = GenerateRandomString();
             if (User.AVA != Ava)
-                temp.AVA = @"Resource\Ava\" + rd + (Ava.Contains(".jpg") ? ".jpg" : ".png").ToString();
+                temp.AVA = @"Resource\Ava\" + temp.MANV + (Ava.Contains(".jpg") ? ".jpg" : ".png").ToString();
             DataProvider.Ins.DB.SaveChanges();
             try
             {
                 if (User.AVA != Ava)
-                    File.Copy(Ava, Const._localLink + @"Resource\Ava\" + rd + (Ava.Contains(".jpg") ? ".jpg" : ".png").ToString(), true);
+                    File.Copy(Ava, Const._localLink + @"Resource\Ava\" + temp.MANV + (Ava.Contains(".jpg") ? ".jpg" : ".png").ToString(), true);
             }
             catch { }
             MessageBox.Show("Cập nhật thành công!", "Thông báo");

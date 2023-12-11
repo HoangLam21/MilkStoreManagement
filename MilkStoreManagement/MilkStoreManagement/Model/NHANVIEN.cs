@@ -34,7 +34,6 @@ namespace MilkStoreManagement.Model
         public string CHUCVU { get; set; }
         public string ID_QLY { get; set; }
         public string PASS { get; set; }
-        public string EMAIL { get; set; }
         private string _AVA;
         public string AVA
         {
@@ -42,7 +41,7 @@ namespace MilkStoreManagement.Model
             {
                 if (string.IsNullOrEmpty(_AVA))
                 {
-                    return Const._localLink + @"Resource\Ava\Ava_Default.jpg";
+                    return Const._localLink + @"Resource\ImageNV\imageava.png";
                 }
                 else if (_AVA.Contains(Const._localLink))
                 {
@@ -55,7 +54,9 @@ namespace MilkStoreManagement.Model
             }
             set { _AVA = value; }
         }
-
+        public string EMAIL { get; set; }
+        public DateTime? NGAYNGHIVIEC { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

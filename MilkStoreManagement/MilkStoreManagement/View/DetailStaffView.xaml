@@ -1,0 +1,418 @@
+﻿<Window x:Class="MilkStoreManagement.View.DetailStaffView"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MilkStoreManagement.View"
+        mc:Ignorable="d"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        DataContext="{StaticResource DetailStaffVM}"
+        x:Name="DTNVwd"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" 
+        Height="800" Width="942" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+
+    </Window.Resources>
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loadwd}"
+                                CommandParameter="{Binding ElementName=DTNVwd}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Border
+     Background="White"
+     CornerRadius="15"
+         BorderBrush="#ffca08" BorderThickness="3"
+     >
+       
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseLeftButtonDown">
+                <i:InvokeCommandAction Command="{Binding MoveWindow}"
+                                    CommandParameter="{Binding ElementName=DTNVwd}"></i:InvokeCommandAction>
+            </i:EventTrigger>
+            <i:EventTrigger EventName="Loaded">
+                <i:InvokeCommandAction Command="{Binding GetName}"
+                                    CommandParameter="{Binding ElementName=DTNVwd}"></i:InvokeCommandAction>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+
+        <Border CornerRadius="20" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="56"/>
+                    <RowDefinition Height="177"/>
+                    <RowDefinition Height="138"/>
+                    <RowDefinition Height="350"/>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="2">
+                    <StackPanel Orientation="Horizontal">
+                        <Border Background="#ffffff" Height="123" Width="271" Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" CornerRadius="20">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#ffca08"  ShadowDepth="5" Opacity="0.15"/>
+                            </Border.Effect>
+                            <StackPanel Orientation="Horizontal" Width="170">
+                                <StackPanel Height="30" Width="30">
+                                    <Border Height="50" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                                    </Border>
+                                </StackPanel>
+                                <StackPanel>
+                                    <StackPanel Orientation="Vertical" Height="50" >
+                                        <StackPanel>
+                                            <TextBlock  
+                                                FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                                                FontSize="14"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                Text="Số ngày nghỉ " />
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" Height="50" >
+                                        <StackPanel>
+                                            <TextBlock
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                FontSize="14" 
+                                                materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                                                FontFamily="lexend" Foreground="#383838" FontWeight="Regular"  x:Name="NnNV" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+
+
+                        </Border>
+                        <Border Background="#ffffff" Height="123" Width="271" Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" CornerRadius="20">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#ffca08"  ShadowDepth="5" Opacity="0.15"/>
+
+                            </Border.Effect>
+                            <StackPanel Orientation="Horizontal" Width="170">
+                                <StackPanel Height="30" Width="30">
+                                    <Border Height="50" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                                    </Border>
+                                </StackPanel>
+                                <StackPanel>
+                                    <StackPanel Orientation="Vertical" Height="50" >
+                                        <StackPanel>
+                                            <TextBlock  
+                    FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                    FontSize="14"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Text="Số sản phẩm đã bán " />
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" Height="50" >
+                                        <StackPanel>
+                                            <TextBlock
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontSize="14" 
+                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                    FontFamily="lexend" Foreground="#383838" FontWeight="Regular"  x:Name="SoSP" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </Border>
+                        <Border Background="#ffffff" Height="123" Width="271" Margin="20 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" CornerRadius="20">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#ffca08"  ShadowDepth="5" Opacity="0.15"/>
+                            </Border.Effect>
+                            <StackPanel Orientation="Horizontal" Width="170">
+                                <StackPanel Height="30" Width="30">
+                                    <Border Height="50" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                                    </Border>
+                                </StackPanel>
+                                <StackPanel>
+                                    <StackPanel Orientation="Vertical" Height="50" >
+                                        <StackPanel>
+                                            <TextBlock  
+                    FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                    FontSize="14"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Text="Số đơn hàng " />
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Vertical" Height="50" >
+                                        <StackPanel>
+                                            <TextBlock
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontSize="14" 
+                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                    FontFamily="lexend" Foreground="#383838" FontWeight="Regular"  x:Name="SoDH" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+
+                        </Border>
+                    </StackPanel>
+
+
+                </Grid>
+                <Grid Grid.Row="0"
+              Background="Transparent">
+                    <StackPanel 
+                            Orientation="Horizontal" 
+                            HorizontalAlignment="Right" 
+                            VerticalAlignment="Center"
+                            Margin="0,-10,10,0"
+                            >
+                        <materialDesign:PackIcon Kind="WindowMinimize" Foreground="#ffca08" Height="30" Width="30" Margin="0,0,8,0">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding Minimizewd}"
+                                                   CommandParameter="{Binding ElementName=DTNVwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="CloseThick" Foreground="#ffca08" Height="30" Width="30">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding Closewd}"
+                                                   CommandParameter="{Binding ElementName=DTNVwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </materialDesign:PackIcon>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="0">
+                    <TextBlock Margin="40 0 0 0"
+                    FontWeight="Bold" 
+                Text="Thông tin nhân viên"
+                    VerticalAlignment="Bottom"
+                FontSize="24"
+                Foreground="#747474"
+                FontFamily="lexend"
+                />
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="190"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Ellipse Height="120" Width="120" VerticalAlignment="Center"  StrokeThickness="1">
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="Ava" ImageSource="{Binding Ava}"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <!--<Image x:Name="SelectedNVImage"  Width="120" Height="120" />-->
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <StackPanel Orientation="Vertical" Margin="10 60 0 0">
+                            <StackPanel Orientation="Horizontal" Height="30">
+                                <TextBlock
+                                FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                                FontSize="14"
+                                VerticalAlignment="Center"
+                                Text="Tên nhân viên: " />
+                                <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                FontFamily="lexend" Foreground="#383838" FontWeight="Regular"
+                                x:Name="TenNV" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Height="30">
+                                <TextBlock
+                               FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                                FontSize="14"
+                                VerticalAlignment="Center"
+                                Text="Mã nhân viên: " />
+                                <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                                FontFamily="lexend" Foreground="#383838" FontWeight="Regular"
+                                x:Name="MaNV" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Height="30">
+                                <TextBlock
+                                FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                                FontSize="14"
+                                VerticalAlignment="Center"
+                                Text="Email: " />
+                                <TextBlock
+                                VerticalAlignment="Center"
+                                FontSize="14"
+                                materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                                FontFamily="lexend" Foreground="#383838" FontWeight="Regular"
+                                x:Name="MailNV" />
+                            </StackPanel>
+                        </StackPanel>
+
+
+                    </Grid>
+
+                </Grid>
+                <Grid Grid.Row="2"
+              Margin="0,15,0,0">
+
+                </Grid>
+                <Grid Grid.Row="3">
+                    <StackPanel Orientation="Vertical" Margin="39 0">
+                        <Border Height="30">
+                            <TextBlock Text="Thông tin cá nhân" FontSize="16" Foreground="#383838" FontWeight="Medium"/>
+                        </Border>
+
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <TextBlock
+                            FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            Text="Giới tính: " />
+                            <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                            FontFamily="lexend" Foreground="#383838" FontWeight="Regular"
+                            x:Name="GtNV" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <TextBlock
+                            FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            Text="Ngày sinh: " />
+                            <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                            FontFamily="lexend" Foreground="#383838" FontWeight="Regular"
+                            x:Name="NsNV" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <TextBlock
+                            FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            Text="Số điện thoại: " />
+                            <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                            FontFamily="lexend" Foreground="#383838" FontWeight="Regular"
+                            x:Name="SdtNV" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <TextBlock
+                            FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            Text="Địa chỉ: " />
+                            <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                            FontFamily="lexend" Foreground="#383838" FontWeight="Regular"
+                            x:Name="DcNV" />
+                        </StackPanel>
+                        <Border Height="30">
+                            <TextBlock Text="Thông tin làm việc" FontSize="16" Foreground="#383838" FontWeight="Medium"/>
+                        </Border>
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <TextBlock
+                            FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            Text="Chức vụ: " />
+                            <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                            FontFamily="lexend" Foreground="#383838" FontWeight="Regular"
+                            x:Name="CvNV" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <TextBlock
+                            FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            Text="Ngày vào làm: " />
+                            <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                            FontFamily="lexend" Foreground="#383838" FontWeight="Regular"
+                            x:Name="NvlNV" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <TextBlock
+                            FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            Text="Lương: " />
+                            <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                            FontFamily="lexend" Foreground="#383838" FontWeight="Regular"
+                            x:Name="LuongNV" />
+                        </StackPanel>
+
+
+                        <StackPanel Orientation="Horizontal" Height="30">
+                            <TextBlock 
+                            FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
+                            FontSize="14"
+                            VerticalAlignment="Center"
+                            Text="Mã quản lý: " />
+                            <TextBlock
+                            VerticalAlignment="Center"
+                            FontSize="14"
+                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
+                            FontFamily="lexend" Foreground="#383838" FontWeight="Regular"
+                            x:Name="QlcnNV" />
+                        </StackPanel>
+
+                    </StackPanel>
+
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Button  Style="{StaticResource addButton}" VerticalAlignment="Center" Margin="250 0 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<icon:PackIconMaterial Kind="Plus" Width="18" Height="18" VerticalAlignment="Center" Margin="0 1 8 0"/>-->
+                            <TextBlock Text="Cập nhật thông tin" FontSize="16" VerticalAlignment="Center" FontWeight="Regular" FontFamily="Lexend"/>
+
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding UpdateNhanVien}"
+CommandParameter="{Binding ElementName=DTNVwd}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button  Style="{StaticResource addButton}" VerticalAlignment="Center" Margin="500 0 0 0">
+                        <StackPanel Orientation="Horizontal">
+                            <!--<icon:PackIconMaterial Kind="Plus" Width="18" Height="18" VerticalAlignment="Center" Margin="0 1 8 0"/>-->
+                            <TextBlock Text="Xóa nhân viên" FontSize="16" VerticalAlignment="Center" FontWeight="Regular" FontFamily="Lexend"/>
+
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding DeleteNhanVien}"
+CommandParameter="{Binding ElementName=DTNVwd}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+
+                </Grid>
+            </Grid>
+        </Border>
+    </Border>
+</Window>

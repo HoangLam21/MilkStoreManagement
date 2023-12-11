@@ -865,6 +865,271 @@
         <Setter Property="TextElement.FontFamily" Value="Font/Nunito-ExtraBold.ttf #Nunito ExtraBold"/>
         <Setter Property="TextElement.Foreground" Value="Black"/>
     </Style>
+    <Style x:Key="topButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#6e7783"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="50">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#dcdcdc"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="menuButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#9b9b9b"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Height" Value="55"/>
+        <Setter Property="Margin" Value="15,0,0,0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="20">
+                        <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#ffca08"/>
+                <Setter Property="Foreground" Value="#ffffff"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="textboxSearch" TargetType="TextBox">
+        <Setter Property="Background" Value="#ffffff"/>
+        <Setter Property="Foreground" Value="#383838"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Padding" Value="50 50"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0 10"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBoxBase">
+                    <Border x:Name="border" Height="54" Width="322" HorizontalAlignment="Left"  CornerRadius="30" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"
+                    BorderThickness="1" BorderBrush="#ffca08">
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden"
+                              VerticalScrollBarVisibility="Hidden"/>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#d9d9d9" TargetName="border"/>
+
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#d9d9d9" TargetName="border"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+    <Style x:Key="addButton" TargetType="Button">
+        <Setter Property="Background" Value="#ffca08"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Width" Value="162"/>
+        <Setter Property="Height" Value="42"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="0 20 0 0"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Grid.Row" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#fff7da"/>
+                <Setter Property="Foreground" Value="#383838"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="textboxFilter" TargetType="TextBox">
+        <Setter Property="Padding" Value="10 7"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBoxBase">
+                    <Border x:Name="border" Height="54" Width="322" HorizontalAlignment="Left"  CornerRadius="7" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"
+        BorderThickness="1" BorderBrush="#fff7da">
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden"
+                  VerticalScrollBarVisibility="Hidden"/>
+
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#d9d9d9" TargetName="border"/>
+
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#d9d9d9" TargetName="border"/>
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
+    <Style x:Key="pagingButton" TargetType="Button">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#6c7682"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Margin" Value="1 0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="5" Padding="10 5">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 0 0 1"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#ffca08"/>
+                <Setter Property="Foreground" Value="#ffffff"/>
+            </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+    <Style x:Key="gridEditButton" TargetType="Button">
+        <Setter Property="Background" Value="#ffca"/>
+        <Setter Property="BorderBrush" Value="#ffca08"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="5" Padding=" 5" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#ffca08"/>
+            </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+    <Style x:Key="gridRemoveButton" TargetType="Button" BasedOn="{StaticResource gridEditButton}">
+        <Setter Property="Background" Value="#ffca"/>
+        <Setter Property="BorderBrush" Value="#ffca08"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="#ffca08"/>
+            </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+    <!--<Style x:Key="gridButtonIcon" TargetType="Icon:PackIconMaterial">
+    <Setter Property="Width" Value="12"/>
+    <Setter Property="Height" Value="12"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+
+</Style>
+
+<Style x:Key="pagingButtonIcon" TargetType="Icon:PackIconMaterial">
+    <Setter Property="Width" Value="10"/>
+    <Setter Property="Height" Value="10"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+</Style>-->
+    <Style x:Key="iconApp" TargetType="Image">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+
+        </Style.Triggers>
+
+    </Style>
+
+    <Style x:Key="text" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="#383838"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+
+    </Style>
+
+    <Style TargetType="TextBox">
+        <Setter Property="Background" Value="#f5f7f9"/>
+        <Setter Property="Foreground" Value="#767676"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#f5f7f9"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="0 10"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBoxBase}">
+                    <Border x:Name="border" CornerRadius="3" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="True">
+                        <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#d9d9d9"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="BorderBrush" Value="#d9d9d9"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+
     <FontFamily x:Key="Custom">Font/Nunito-ExtraBold.ttf #Nunito ExtraBold</FontFamily>
     <FontFamily x:Key="Custom1">Font/NunitoRegular.ttf #Nunito</FontFamily>
+    
 </ResourceDictionary>

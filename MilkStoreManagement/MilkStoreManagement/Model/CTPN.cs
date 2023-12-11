@@ -16,8 +16,8 @@ namespace MilkStoreManagement.Model
     {
         public string MAPNHAP { get; set; }
         public string MASP { get; set; }
-        public Nullable<int> SLNHAP { get; set; }
-        public Nullable<decimal> GIANHAP { get; set; }
+        public int SLNHAP { get; set; }
+        public decimal GIANHAP { get; set; }
     
         public virtual PHIEUNHAP PHIEUNHAP { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
