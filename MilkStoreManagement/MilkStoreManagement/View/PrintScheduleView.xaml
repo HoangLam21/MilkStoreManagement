@@ -1,0 +1,160 @@
+﻿<Window x:Class="MilkStoreManagement.View.PrintScheduleView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MilkStoreManagement.View"
+        mc:Ignorable="d"
+        x:Name="PrintSchewd"
+        Title="PrintScheduleView" Height="300" Width="850">
+    <Grid x:Name="PrintSche">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Text="LỊCH LÀM VIỆC" FontWeight="Bold"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       FontSize="40">
+            </TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="95"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Text="Email:" FontWeight="DemiBold" FontSize="18" Margin="50,0,0,0"></TextBlock>
+                <TextBlock Text="milkstoremanagement@gmail.com" FontSize="18" Margin="190,0,0,0"></TextBlock>
+                <TextBlock Text="Ngày:" FontWeight="DemiBold" FontSize="18" Margin="50,30,150,0" HorizontalAlignment="Left"></TextBlock>
+                <TextBlock x:Name="DateNow" FontSize="18" Margin="190,30,0,0"></TextBlock>
+                <TextBlock Text="Tên nhân viên:" FontWeight="DemiBold" FontSize="18"  Margin="50,60,150,0"></TextBlock>
+                <TextBlock x:Name="NameStaff" FontSize="18" Margin="190,60,0,0" HorizontalAlignment="Left"></TextBlock>
+            </Grid>
+            <Grid Grid.Row="1" VerticalAlignment="Bottom">
+                <TextBlock FontSize="17" FontStyle="Italic"
+                           HorizontalAlignment="Left"
+                           Margin="190,0,0,5" Foreground="Red">
+                    Ca 1: 7h-12h;
+                </TextBlock>
+                <TextBlock FontSize="17" Foreground="Red" FontStyle="Italic" HorizontalAlignment="Center">
+                    Ca 2: 12h30-17h30;
+                </TextBlock>
+                <TextBlock FontSize="17" Foreground="Red" FontStyle="Italic"
+                           HorizontalAlignment="Right"
+                           Margin="0,0,160,0">
+                    Ca 3: 18h-22h30;
+                </TextBlock>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="190"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="230"/>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <TextBlock Text="Thứ"
+                    FontWeight="DemiBold"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="18" />
+            </Grid>
+            <Grid Grid.Column="1">
+                <TextBlock HorizontalAlignment="Center"
+                           FontWeight="DemiBold"
+                           Text="Ca"
+                           VerticalAlignment="Center"
+                           FontSize="18"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <TextBlock Text="Mã nhân viên" 
+                           FontWeight="DemiBold"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center" 
+                           FontSize="18"/>
+            </Grid>
+            <Grid Grid.Column="3">
+                <TextBlock Text="Tên nhân viên" 
+                           FontWeight="DemiBold"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center"
+                           Margin="60,0,0,0"
+                           FontSize="18"/>
+            </Grid>
+        </Grid>
+        <Border Grid.Row="2"  VerticalAlignment="Top" BorderBrush="black" BorderThickness="0.75"></Border>
+        <Border Grid.Row="2"  VerticalAlignment="Bottom" BorderBrush="black" BorderThickness="0.75"></Border>
+        <Grid Grid.Row="3">
+            <ListView x:Name="ListViewLLV" 
+                      Background="Transparent"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                      Height="auto">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Border x:Name="ItemBorder"
+                                                            Background="Transparent"
+                                                            Width="840"
+                                                            Height="35"
+                                                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                            CornerRadius="25" Margin="4,0,4,0">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="190"/>
+                                                <ColumnDefinition Width="130"/>
+                                                <ColumnDefinition Width="230"/>
+                                                <ColumnDefinition></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <TextBlock 
+                                                                        Text="{Binding THU}" 
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        FontSize="18" />
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <TextBlock 
+                                                                        HorizontalAlignment="Center"
+                                                                        Text="{Binding CA}"
+                                                                        VerticalAlignment="Center"
+                                                                        FontSize="18"/>
+                                            </Grid>
+                                            <Grid Grid.Column="2">
+                                                <TextBlock 
+                                                                        Text="{Binding MANV}"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center" 
+                                                                        FontSize="18"/>
+                                            </Grid>
+                                            <Grid Grid.Column="3">
+                                                <TextBlock Margin="30,0,0,0"
+                                                                        Width="250"
+                                                                        Text="{Binding TENNV}"
+                                                                        HorizontalAlignment="Left"
+                                                                        TextWrapping="Wrap"
+                                                                        VerticalAlignment="Center" FontSize="18"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </Grid>
+    </Grid>
+</Window>

@@ -17,7 +17,7 @@ namespace MilkStoreManagement.Model
         public int SOHD { get; set; }
         public string MASP { get; set; }
         public int SLMUA { get; set; }
-    
+
         public virtual HOADON HOADON { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
     }

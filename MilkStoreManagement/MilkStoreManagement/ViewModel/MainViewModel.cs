@@ -61,8 +61,8 @@ namespace MilkStoreManagement.ViewModel
                 string a = Const.TenDangNhap;
                 User = DataProvider.Ins.DB.NHANVIENs.Where(x => x.MANV == a).FirstOrDefault();
                 Const.NV = User;
-                SetQuanLy = User.CHUCVU == "QUANLY" ? Visibility.Visible : Visibility.Collapsed;
-                Const.Admin = User.CHUCVU == "QUANLY";
+                SetQuanLy = User.CHUCVU == "Quản lý" ? Visibility.Visible : Visibility.Collapsed;
+                Const.Admin = User.CHUCVU == "Quản lý";
                 Ava = User.AVA;
                 LoadTenND(p);
             }
@@ -79,7 +79,7 @@ namespace MilkStoreManagement.ViewModel
         }
         public void LoadQuyen(MainWindow p)
         {
-            p.Quyen.Text = User.CHUCVU == "QUANLY" ? "Quản lý" : "Nhân viên";
+            p.Quyen.Text = User.CHUCVU == "Quản lý" ? "Quản lý" : "Nhân viên";
         }
         void switchtab(MainWindow p)
         {
@@ -113,7 +113,7 @@ namespace MilkStoreManagement.ViewModel
                 case 4:
                     {
                         _Loadwd(p);
-                        //p.Main.NavigationService.Navigate(new );
+                        p.Main.NavigationService.Navigate(new ScheduleView());
                         break;
                     }
                 case 5:

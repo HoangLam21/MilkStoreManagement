@@ -182,7 +182,9 @@
     <Compile Include="ViewModel\ImportViewModel.cs" />
     <Compile Include="ViewModel\OrderViewModel.cs" />
     <Compile Include="ViewModel\ProductsViewModel.cs" />
+    <Compile Include="ViewModel\ScheduleViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
+    <Compile Include="ViewModel\SplitScheduleViewModel.cs" />
     <Compile Include="ViewModel\StaffViewModel.cs" />
     <Compile Include="ViewModel\UpdateStaffViewModel.cs" />
     <Compile Include="View\AddImportView.xaml.cs">
@@ -212,11 +214,20 @@
     <Compile Include="View\PrintImport.xaml.cs">
       <DependentUpon>PrintImport.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PrintScheduleView.xaml.cs">
+      <DependentUpon>PrintScheduleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ScheduleView.xaml.cs">
+      <DependentUpon>ScheduleView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SettingView.xaml.cs">
       <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SplitSchedule.xaml.cs">
+      <DependentUpon>SplitSchedule.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\StaffView.xaml.cs">
       <DependentUpon>StaffView.xaml</DependentUpon>
@@ -309,11 +320,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\PrintScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ProductsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ScheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\SettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SplitSchedule.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -396,6 +419,9 @@
     <Resource Include="Resource\ImageNV\imageava.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resource\Image\add.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -406,7 +432,6 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resource\Image\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

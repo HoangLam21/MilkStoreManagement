@@ -50,7 +50,6 @@
             materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
             VerticalAlignment="Top"
             AcceptsReturn="True"
-            TextWrapping="Wrap"
             Margin="0,0,0,10"
             FontFamily="{StaticResource Custom}"
             materialDesign:HintAssist.Hint="TÊN ĐĂNG NHẬP"

@@ -62,7 +62,7 @@ namespace MilkStoreManagement.ViewModel
                 if (accCount > 0)
                 {
                     IsLogin = true;
-                    Const.TenDangNhap = Username;
+                    Const.TenDangNhap = Username.ToUpper();
                     MainWindow mainWindow = new MainWindow();
                     mainWindow.Show();
                     Username = "";

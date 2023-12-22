@@ -1,0 +1,397 @@
+﻿<Page x:Class="MilkStoreManagement.View.ScheduleView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MilkStoreManagement.View"
+      mc:Ignorable="d" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+      Background="Transparent"
+      x:Name="Schedulewd"
+      DataContext="{StaticResource ScheduleVM}"
+      Height="800" Width="1170">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadSchewd}" 
+                                   CommandParameter="{Binding ElementName=Schedulewd}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Border Margin="15,100,15,0">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="400"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Border CornerRadius="30"
+                    Height="690"
+                    Background="White"
+                    VerticalAlignment="Top"
+                    Margin="0,0,10,0" >
+                    <Border.Effect>
+                        <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition Height="80"></RowDefinition>
+                            <RowDefinition Height="60"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Lịch làm việc" 
+                                FontSize="30" FontFamily="{StaticResource Custom}"
+                                Foreground="Black" Margin="30,20,30,0">
+                            </TextBlock>
+                        </Grid>
+                        <Border Height="0.75" VerticalAlignment="Bottom"  Background="#ffca08" />
+                        <Grid Grid.Row="1">
+                            <Border CornerRadius="30"
+                                    Height="60" Width="130"
+                                    BorderThickness="0.75"
+                                    Background="White" Margin="20,0,0,0"
+                                    HorizontalAlignment="Left">
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                                </Border.Effect>
+                                <ComboBox x:Name="cbxChon"
+                                    Style="{StaticResource MaterialDesignFilledComboBox}"
+                                    materialDesign:HintAssist.Hint="Tìm Kiếm"
+                                    materialDesign:TextFieldAssist.TextBoxViewMargin="20,-5,0,0"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    BorderThickness="0"
+                                    materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
+                                    materialDesign:HintAssist.Foreground="#ffca08"
+                                    Background="Transparent"
+                                    FontFamily="{StaticResource Custom}" 
+                                    FontSize="15" Height="60"
+                                    ItemsSource="{Binding listTK}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                            </Border>
+                            <Border CornerRadius="30"
+                                Height="60" Width="300"
+                                Background="White" HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                BorderThickness="0.75" Margin="170,0,0,0" >
+                                <Border.Effect>
+                                    <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                                </Border.Effect>
+                                <TextBox x:Name="txbSearch"
+                                    Background="Transparent"
+                                    Height="40"
+                                    Margin="40,0,45,0"
+                                    BorderBrush="White"
+                                    Foreground="Black"
+                                    TextAlignment="Center"
+                                    FontSize="20" VerticalAlignment="Center"
+                                    materialDesign:HintAssist.Hint="Tìm Kiếm"
+                                    materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
+                                    materialDesign:HintAssist.Foreground="Black"
+                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    BorderThickness="0">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="TextChanged">
+                                            <i:InvokeCommandAction Command="{Binding SearchCommand}"
+                                                       CommandParameter="{Binding ElementName=Schedulewd}"></i:InvokeCommandAction>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </TextBox>
+                            </Border>
+                            <materialDesign:PackIcon Kind="Magnify" 
+                                Height="35" Width="35"
+                                VerticalAlignment="Center"
+                                Foreground="#ffca08"
+                                HorizontalAlignment="Left"
+                                Margin="425,0,0,0">
+                            </materialDesign:PackIcon>
+                            <Button x:Name="btnUpdate" 
+                                Width="123" Height="52" 
+                                BorderThickness="0" 
+                                Margin="512,0,0,0"
+                                FontSize="20" 
+                                Foreground="#FF777777"
+                                HorizontalAlignment="Left"
+                                materialDesign:ButtonAssist.CornerRadius="15"
+                                FontFamily="{StaticResource Custom}">
+                                <Button.Background>
+                                    <LinearGradientBrush StartPoint="0,0" EndPoint="1.5,0">
+                                        <GradientStop Color="#FFCA08" Offset="0" />
+                                        <GradientStop Color="White" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Button.Background>
+                                <Button.Effect>
+                                    <DropShadowEffect ShadowDepth="5" Color="white" Opacity="0.5" BlurRadius="5"/>
+                                </Button.Effect>
+                                Cập nhật
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction Command="{Binding Update}"
+                                                       CommandParameter="{Binding ElementName=Schedulewd}"></i:InvokeCommandAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
+                            <Button Width="70" Height="60" 
+                                BorderThickness="0" Foreground="Black"
+                                Margin="0,0,10,0"
+                                FontSize="19" Background="Transparent"
+                                HorizontalAlignment="Right" VerticalAlignment="Center"
+                                FontFamily="{StaticResource Custom}">
+                                <materialDesign:PackIcon 
+                                    Kind="Printer" Foreground="Black"
+                                    Height="45" Width="45" Margin="0,10,0,0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center">
+
+                                </materialDesign:PackIcon>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction Command="{Binding Print}"
+                                                        CommandParameter="{Binding ElementName=Schedulewd}"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
+                        </Grid>
+                        <Border Grid.Row="2" Margin="0,10,0,0" Background="#faf2d4" CornerRadius="30, 30, 0, 0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="159"/>
+                                    <ColumnDefinition Width="95"/>
+                                    <ColumnDefinition Width="225"/>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <TextBlock Text="Thứ"
+                                        TextAlignment="Center"
+                                        Foreground="#FF777777"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" Width="155"
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="21" />
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBlock
+                                        HorizontalAlignment="Center"
+                                        Text="Ca"
+                                        Margin="19,0,0,0"
+                                        Foreground="#FF777777"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="21" Width="35"/>
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <TextBlock
+                                        Text="Mã nhân viên" 
+                                        Foreground="#FF777777"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" Margin="15,0,0,0"
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="21"/>
+                                </Grid>
+                                <Grid Grid.Column="3">
+                                    <TextBlock
+                                        Text="Tên nhân viên" 
+                                        Foreground="#FF777777"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center" Margin="40,0,0,0"
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="21"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                        <Grid Grid.Row="3">
+                            <ListView x:Name="ListViewLLV" ItemsSource="{Binding listLLV}"
+                                        SelectionMode="Single"
+                                        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                        ScrollViewer.VerticalScrollBarVisibility="Hidden" Margin="2">
+                                <ListView.ItemContainerStyle>
+                                    <Style TargetType="ListViewItem">
+                                        <Setter Property="Template">
+                                            <Setter.Value>
+                                                <ControlTemplate TargetType="ListViewItem">
+                                                    <Border x:Name="ItemBorder"
+                                                            Background="Transparent"
+                                                            Width="720"
+                                                            Height="42"
+                                                            HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                            CornerRadius="25" Margin="4,0,4,0">
+                                                        <Grid>
+                                                            <Grid.ColumnDefinitions>
+                                                                <ColumnDefinition Width="159"/>
+                                                                <ColumnDefinition Width="95"/>
+                                                                <ColumnDefinition Width="225"/>
+                                                                <ColumnDefinition></ColumnDefinition>
+                                                            </Grid.ColumnDefinitions>
+                                                            <Grid Grid.Column="0">
+                                                                <TextBlock 
+                                                                        Text="{Binding THU}" 
+                                                                        TextAlignment="Center"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center"
+                                                                        FontFamily="{StaticResource Custom}"
+                                                                        FontSize="16" Width="159"/>
+                                                            </Grid>
+                                                            <Grid Grid.Column="1">
+                                                                <TextBlock 
+                                                                        HorizontalAlignment="Center"
+                                                                        Text="{Binding CA}"
+                                                                        VerticalAlignment="Center"
+                                                                        FontFamily="{StaticResource Custom}"
+                                                                        FontSize="16"/>
+                                                            </Grid>
+                                                            <Grid Grid.Column="2">
+                                                                <TextBlock 
+                                                                        TextAlignment="Center"
+                                                                        Text="{Binding MANV}"
+                                                                        HorizontalAlignment="Center"
+                                                                        VerticalAlignment="Center" FontSize="16"
+                                                                        FontFamily="{StaticResource Custom}"/>
+                                                            </Grid>
+                                                            <Grid Grid.Column="3">
+                                                                <TextBlock Margin="25,0,0,0"
+                                                                        Text="{Binding TENNV}"
+                                                                        HorizontalAlignment="Left"
+                                                                        TextWrapping="Wrap"
+                                                                        VerticalAlignment="Center" FontSize="16"
+                                                                        FontFamily="{StaticResource Custom}"/>
+                                                            </Grid>
+                                                        </Grid>
+                                                    </Border>
+                                                    <ControlTemplate.Triggers>
+                                                        <Trigger Property="IsMouseOver" Value="True">
+                                                            <Setter TargetName="ItemBorder" Property="Background" Value="#FFF7DA"/>
+                                                        </Trigger>
+                                                        <Trigger Property="IsSelected" Value="True">
+                                                            <Setter TargetName="ItemBorder" Property="Background" Value="#FFF7DA"/>
+                                                        </Trigger>
+                                                    </ControlTemplate.Triggers>
+                                                </ControlTemplate>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Style>
+                                </ListView.ItemContainerStyle>
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Vertical"/>
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Loaded">
+                                        <i:InvokeCommandAction Command="{Binding LoadLLV}"
+                                                CommandParameter="{Binding ElementName=Schedulewd}"></i:InvokeCommandAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ListView>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Border CornerRadius="30"
+                    Height="690"
+                    Background="White"
+                    VerticalAlignment="Top"
+                    Margin="15,0,0,0" >
+                    <Border.Effect>
+                        <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Lịch" 
+                                FontSize="30" FontFamily="{StaticResource Custom}"
+                                Foreground="Black" Margin="30,20,30,0">
+                            </TextBlock>
+                        </Grid>
+                        <Border Height="0.75" VerticalAlignment="Bottom"  Background="#ffca08" />
+
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="390"></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Border CornerRadius="30"
+                                Height="380"
+                                BorderThickness="0.75"
+                                BorderBrush="#ffca08" Margin="10,15,10,0">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.8,0">
+                                        <GradientStop Color="#fae187" Offset="0"/>
+                                        <GradientStop Color="white" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Calendar Margin="0,5,0,0" Grid.Row="0"
+                                Style="{DynamicResource CalendarStyle1}" 
+                                CalendarButtonStyle="{DynamicResource CalendarButtonStyle1}" 
+                                CalendarItemStyle="{DynamicResource CalendarItemStyle1}" 
+                                CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}" HorizontalAlignment="Center">
+                                </Calendar>
+                            </Border>
+                            <Grid Grid.Row="1" Margin="40,30,30,30">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="45"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                    <RowDefinition Height="40"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Row="0" Grid.Column="0" 
+                                           Text="Ca" FontSize="25" FontFamily="{StaticResource Custom}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center">
+                                </TextBlock>
+                                <TextBlock Grid.Row="0" Grid.Column="1" Margin="65,0,0,0"
+                                           Text="Thời gian" FontSize="25" FontFamily="{StaticResource Custom}"
+                                           VerticalAlignment="Center" >
+                                </TextBlock>
+                                <TextBlock Grid.Row="1" Grid.Column="0" 
+                                           Foreground="#FF777777"
+                                           Text="1" FontSize="20" FontFamily="{StaticResource Custom}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center">
+                                </TextBlock>
+                                <TextBlock Grid.Row="1" Grid.Column="1" Margin="50,0,0,0"
+                                           Foreground="#FF777777"
+                                           Text="7h - 12h" FontSize="20" FontFamily="{StaticResource Custom}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center">
+                                </TextBlock>
+                                <TextBlock Grid.Row="2" Grid.Column="0" 
+                                           Foreground="#FF777777"
+                                           Text="2" FontSize="20" FontFamily="{StaticResource Custom}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center">
+                                </TextBlock>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Margin="50,0,0,0"
+                                           Foreground="#FF777777"
+                                           Text="12h30 - 17h30" FontSize="20" FontFamily="{StaticResource Custom}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center">
+                                </TextBlock>
+                                <TextBlock Grid.Row="3" Grid.Column="0" 
+                                           Foreground="#FF777777"
+                                           Text="3" FontSize="20" FontFamily="{StaticResource Custom}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center">
+                                </TextBlock>
+                                <TextBlock Grid.Row="3" Grid.Column="1" Margin="50,0,0,0"
+                                           Foreground="#FF777777"
+                                           Text="18h - 22h30" FontSize="20" FontFamily="{StaticResource Custom}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center">
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>
