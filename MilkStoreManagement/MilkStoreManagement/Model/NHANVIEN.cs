@@ -34,26 +34,7 @@ namespace MilkStoreManagement.Model
         public string CHUCVU { get; set; }
         public string ID_QLY { get; set; }
         public string PASS { get; set; }
-        private string _AVA;
-        public string AVA
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_AVA))
-                {
-                    return Const._localLink + @"Resource\ImageNV\imageava.png";
-                }
-                else if (_AVA.Contains(Const._localLink))
-                {
-                    return _AVA;
-                }
-                else
-                {
-                    return Const._localLink + _AVA;
-                }
-            }
-            set { _AVA = value; }
-        }
+        public string AVA { get; set; }
         public string EMAIL { get; set; }
         public DateTime? NGAYNGHIVIEC { get; set; }
     

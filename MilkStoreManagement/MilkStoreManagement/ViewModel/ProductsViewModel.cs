@@ -71,81 +71,56 @@ namespace MilkStoreManagement.ViewModel
                 case "0":
                     {
                         listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
-                        foreach (var item in listSP)
-                        {
-                            item.HINHSP = Path.Combine(_localLink, "Resource", "ImgProducts", item.HINHSP);
-                        }
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "1":
                     {
                         listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.MALOAISP == "SBOT"));
-                        foreach (var item in listSP)
-                        {
-                            item.HINHSP = Path.Combine(_localLink, "Resource", "ImgProducts", item.HINHSP);
-                        }
+                        
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "2":
                     {
                         listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.MALOAISP == "STC"));
-                        foreach (var item in listSP)
-                        {
-                            item.HINHSP = Path.Combine(_localLink, "Resource", "ImgProducts", item.HINHSP);
-                        }
+                       
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "3":
                     {
                         listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.MALOAISP == "STCC"));
-                        foreach (var item in listSP)
-                        {
-                            item.HINHSP = Path.Combine(_localLink, "Resource", "ImgProducts", item.HINHSP);
-                        }
-                        parameter.ListViewProduct.ItemsSource = listSP;
+                        
+             
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "4":
                     {
                         listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.MALOAISP == "SDAC"));
-                        foreach (var item in listSP)
-                        {
-                            item.HINHSP = Path.Combine(_localLink, "Resource", "ImgProducts", item.HINHSP);
-                        }
+                       
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "5":
                     {
                         listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.MALOAISP == "SBAU"));
-                        foreach (var item in listSP)
-                        {
-                            item.HINHSP = Path.Combine(_localLink, "Resource", "ImgProducts", item.HINHSP);
-                        }
+                        
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "6":
                     {
                         listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.MALOAISP == "ST"));
-                        foreach (var item in listSP)
-                        {
-                            item.HINHSP = Path.Combine(_localLink, "Resource", "ImgProducts", item.HINHSP);
-                        }
+                       
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "7":
                     {
                         listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.MALOAISP == "SNL"));
-                        foreach (var item in listSP)
-                        {
-                            item.HINHSP = Path.Combine(_localLink, "Resource", "ImgProducts", item.HINHSP);
-                        }
+                       
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
@@ -225,10 +200,10 @@ namespace MilkStoreManagement.ViewModel
             detailProduct.DVT.Text = temp.DVT;
             detailProduct.KLG.Text = temp.KLG.ToString();
 
-            linkimage = temp.HINHSP;
-            Uri fileUri = new Uri(linkimage);
-            detailProduct.HinhAnh.Source = new BitmapImage(fileUri);
-
+                linkimage = temp.HINHSP;
+                Uri fileUri = new Uri(linkimage);
+                detailProduct.HinhAnh.Source = new BitmapImage(fileUri);
+         
             detailProduct.ShowDialog();
 
             listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p => p.SL >= 0));

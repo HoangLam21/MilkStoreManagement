@@ -15,4 +15,6 @@
     <viewmodel:DetailStaffViewModel x:Key="DetailStaffVM"></viewmodel:DetailStaffViewModel>
     <viewmodel:UpdateStaffViewModel x:Key="UpdateStaffVM"></viewmodel:UpdateStaffViewModel>
     <viewmodel:OrderViewModel x:Key="OrderVM"></viewmodel:OrderViewModel>
+    <viewmodel:AddImportViewModel x:Key="AddImportVM"></viewmodel:AddImportViewModel>
+    <viewmodel:ImportViewModel x:Key="ImportVM"></viewmodel:ImportViewModel>
 </ResourceDictionary>

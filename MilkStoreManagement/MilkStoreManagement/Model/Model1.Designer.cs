@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\Model\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'E:\Document\ME\HK3\3. Lập trình trực quan\New folder\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\Model\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
