@@ -17,4 +17,6 @@
     <viewmodel:OrderViewModel x:Key="OrderVM"></viewmodel:OrderViewModel>
     <viewmodel:AddImportViewModel x:Key="AddImportVM"></viewmodel:AddImportViewModel>
     <viewmodel:ImportViewModel x:Key="ImportVM"></viewmodel:ImportViewModel>
+    <viewmodel:ScheduleViewModel x:Key="ScheduleVM"></viewmodel:ScheduleViewModel>
+    <viewmodel:SplitScheduleViewModel x:Key="SplitScheVM"></viewmodel:SplitScheduleViewModel>
 </ResourceDictionary>

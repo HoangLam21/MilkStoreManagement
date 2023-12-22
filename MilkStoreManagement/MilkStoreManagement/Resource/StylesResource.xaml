@@ -490,9 +490,9 @@
     <Style x:Key="CalendarButtonStyle1" TargetType="{x:Type CalendarButton}">
         <Setter Property="Background" Value="#FFCA08"/>
         <Setter Property="BorderBrush" Value="#FFCA08"/>
-        <Setter Property="MinWidth" Value="40"/>
-        <Setter Property="MinHeight" Value="42"/>
-        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="MinWidth" Value="60"/>
+        <Setter Property="MinHeight" Value="70"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
@@ -587,7 +587,7 @@
                 <ControlTemplate TargetType="{x:Type CalendarItem}">
                     <ControlTemplate.Resources>
                         <DataTemplate x:Key="{x:Static CalendarItem.DayTitleTemplateResourceKey}">
-                            <TextBlock Foreground="Black" FontWeight="Bold" FontSize="12" FontFamily="Verdana" HorizontalAlignment="Center" Margin="0,6,0,6" Text="{Binding}" VerticalAlignment="Center"/>
+                            <TextBlock Foreground="Black" FontWeight="Bold" FontSize="18" FontFamily="Verdana" HorizontalAlignment="Center" Margin="0,6,0,6" Text="{Binding}" VerticalAlignment="Center"/>
                         </DataTemplate>
                     </ControlTemplate.Resources>
                     <Grid x:Name="PART_Root">
@@ -671,7 +671,7 @@
                                                         </VisualState>
                                                     </VisualStateGroup>
                                                 </VisualStateManager.VisualStateGroups>
-                                                <ContentPresenter x:Name="buttonContent" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" TextElement.Foreground="Black" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1,4,1,9" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                <ContentPresenter x:Name="buttonContent" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" TextElement.Foreground="Black" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="1,4,1,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                             </Grid>
                                         </ControlTemplate>
                                     </Grid.Resources>
@@ -684,27 +684,27 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Button x:Name="PART_PreviousButton" Grid.Column="0" Focusable="False" HorizontalAlignment="Left" Height="20" Grid.Row="0" Template="{StaticResource PreviousButtonTemplate}" Width="28"/>
-                                    <Button x:Name="PART_HeaderButton" Grid.Column="1" FontWeight="Bold" Focusable="False" FontSize="12" HorizontalAlignment="Center" Grid.Row="0" Template="{StaticResource HeaderButtonTemplate}" VerticalAlignment="Center"/>
-                                    <Button x:Name="PART_NextButton" Grid.Column="2" Focusable="False" HorizontalAlignment="Right" Height="20" Grid.Row="0" Template="{StaticResource NextButtonTemplate}" Width="28"/>
+                                    <Button x:Name="PART_PreviousButton" Grid.Column="1" Height="50" Focusable="False" HorizontalAlignment="Right" Grid.Row="0" Template="{StaticResource PreviousButtonTemplate}" />
+                                    <Button x:Name="PART_HeaderButton" Grid.Column="0" FontWeight="Bold" Focusable="False" FontSize="25" HorizontalAlignment="Left" Grid.Row="0" Template="{StaticResource HeaderButtonTemplate}" VerticalAlignment="Top" Margin="30,0,0,0"/>
+                                    <Button x:Name="PART_NextButton" Grid.Column="2" Focusable="False" HorizontalAlignment="Right" Height="20" Grid.Row="0" Template="{StaticResource NextButtonTemplate}" Margin="0,0,10,0"/>
                                     <Grid x:Name="PART_MonthView" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="6,-1,6,6" Grid.Row="1" Visibility="Visible">
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
-                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="45"/>
+                                            <ColumnDefinition Width="45"/>
+                                            <ColumnDefinition Width="45"/>
+                                            <ColumnDefinition Width="45"/>
+                                            <ColumnDefinition Width="45"/>
+                                            <ColumnDefinition Width="45"/>
+                                            <ColumnDefinition Width="45"/>
                                         </Grid.ColumnDefinitions>
                                         <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
-                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="45"/>
+                                            <RowDefinition Height="45"/>
                                         </Grid.RowDefinitions>
                                     </Grid>
                                     <Grid x:Name="PART_YearView" Grid.ColumnSpan="3" HorizontalAlignment="Center" Margin="6,-3,7,6" Grid.Row="1" Visibility="Hidden">
@@ -743,10 +743,10 @@
         </Setter>
     </Style>
     <Style x:Key="CalendarDayButtonStyle1" TargetType="{x:Type CalendarDayButton}">
-        <Setter Property="MinWidth" Value="5"/>
-        <Setter Property="MinHeight" Value="5"/>
+        <Setter Property="MinWidth" Value="25"/>
+        <Setter Property="MinHeight" Value="25"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">

@@ -143,7 +143,7 @@
                                     </i:EventTrigger>
                                     <i:EventTrigger EventName="MouseMove">
                                         <i:InvokeCommandAction Command="{Binding GetIdTab}"
-                                               CommandParameter="{Binding ElementName=btnReport}"></i:InvokeCommandAction>
+                                               CommandParameter="{Binding ElementName=btnSchedule}"></i:InvokeCommandAction>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </RadioButton>
@@ -166,6 +166,7 @@
                                 </i:Interaction.Triggers>
                             </RadioButton>
                             <RadioButton
+                Visibility="{Binding SetQuanLy}"
                 Style="{StaticResource BtnWarehouse}"
                 FontFamily="{StaticResource Custom}"
                 Uid="5" Width="250"
