@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\obj\Debug\
+E:\Document\ME\HK3\3. Lập trình trực quan\New folder\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\obj\Debug\
 MilkStoreManagement
 none
 false
 DEBUG;TRACE
-C:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn2\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml
-16-1101452582
+E:\Document\ME\HK3\3. Lập trình trực quan\New folder\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml
+19-1936172260
 2739969757
-491298204599
-391516845696
-Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddProductView.xaml;View\AddStaffView.xaml;View\ChangePassword.xaml;View\DetailProduct.xaml;View\DetailStaffView.xaml;View\ForgetPassView.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;View\SettingView.xaml;View\StaffView.xaml;View\UpdateStaffView.xaml;
+54-607681340
+39-991227828
+Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddImportView.xaml;View\AddProductView.xaml;View\AddStaffView.xaml;View\ChangePassword.xaml;View\DetailProduct.xaml;View\DetailStaffView.xaml;View\ForgetPassView.xaml;View\HomeView.xaml;View\ImportView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\PrintImport.xaml;View\ProductsView.xaml;View\SettingView.xaml;View\StaffView.xaml;View\UpdateStaffView.xaml;
 
 False
 

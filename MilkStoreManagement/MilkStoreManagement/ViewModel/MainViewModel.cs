@@ -119,7 +119,7 @@ namespace MilkStoreManagement.ViewModel
                 case 5:
                     {
                         _Loadwd(p);
-                        //p.Main.NavigationService.Navigate(new );
+                        p.Main.NavigationService.Navigate(new ImportView());
                         break;
                     }
                 case 6:

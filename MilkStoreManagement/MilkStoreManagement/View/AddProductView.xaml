@@ -111,17 +111,22 @@
                          CornerRadius="10"
                          BorderThickness="2"
                          BorderBrush="gray"
-                         Height="30"
+                         Height="30" 
+                                    Width="140"
                     >
                                     <TextBox
+                                        Background="White"
+                             Margin="0"
                              x:Name="MaSp"
-                             HorizontalAlignment="Left"
-                             Width="150"
+                                        
+                             HorizontalAlignment="Center"
+                             Height="50"
+                             Width="120"
                              BorderThickness="0"
                              FontFamily="{StaticResource Custom}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                             materialDesign:HintAssist.Hint="  Random..."
+                             materialDesign:HintAssist.Hint="  Mã SP..."
                              materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
                              materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
                      />
@@ -131,23 +136,34 @@
                         Margin="100,0,0,0"
                         >
                                 <TextBlock
-                    Margin="8,0,0,0"
-                    Text="Tên sản phẩm"
-                    FontFamily="{StaticResource Custom}"
-                />
-                                <TextBox
-                    Height="30"
-                    x:Name="TenSp"
-                    FontFamily="{StaticResource Custom}"
-                    HorizontalAlignment="Left"
-                    Width="150"
-                    BorderThickness="2"
-                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                    materialDesign:HintAssist.Hint="  Tên sản phẩm..."
-                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                    materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08" 
-                />
+     Margin="8,0,0,0"
+     Text="Tên sản phẩm "
+     FontFamily="{StaticResource Custom}"
+/>
+                                <Border
+     CornerRadius="10"
+     BorderThickness="2"
+     BorderBrush="gray"
+     Height="30" 
+                Width="140"
+>
+                                    <TextBox
+                    Background="White"
+         Margin="0"
+         x:Name="TenSp"
+                    
+         HorizontalAlignment="Center"
+         Height="50"
+         Width="120"
+         BorderThickness="0"
+         FontFamily="{StaticResource Custom}"
+         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+         materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+         materialDesign:HintAssist.Hint="  Mã SP..."
+         materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+         materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+ />
+                                </Border>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" 
@@ -155,22 +171,34 @@
                     >
                             <StackPanel Orientation="Vertical">
                                 <TextBlock
-                    Margin="8,0,0,0"
-                    FontFamily="{StaticResource Custom}"
-                ><Run Text="Giá"/><Run Language="vi-vn" Text=" bán "/></TextBlock>
-                                <TextBox
-                    Height="30"
-                    x:Name="GiaSp"
-                    HorizontalAlignment="Left"
-                    Width="150"
-                    FontFamily="{StaticResource Custom}"
-                    BorderThickness="2"
-                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                    materialDesign:HintAssist.Hint="  Giá..."
-                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                    materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
-                />
+     Margin="8,0,0,0"
+     Text="Giá sản phẩm "
+     FontFamily="{StaticResource Custom}"
+/>
+                                <Border
+     CornerRadius="10"
+     BorderThickness="2"
+     BorderBrush="gray"
+     Height="30" 
+                Width="140"
+>
+                                    <TextBox
+                    Background="White"
+         Margin="0"
+         x:Name="GiaSp"
+                    
+         HorizontalAlignment="Center"
+         Height="50"
+         Width="120"
+         BorderThickness="0"
+         FontFamily="{StaticResource Custom}"
+         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+         materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+         materialDesign:HintAssist.Hint="  Mã SP..."
+         materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+         materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+ />
+                                </Border>
                             </StackPanel>
                             <StackPanel Orientation="Vertical"
                         Margin="100,0,0,0"
@@ -191,7 +219,6 @@
             >
                                     <ComboBox
                     x:Name="LoaiSp"
-                    Style="{StaticResource MaterialDesignFilledComboBox}"
                     materialDesign:TextFieldAssist.TextBoxViewMargin="0,-10,0,0"
                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                     BorderThickness="0"
@@ -216,44 +243,65 @@
                     >
                             <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
                                 <TextBlock
-                    Margin="8,0,0,0"
-                    Text="Số lượng"
-                    FontFamily="{StaticResource Custom}"
-                />
-                                <TextBox
-                    Height="30"
-                    x:Name="SlSp"
-                    HorizontalAlignment="Left"
-                    Width="151"
-                    FontFamily="{StaticResource Custom}"
-                    BorderThickness="2"
-                    IsReadOnly="True"
-                    Text="0"
-                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                    materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
-                />
+     Margin="8,0,0,0"
+     Text="Số lượng sản phẩm "
+     FontFamily="{StaticResource Custom}"
+/>
+                                <Border
+     CornerRadius="10"
+     BorderThickness="2"
+     BorderBrush="gray"
+     Height="30" 
+                Width="140"
+>
+                                    <TextBox
+                    Background="White"
+         Margin="0"
+         x:Name="SlSp"
+                    
+         HorizontalAlignment="Center"
+         Height="50"
+         Width="120"
+         BorderThickness="0"
+         FontFamily="{StaticResource Custom}"
+         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+         materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+         materialDesign:HintAssist.Hint="  Mã SP..."
+         materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+         materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+ />
+                                </Border>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" Margin="95,0,0,0">
                                 <TextBlock
-                        Margin="10,0,0,0"
-                        Text="Khối lượng"
-                        FontFamily="{StaticResource Custom}"
-                    />
-                                <TextBox
-                        Height="30"
-                        x:Name="KLG"
-                        Margin="10,0,0,0"
-                        Width="75"
-                        FontFamily="{StaticResource Custom}"
-                        BorderThickness="2"
-                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                        materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                        materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                        materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
-
-                    />
+     Margin="8,0,0,0"
+     Text="Khối lượng "
+     FontFamily="{StaticResource Custom}"
+/>
+                                <Border
+     CornerRadius="10"
+     BorderThickness="2"
+     BorderBrush="gray"
+     Height="30" 
+                Width="80"
+>
+                                    <TextBox
+                    Background="White"
+         Margin="0"
+         x:Name="KLG"
+                    
+         HorizontalAlignment="Center"
+         Height="30"
+         Width="60"
+         BorderThickness="0"
+         FontFamily="{StaticResource Custom}"
+         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+         materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+         materialDesign:HintAssist.Hint="  Mã SP..."
+         materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
+         materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+ />
+                                </Border>
                             </StackPanel>
 
                             <StackPanel Orientation="Vertical" Margin="10,0,0,0" >

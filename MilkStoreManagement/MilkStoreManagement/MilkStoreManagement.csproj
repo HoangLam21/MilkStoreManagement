@@ -173,16 +173,21 @@
     <Compile Include="Model\SANPHAM.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AddImportViewModel.cs" />
     <Compile Include="ViewModel\AddProductViewModel.cs" />
     <Compile Include="ViewModel\AddStaffViewModel.cs" />
     <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModel\DetailProductViewModel.cs" />
     <Compile Include="ViewModel\DetailStaffViewModel.cs" />
+    <Compile Include="ViewModel\ImportViewModel.cs" />
     <Compile Include="ViewModel\OrderViewModel.cs" />
     <Compile Include="ViewModel\ProductsViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\StaffViewModel.cs" />
     <Compile Include="ViewModel\UpdateStaffViewModel.cs" />
+    <Compile Include="View\AddImportView.xaml.cs">
+      <DependentUpon>AddImportView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddProductView.xaml.cs">
       <DependentUpon>AddProductView.xaml</DependentUpon>
     </Compile>
@@ -198,8 +203,14 @@
     <Compile Include="View\DetailStaffView.xaml.cs">
       <DependentUpon>DetailStaffView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ImportView.xaml.cs">
+      <DependentUpon>ImportView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\OrderView.xaml.cs">
       <DependentUpon>OrderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrintImport.xaml.cs">
+      <DependentUpon>PrintImport.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
@@ -218,6 +229,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resource\StylesResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddImportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,6 +261,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ImportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -283,6 +302,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\OrderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintImport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -349,6 +372,30 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resource\ImgProducts\APTAMIL.jpg" />
+    <Resource Include="Resource\ImgProducts\CanxiPro.jpg" />
+    <Resource Include="Resource\ImgProducts\DaLat Milk.jpg" />
+    <Resource Include="Resource\ImgProducts\Diamond Nutrient Kid.jpg" />
+    <Resource Include="Resource\ImgProducts\GLICO.jpg" />
+    <Resource Include="Resource\ImgProducts\Grow Plus.jpg" />
+    <Resource Include="Resource\ImgProducts\Mama Gold.jpg" />
+    <Resource Include="Resource\ImgProducts\MEIJI.jpg" />
+    <Resource Include="Resource\ImgProducts\Ngôi sao Phương Nam.jpg" />
+    <Resource Include="Resource\ImgProducts\Nutren Junior Nestle.jpg" />
+    <Resource Include="Resource\ImgProducts\P100.jpg" />
+    <Resource Include="Resource\ImgProducts\Pediasure.jpg" />
+    <Resource Include="Resource\ImgProducts\RISCO.jpg" />
+    <Resource Include="Resource\ImgProducts\ST GROW PLUS.jpg" />
+    <Resource Include="Resource\ImgProducts\Sure Prevent.jpg" />
+    <Resource Include="Resource\ImgProducts\Sữa Ông Thọ.jpg" />
+    <Resource Include="Resource\ImgProducts\TH.jpg" />
+    <Resource Include="Resource\ImgProducts\Tài Lộc.jpg" />
+    <Resource Include="Resource\ImgProducts\Vinamilk.jpg" />
+    <Resource Include="Resource\ImgProducts\Yoko.jpg" />
+    <Resource Include="Resource\ImageNV\nv004.png" />
+    <Resource Include="Resource\ImageNV\imageava.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
@@ -359,8 +406,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resource\ImageNV\nv004.png" />
-    <Resource Include="Resource\ImageNV\imageava.png" />
+    <Resource Include="Resource\Image\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.9.0\build\MaterialDesignThemes.targets')" />

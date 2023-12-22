@@ -118,30 +118,28 @@
                     </Border>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,0,19,0">
-                        <TextBox
-                            x:Name="txbSearch"
-                            Width="479"
-                            Height="54"
-                            BorderBrush="#FFCA08"
-                            Foreground="Black"
-                            FontSize="16"
-                            FontWeight="SemiBold"
-                            materialDesign:HintAssist.Hint="   Tìm kiếm..." 
-                            materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
-                            materialDesign:HintAssist.Foreground="White"
-                            materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                            materialDesign:TextFieldAssist.TextBoxViewMargin="10,3,0,0"
-                            BorderThickness="2"
-                            VerticalAlignment="Center" Padding="0,15,0,0"
-                            CaretBrush="White" >
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="TextChanged">
-                                    <i:InvokeCommandAction Command="{Binding SearchCommand}"
+                        <Border CornerRadius="20" Background="White" Height="54" Width="462">
+                            <Border.Effect>
+                                <DropShadowEffect Color="#ffca08" Direction="270" ShadowDepth="5" Opacity="0.15"/>
+                            </Border.Effect>
+                            <TextBox
+                             x:Name="txbSearch"
+  Width="432"
+  Height="40"
+                                VerticalContentAlignment="Center"
+                  Background="White"
+  Foreground="#383838"
+  FontSize="16"
+  FontWeight="SemiBold"
+  VerticalAlignment="Center" CaretBrush="#ffca08" >
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="TextChanged">
+                                        <i:InvokeCommandAction Command="{Binding SearchCommand}"
                                CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </TextBox>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </TextBox>
+                        </Border>
                         <materialDesign:PackIcon Kind="Magnify" Width="47" Margin="-1,12,0,0" Foreground="#FFCA08" Height="39">
                             <materialDesign:PackIcon.Effect>
                                 <DropShadowEffect ShadowDepth="3" Opacity="0.7"/>
@@ -154,6 +152,7 @@
                         Height="42"
                         Margin="10,0,0,0"
                         FontFamily="{StaticResource Custom}"
+                        Style="{StaticResource addButton}"
                         materialDesign:ButtonAssist.CornerRadius="6"
                         BorderThickness="0"
                         Background="#FFCA08"

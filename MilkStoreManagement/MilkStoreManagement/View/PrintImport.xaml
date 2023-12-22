@@ -1,0 +1,274 @@
+﻿<Window x:Class="MilkStoreManagement.View.PrintImport"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MilkStoreManagement.View" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="PrintImport" WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="White"
+        AllowsTransparency="True"
+        Height="600"   Width="700" WindowStartupLocation="CenterScreen">
+    <!--<Border Background="White"
+        CornerRadius="15"
+        BorderThickness="3">
+        <Border.BorderBrush>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                <GradientStop Color="#FFCA08" Offset="0"/>
+                <GradientStop Color="#FFCA08" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>-->
+    <Grid x:Name="PrintView">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock
+                Text="PHIẾU NHẬP HÀNG"
+                Foreground="Black"
+                FontFamily="{StaticResource Custom}"
+                FontSize="30"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                />
+        </Grid>
+        <Grid Grid.Row="2">
+            <StackPanel Margin="50, 20, 50, 0">
+                <StackPanel Orientation="Horizontal" Height="30">
+                    <TextBlock
+            
+                        FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Bold"
+    
+                        FontSize="11"
+    
+                        VerticalAlignment="Center"
+    
+                        Text="Mã phiếu nhập: " />
+                    <TextBlock
+   
+                        VerticalAlignment="Center"
+   
+                        FontSize="11"
+    
+                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+    
+                        FontFamily="lexend" Foreground="#383838" FontWeight="Bold" Margin="26,0,0,0"  Width="230"
+   
+                        x:Name="MAPNHAP" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30" >
+                    <TextBlock
+                        FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Bold"
+                        FontSize="11"
+                        VerticalAlignment="Center"
+                        Text="Tên quản lý: " />
+                    <TextBlock
+                        VerticalAlignment="Center" 
+                        FontSize="11"
+                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                        FontFamily="lexend" Foreground="#383838" FontWeight="Bold"
+                        x:Name="TENNV" Margin="45,0,0,0" Width="230"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="30" >
+                    <TextBlock
+            FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Bold"
+            FontSize="11"
+            VerticalAlignment="Center"
+            Text="Ngày nhập hàng: " />
+                    <TextBlock
+            VerticalAlignment="Center"
+            FontSize="11"
+            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+            FontFamily="lexend" Foreground="#383838" FontWeight="Bold"
+            x:Name="NGAYNHAP" Width="230" Margin="20,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3">
+            <StackPanel>
+                <Border
+        Margin="10,15,10,0"
+        Width="670"
+        Height="40"
+        CornerRadius="10"
+        Background="#FFF7DA"
+        >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock
+                                Text="Mã SP"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                            />
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBlock
+                                Margin="2,0,0,0"
+                                HorizontalAlignment="Center"
+                                Text="Tên SP"
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                            />
+                        </Grid>
+                        <Grid Grid.Column="2">
+                            <TextBlock
+                                Text="Mã NCC"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" MaxWidth="150"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                            />
+                        </Grid>
+                        <Grid Grid.Column="3">
+                            <TextBlock
+                                Text="SL"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                            />
+                        </Grid>
+                        <Grid Grid.Column="4">
+                            <TextBlock
+                                Text="Giá Nhập"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                MaxWidth="150"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                            />
+                        </Grid>
+                    </Grid>
+                </Border>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="4">
+            <ListView x:Name="ListViewSP" 
+          SelectionMode="Single"
+          ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="10,20,10,150"  Width="670" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListViewItem">
+                                    <Border x:Name="ItemBorder"
+                            Margin="10,5,10,0"
+                            Width="670"
+                            Height="40"
+                            CornerRadius="10"
+                            Background="White"
+                        >
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition Width="200"/>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid Grid.Column="0">
+                                                <TextBlock
+                                        Text="{Binding MASP}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="12"
+                                        />
+                                            </Grid>
+                                            <Grid Grid.Column="1">
+                                                <TextBlock
+                                        Margin="2,0,0,0"
+                                        HorizontalAlignment="Center"
+                                        Text="{Binding TENSP}"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="12"
+                                    />
+                                            </Grid>
+                                            <Grid Grid.Column="2">
+                                                <TextBlock
+                                        Text="{Binding MANCC}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="12"
+                                    />
+                                            </Grid>
+                                            <Grid Grid.Column="3">
+                                                <TextBlock
+                                        Text="{Binding SL}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        MaxWidth="150"
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="12"
+                                    />
+                                            </Grid>
+                                            <Grid Grid.Column="4">
+                                                <TextBlock
+                                        Text="{Binding GIANHAP,StringFormat={}{0:#,###} VNĐ}"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        MaxWidth="150"
+                                        FontFamily="{StaticResource Custom}"
+                                        FontSize="12"
+                                    />
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="ItemBorder" Property="Background" Value="#FFF7DA"/>
+                                        </Trigger>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter TargetName="ItemBorder" Property="Background" Value="#FFF7DA"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="5" VerticalAlignment="Top" Height="27" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Text="TỔNG TIỀN NHẬP: " FontFamily="{StaticResource Custom}" FontSize="16" Foreground="#696969"/>
+                    <TextBlock x:Name="THANHTIEN" FontFamily="{StaticResource Custom}" FontSize="16" Foreground="Black" Width="150"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+    <!--</Border>-->
+</Window>
