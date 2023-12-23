@@ -32,5 +32,24 @@ namespace MilkStoreManagement.Model
         public virtual ICollection<CTHD> CTHDs { get; set; }
         public virtual KHACHHANG KHACHHANG { get; set; }
         public virtual NHANVIEN NHANVIEN { get; set; }
+        public string AVA
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(NHANVIEN.AVA))
+                {
+                    return Const._localLink + @"Resource\Ava\Ava_Default.jpg";
+                }
+                else if (NHANVIEN.AVA.Contains(Const._localLink))
+                {
+                    return NHANVIEN.AVA;
+                }
+                else
+                {
+                    return Const._localLink + NHANVIEN.AVA;
+                }
+            }
+            set { NHANVIEN.AVA = value; }
+        }
     }
 }

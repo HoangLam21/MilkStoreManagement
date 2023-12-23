@@ -14,7 +14,7 @@
       TextElement.FontSize="13"
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
-       Height="704" Width="1144" Margin="15 100 15 15">
+       Height="704" Width="1144" Margin="15 82 15 15" >
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction  Command="{Binding LoadCsCommand}"
@@ -23,7 +23,7 @@
     </i:Interaction.Triggers>
 
     <Border
-Height="678" Width="1144"
+Height="678" Width="1138"
 Background="#ffffff"
 CornerRadius="30">
         <Grid>
@@ -65,18 +65,19 @@ CornerRadius="30">
                             <DropShadowEffect Color="#ffca08" Direction="270" ShadowDepth="5" Opacity="0.15"/>
                         </Border.Effect>
                         <TextBox
+                            VerticalContentAlignment="Center"
        x:Name="txbSearch"
        Width="232"
        Height="40"
-                       Background="White"
-       Foreground="#383838"
-       FontSize="16"
-       FontWeight="SemiBold"
-       VerticalAlignment="Center" CaretBrush="#ffca08" >
+                      Background="White"
+                            Foreground="#383838"
+                            FontSize="16"
+                            FontWeight="SemiBold"
+                            VerticalAlignment="Center" CaretBrush="#ffca08" >
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="TextChanged">
                                     <i:InvokeCommandAction Command="{Binding SearchCommand}"
-                      CommandParameter="{Binding ElementName=Orderwd}"></i:InvokeCommandAction>
+                                                           CommandParameter="{Binding ElementName=Orderwd}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </TextBox>
@@ -107,57 +108,52 @@ CornerRadius="30">
                 <StackPanel Orientation="Horizontal" >
                     <StackPanel Height="548">
                         <DataGrid x:Name="DatagridHD" Margin="0 10 0 70" AutoGenerateColumns="False" ItemsSource="{Binding listHD}" Width="650" Height="450" BorderBrush="#fff2c1" Background="#ffffff">
-
                             <DataGrid.Columns >
-                                <DataGridCheckBoxColumn Width="60"
-        Binding="{Binding IsSelected}"
-        ElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnStyle}"
-        EditingElementStyle="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}">
-                                    <DataGridCheckBoxColumn.Header>
-                                        <!--padding to allow hit test to pass thru for sorting -->
-                                        <Border
-                Background="Transparent"
-                Padding="6 0 6 0"
-                HorizontalAlignment="Center">
-                                            <CheckBox
-                    HorizontalAlignment="Center"
-                    DataContext="{Binding RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}, Path=DataContext}"
-                    IsChecked="{Binding IsAllItems3Selected}" />
-                                        </Border>
-                                    </DataGridCheckBoxColumn.Header>
-                                </DataGridCheckBoxColumn>
-
-                                <DataGridTextColumn Width="120"
+                                <DataGridTextColumn Width="70"
         
                                                 IsReadOnly="True"
         
                                                 Binding="{Binding SOHD}"
       
-                                                Header="Số hóa đơn"
+                                                Header="Số HD"
      
                                                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                                <DataGridTemplateColumn Header="Nhân viên" IsReadOnly="True" Width="95">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border Height="40" Width="40" >
+                                                <Ellipse VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" Height="40"  StrokeThickness="1">
+                                                    <Ellipse.Fill>
+                                                        <ImageBrush x:Name="AVA" ImageSource="{Binding AVA,StringFormat={}}"/>
+                                                    </Ellipse.Fill>
+                                                </Ellipse>
 
-                                <DataGridTextColumn Width="120"
+                                            </Border>
+
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn Width="90"
+                                                    Header="Mã NV"
+                                                    
         
                                                 IsReadOnly="True"
         
                                                 Binding="{Binding MANV}"
       
-                                                Header="Mã nhân viên"
      
                                                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
-                               
 
-                                <DataGridTextColumn Width="170"
+                                <DataGridTextColumn Width="90"
      
                                                 IsReadOnly="True"
        
                                                 Binding="{Binding MAKH}"
       
-                                                Header="Mã khách hàng"
+                                                Header="Mã KH"
        
                                                 EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
-                                <DataGridTextColumn Width="120"
+                                <DataGridTextColumn Width="160"
       
                                                 IsReadOnly="True"
        
@@ -193,25 +189,7 @@ CornerRadius="30">
 
 
                 </StackPanel>
-                <Border BorderBrush="#fff7da" BorderThickness="1"
-                   CornerRadius="5" Padding="5" Background="#ffffff" Margin="450,500,450,20" RenderTransformOrigin="0.5,0.5" >
-                    <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource pagingButton}">
-                            <!--<icon:PackIconMaterial Kind="ChevronLeft" Style="{StaticResource pagingButtonIcon}"/>-->
-                        </Button>
-                        <Rectangle Width="1" Fill="#dee4ec" Margin="3 7"/>
-                        <Button Style="{StaticResource pagingButton}" Content="1"/>
-                        <Button Style="{StaticResource pagingButton}" Content="2" Background="#ffca08" Foreground="#ffffff"/>
-                        <TextBlock Text="..." Foreground="#6c7682" VerticalAlignment="Center" FontSize="15" Margin="10 0"/>
-                        <Button Style="{StaticResource pagingButton}" Content="4"/>
-                        <Button Style="{StaticResource pagingButton}" Content="5"/>
-                        <Button Style="{StaticResource pagingButton}">
-                            <!--<icon:PackIconMaterial Kind="ChevronRight" Style="{StaticResource pagingButtonIcon}"/>-->
-                        </Button>
-                    </StackPanel>
 
-
-                </Border>
                 <Border Background="White" CornerRadius="30" BorderBrush="#fff2c1" BorderThickness="2" Margin="682,-88,0,8">
                     <StackPanel Orientation="Vertical">
                         <StackPanel Height="146">
@@ -228,6 +206,14 @@ CornerRadius="30">
                                             FontSize="14"
                                             VerticalAlignment="Center"
                                             Text="Tạo bởi: " />
+                                        <Border Height="30" Width="30" Margin="10 0 10 0">
+                                            <Ellipse VerticalAlignment="Center" HorizontalAlignment="Center" Width="30" Height="30"  StrokeThickness="1">
+                                                <Ellipse.Fill>
+                                                    <ImageBrush x:Name="AVA" />
+                                                </Ellipse.Fill>
+                                            </Ellipse>
+
+                                        </Border>
                                         <TextBlock
                                             VerticalAlignment="Center"
                                             FontSize="14"
@@ -250,7 +236,7 @@ CornerRadius="30">
                                     </StackPanel>
 
                                 </StackPanel>
-                               
+
                             </StackPanel>
                         </StackPanel>
                         <StackPanel>
@@ -325,9 +311,9 @@ CornerRadius="30">
                                     </StackPanel>
 
                                 </StackPanel>
-                                
+
                             </Border>
-                            <ListView Height="80" x:Name="listCTHD" Foreground="#383838" FontSize="11" FontFamily="lexend"  >
+                            <ListView Height="88" x:Name="listCTHD" Foreground="#383838" FontSize="11" FontFamily="lexend"  MaxHeight="200" VerticalContentAlignment="Top">
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn Width="120" DisplayMemberBinding="{Binding TenSP}" />
@@ -343,11 +329,15 @@ CornerRadius="30">
                             <StackPanel Orientation="Horizontal">
                                 <StackPanel>
                                     <TextBlock Text="Tổng tiền sản phẩm:" Height="30" VerticalAlignment="Center" Foreground="#9B9B9B"
-FontSize="11"
-materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-FontFamily="lexend" FontWeight="Regular"
+
+                                               FontSize="11"
+
+                                               materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+
+                                               FontFamily="lexend" FontWeight="Regular"
+
 ></TextBlock>
-                                   
+
                                     <TextBlock Text="Giảm giá:"  Height="30" VerticalAlignment="Center"
 FontSize="11"
 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -361,7 +351,7 @@ FontSize="11"
 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
 FontFamily="lexend" FontWeight="Regular"
 x:Name="TONGTIEN"></TextBlock>
-                                    
+
                                     <TextBlock   Height="30" VerticalAlignment="Center"
 FontSize="11"
 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -375,7 +365,7 @@ x:Name="GIAM"></TextBlock>
                             <StackPanel Orientation="Horizontal">
                                 <StackPanel Margin="50">
                                     <TextBlock Text="Tổng cộng:" FontFamily="lexend" FontWeight="Medium" FontSize="15" Foreground="#383838"></TextBlock>
-                                    
+
                                 </StackPanel>
                                 <StackPanel Margin="50">
                                     <TextBlock  FontFamily="lexend" FontWeight="Medium" FontSize="15" Foreground="#383838" x:Name="THANHTIEN"></TextBlock>

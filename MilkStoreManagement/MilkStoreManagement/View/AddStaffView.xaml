@@ -159,9 +159,9 @@
                                     materialDesign:HintAssist.Hint="Giới tính"
                                     Width="190" >
                                     <ComboBoxItem
-                                    Content="NAM" />
+                                    Content="Nữ" />
                                     <ComboBoxItem
-                                    Content="NU" />
+                                    Content="Nam" />
 
                                 </ComboBox>
                                 <ComboBox 
@@ -173,9 +173,9 @@
                                     materialDesign:HintAssist.Hint="Chức vụ"
                                     Width="190" >
                                     <ComboBoxItem
-                                    Content="QUANLY" />
+                                    Content="Quản lý" />
                                     <ComboBoxItem
-                                    Content="NV" />
+                                    Content="Nhân viên" />
                                 </ComboBox>
                             </StackPanel>
                             <StackPanel

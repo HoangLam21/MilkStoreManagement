@@ -12,7 +12,7 @@
        WindowStyle="None"
        ResizeMode="NoResize"
        Background="Transparent"
-       AllowsTransparency="True"  Height="693" Width="924" WindowStartupLocation="CenterScreen">
+       AllowsTransparency="True"  Height="800" Width="942" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
     </Window.Resources>
@@ -24,7 +24,7 @@
     </i:Interaction.Triggers>
 
     <Grid>
-        <Border CornerRadius="15" Background="#ffffff">
+        <Border CornerRadius="15" Background="#ffffff" BorderBrush="#ffca08" BorderThickness="2">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">
                     <i:InvokeCommandAction Command="{Binding MoveWindow}"
@@ -101,21 +101,27 @@
                         <Border Margin="0,0,0,0.333" Grid.RowSpan="2">
                             <Ellipse Width="120" Height="120" Margin="90,54,90,406"  StrokeThickness="1">
                                 <Ellipse.Fill>
-                                    <ImageBrush x:Name="Ava" ImageSource="{Binding Ava}"/>
+                                    <ImageBrush x:Name="Img" ImageSource="{Binding Ava}"/>
                                 </Ellipse.Fill>
                             </Ellipse>
-                        </Border>
-                        <Border Margin="0 250 0 100" Width="170" Height='50' Background="#ffca08" CornerRadius="10">
-                            <Button
-                Style="{StaticResource MaterialDesignFlatMidBgButton}"
-                Content="Đổi ảnh đại diện" 
-                BorderThickness="0"
-                Width="160" Height="40" Background="#ffca08" Foreground="#747474"
-                Grid.Row="1">
+                        </Border >
+                        <Border >
+                            <Button Style="{StaticResource addButton}" HorizontalAlignment="Center" VerticalAlignment="Top"
+       
+                                Content="Cập nhật ảnh" FontFamily="{StaticResource Custom}"
+       
+                                FontSize="16" 
+                                Background="#ffca08"
+       
+                                Width="154" Height="45"  Foreground="#ffffff"
+                                BorderBrush="#ffca08"
+                                
+       
+                                IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" Margin="0,275,0,0">
+
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
-                                        <i:InvokeCommandAction Command="{Binding UpdateImage}"
-                                           CommandParameter="{Binding ElementName=Ava}"></i:InvokeCommandAction>
+                                        <i:InvokeCommandAction Command="{Binding UpdateImage}" CommandParameter="{Binding ElementName=Img}" />
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Button>
@@ -165,9 +171,9 @@
                             materialDesign:HintAssist.Hint="Giới tính"
                             Width="190" >
                                         <ComboBoxItem
-                            Content="NAM" />
+                            Content="Nữ" />
                                         <ComboBoxItem
-                            Content="NU" />
+                            Content="Nam" />
                                     </ComboBox>
                                     <ComboBox 
                             Margin="10,0,0,0"
@@ -178,9 +184,9 @@
                             materialDesign:HintAssist.Hint="Chức vụ"
                             Width="190" >
                                         <ComboBoxItem
-                            Content="QUANLY" />
+                            Content="Quản lý" />
                                         <ComboBoxItem
-                            Content="NV" />
+                            Content="Nhân viên" />
                                     </ComboBox>
                                 </StackPanel>
                                 <StackPanel
@@ -303,14 +309,15 @@
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Row="1" Grid.Column="1">
-                            <Border Width="233" Height="50" Background="#ffca08" CornerRadius="10" VerticalAlignment="Top">
+                            <Border Width="233" Height="50" Background="#ffca08" CornerRadius="15" VerticalAlignment="Top">
                                 <Button
                     Width="200"
                     HorizontalAlignment="Center"
                     Content="Cập nhật"
                     BorderThickness="0"
                     FontFamily="{StaticResource Custom}"
-                    Foreground="#747474"
+                    Foreground="#ffffff"
+                                    FontSize="16"
                     Background="#ffca08"
                     Height="40"
                     Style="{StaticResource MaterialDesignFlatMidBgButton}"

@@ -29,7 +29,7 @@
      CornerRadius="15"
          BorderBrush="#ffca08" BorderThickness="3"
      >
-       
+
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="MouseLeftButtonDown">
                 <i:InvokeCommandAction Command="{Binding MoveWindow}"
@@ -56,28 +56,30 @@
                             <Border.Effect>
                                 <DropShadowEffect Color="#ffca08"  ShadowDepth="5" Opacity="0.15"/>
                             </Border.Effect>
-                            <StackPanel Orientation="Horizontal" Width="170">
+                            <StackPanel Orientation="Horizontal" Margin="32,0,51,0">
                                 <StackPanel Height="30" Width="30">
                                     <Border Height="50" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <materialDesign:PackIcon Kind="Calendar" Height="30" Width="30" Foreground="#ffca08" HorizontalAlignment="Right" Margin="0,0,9,0"/>
 
                                     </Border>
                                 </StackPanel>
                                 <StackPanel>
                                     <StackPanel Orientation="Vertical" Height="50" >
                                         <StackPanel>
-                                            <TextBlock  
+                                            <TextBlock 
+                                                Margin="30 20"
                                                 FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
                                                 FontSize="14"
-                                                VerticalAlignment="Center"
                                                 HorizontalAlignment="Center"
-                                                Text="Số ngày nghỉ " />
+                                                Text="Số ngày nghỉ " Width="125" />
                                         </StackPanel>
                                     </StackPanel>
                                     <StackPanel Orientation="Vertical" Height="50" >
-                                        <StackPanel>
+                                        <StackPanel Width="164">
                                             <TextBlock
                                                 VerticalAlignment="Center"
-                                                HorizontalAlignment="Center"
+                                                HorizontalAlignment="Left"
+                                                Margin="55 0 0 0"
                                                 FontSize="14" 
                                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden" 
                                                 FontFamily="lexend" Foreground="#383838" FontWeight="Regular"  x:Name="NnNV" />
@@ -93,9 +95,10 @@
                                 <DropShadowEffect Color="#ffca08"  ShadowDepth="5" Opacity="0.15"/>
 
                             </Border.Effect>
-                            <StackPanel Orientation="Horizontal" Width="170">
+                            <StackPanel Orientation="Horizontal" Margin="45,0,51,0">
                                 <StackPanel Height="30" Width="30">
                                     <Border Height="50" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <materialDesign:PackIcon Kind="CubeOutline" Height="30" Width="30" Foreground="#ffca08" HorizontalAlignment="Right" Margin="0,0,9,0"/>
 
                                     </Border>
                                 </StackPanel>
@@ -103,11 +106,11 @@
                                     <StackPanel Orientation="Vertical" Height="50" >
                                         <StackPanel>
                                             <TextBlock  
+                                                Margin="15 20"
                     FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
                     FontSize="14"
-                    VerticalAlignment="Center"
                     HorizontalAlignment="Center"
-                    Text="Số sản phẩm đã bán " />
+                    Text="Số sản phẩm đã bán " Width="133" />
                                         </StackPanel>
                                     </StackPanel>
                                     <StackPanel Orientation="Vertical" Height="50" >
@@ -131,6 +134,7 @@
                             <StackPanel Orientation="Horizontal" Width="170">
                                 <StackPanel Height="30" Width="30">
                                     <Border Height="50" Width="50" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <materialDesign:PackIcon Kind="ContentPaste" Height="30" Width="48" Foreground="#ffca08" HorizontalAlignment="Right" Margin="0,1,2,0"/>
 
                                     </Border>
                                 </StackPanel>
@@ -138,6 +142,7 @@
                                     <StackPanel Orientation="Vertical" Height="50" >
                                         <StackPanel>
                                             <TextBlock  
+                                                Margin="20 20"
                     FontFamily="lexend" Foreground="#9b9b9b" FontWeight="Regular"
                     FontSize="14"
                     VerticalAlignment="Center"

@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="QUANLYSUAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CTHD">
+          <Key>
+            <PropertyRef Name="SOHD" />
+            <PropertyRef Name="MASP" />
+          </Key>
+          <Property Name="SOHD" Type="int" Nullable="false" />
+          <Property Name="MASP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="SLMUA" Type="int" />
+        </EntityType>
         <EntityType Name="CTPN">
           <Key>
             <PropertyRef Name="MAPNHAP" />
@@ -14,15 +23,6 @@
           <Property Name="MASP" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="SLNHAP" Type="int" />
           <Property Name="GIANHAP" Type="money" />
-        </EntityType>
-        <EntityType Name="CTHD">
-          <Key>
-            <PropertyRef Name="SOHD" />
-            <PropertyRef Name="MASP" />
-          </Key>
-          <Property Name="SOHD" Type="int" Nullable="false" />
-          <Property Name="MASP" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="SLMUA" Type="int" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
@@ -121,30 +121,6 @@
           <Property Name="MANCC" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="HINHSP" Type="nvarchar" MaxLength="200" />
         </EntityType>
-        <Association Name="FK_CTPN_PN">
-          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
-          <End Role="CTPN" Type="Self.CTPN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PHIEUNHAP">
-              <PropertyRef Name="MAPNHAP" />
-            </Principal>
-            <Dependent Role="CTPN">
-              <PropertyRef Name="MAPNHAP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTPN_SP">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
-          <End Role="CTPN" Type="Self.CTPN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SANPHAM">
-              <PropertyRef Name="MASP" />
-            </Principal>
-            <Dependent Role="CTPN">
-              <PropertyRef Name="MASP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CTHD_HD">
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
           <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
@@ -165,6 +141,30 @@
               <PropertyRef Name="MASP" />
             </Principal>
             <Dependent Role="CTHD">
+              <PropertyRef Name="MASP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPN_PN">
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
+          <End Role="CTPN" Type="Self.CTPN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUNHAP">
+              <PropertyRef Name="MAPNHAP" />
+            </Principal>
+            <Dependent Role="CTPN">
+              <PropertyRef Name="MAPNHAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPN_SP">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="CTPN" Type="Self.CTPN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MASP" />
+            </Principal>
+            <Dependent Role="CTPN">
               <PropertyRef Name="MASP" />
             </Dependent>
           </ReferentialConstraint>
@@ -246,8 +246,8 @@
           <Parameter Name="MANV" Type="char" Mode="In" />
         </Function>
         <EntityContainer Name="QUANLYSUAModelStoreContainer">
-          <EntitySet Name="CTPN" EntityType="Self.CTPN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTHD" EntityType="Self.CTHD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CTPN" EntityType="Self.CTPN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KHACHHANG" EntityType="Self.KHACHHANG" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LICHLAMVIEC" EntityType="Self.LICHLAMVIEC" Schema="dbo" store:Type="Tables" />
@@ -256,14 +256,6 @@
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIEUNHAP" EntityType="Self.PHIEUNHAP" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_CTPN_PN" Association="Self.FK_CTPN_PN">
-            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
-            <End Role="CTPN" EntitySet="CTPN" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTPN_SP" Association="Self.FK_CTPN_SP">
-            <End Role="SANPHAM" EntitySet="SANPHAM" />
-            <End Role="CTPN" EntitySet="CTPN" />
-          </AssociationSet>
           <AssociationSet Name="FK_CTHD_HD" Association="Self.FK_CTHD_HD">
             <End Role="HOADON" EntitySet="HOADON" />
             <End Role="CTHD" EntitySet="CTHD" />
@@ -271,6 +263,14 @@
           <AssociationSet Name="FK_CTHD_SP" Association="Self.FK_CTHD_SP">
             <End Role="SANPHAM" EntitySet="SANPHAM" />
             <End Role="CTHD" EntitySet="CTHD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPN_PN" Association="Self.FK_CTPN_PN">
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
+            <End Role="CTPN" EntitySet="CTPN" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPN_SP" Association="Self.FK_CTPN_SP">
+            <End Role="SANPHAM" EntitySet="SANPHAM" />
+            <End Role="CTPN" EntitySet="CTPN" />
           </AssociationSet>
           <AssociationSet Name="FK_HD_KH" Association="Self.FK_HD_KH">
             <End Role="KHACHHANG" EntitySet="KHACHHANG" />
@@ -302,6 +302,17 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QUANLYSUAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CTHD">
+          <Key>
+            <PropertyRef Name="SOHD" />
+            <PropertyRef Name="MASP" />
+          </Key>
+          <Property Name="SOHD" Type="Int32" Nullable="false" />
+          <Property Name="MASP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SLMUA" Type="Int32" />
+          <NavigationProperty Name="HOADON" Relationship="Self.FK_CTHD_HD" FromRole="CTHD" ToRole="HOADON" />
+          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CTHD_SP" FromRole="CTHD" ToRole="SANPHAM" />
+        </EntityType>
         <EntityType Name="CTPN">
           <Key>
             <PropertyRef Name="MAPNHAP" />
@@ -313,17 +324,6 @@
           <Property Name="GIANHAP" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="PHIEUNHAP" Relationship="Self.FK_CTPN_PN" FromRole="CTPN" ToRole="PHIEUNHAP" />
           <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CTPN_SP" FromRole="CTPN" ToRole="SANPHAM" />
-        </EntityType>
-        <EntityType Name="CTHD">
-          <Key>
-            <PropertyRef Name="SOHD" />
-            <PropertyRef Name="MASP" />
-          </Key>
-          <Property Name="SOHD" Type="Int32" Nullable="false" />
-          <Property Name="MASP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="SLMUA" Type="Int32" />
-          <NavigationProperty Name="HOADON" Relationship="Self.FK_CTHD_HD" FromRole="CTHD" ToRole="HOADON" />
-          <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CTHD_SP" FromRole="CTHD" ToRole="SANPHAM" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
@@ -433,35 +433,11 @@
           <Property Name="SL" Type="Int32" />
           <Property Name="MANCC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HINHSP" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CTPNs" Relationship="Self.FK_CTPN_SP" FromRole="SANPHAM" ToRole="CTPN" />
           <NavigationProperty Name="CTHDs" Relationship="Self.FK_CTHD_SP" FromRole="SANPHAM" ToRole="CTHD" />
+          <NavigationProperty Name="CTPNs" Relationship="Self.FK_CTPN_SP" FromRole="SANPHAM" ToRole="CTPN" />
           <NavigationProperty Name="LOAISANPHAM" Relationship="Self.FK_SP_LOAISP" FromRole="SANPHAM" ToRole="LOAISANPHAM" />
           <NavigationProperty Name="NHACUNGCAP" Relationship="Self.FK_SP_NCC" FromRole="SANPHAM" ToRole="NHACUNGCAP" />
         </EntityType>
-        <Association Name="FK_CTPN_PN">
-          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
-          <End Role="CTPN" Type="Self.CTPN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PHIEUNHAP">
-              <PropertyRef Name="MAPNHAP" />
-            </Principal>
-            <Dependent Role="CTPN">
-              <PropertyRef Name="MAPNHAP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_CTPN_SP">
-          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
-          <End Role="CTPN" Type="Self.CTPN" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SANPHAM">
-              <PropertyRef Name="MASP" />
-            </Principal>
-            <Dependent Role="CTPN">
-              <PropertyRef Name="MASP" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CTHD_HD">
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
           <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
@@ -482,6 +458,30 @@
               <PropertyRef Name="MASP" />
             </Principal>
             <Dependent Role="CTHD">
+              <PropertyRef Name="MASP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPN_PN">
+          <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
+          <End Role="CTPN" Type="Self.CTPN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUNHAP">
+              <PropertyRef Name="MAPNHAP" />
+            </Principal>
+            <Dependent Role="CTPN">
+              <PropertyRef Name="MAPNHAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPN_SP">
+          <End Role="SANPHAM" Type="Self.SANPHAM" Multiplicity="1" />
+          <End Role="CTPN" Type="Self.CTPN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SANPHAM">
+              <PropertyRef Name="MASP" />
+            </Principal>
+            <Dependent Role="CTPN">
               <PropertyRef Name="MASP" />
             </Dependent>
           </ReferentialConstraint>
@@ -558,9 +558,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QUANLYSUAEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CTPNs" EntityType="Self.CTPN" />
+        <EntityContainer Name="QUANLYSUAEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
+          <EntitySet Name="CTPNs" EntityType="Self.CTPN" />
           <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
           <EntitySet Name="KHACHHANGs" EntityType="Self.KHACHHANG" />
           <EntitySet Name="LICHLAMVIECs" EntityType="Self.LICHLAMVIEC" />
@@ -569,14 +569,6 @@
           <EntitySet Name="NHANVIENs" EntityType="Self.NHANVIEN" />
           <EntitySet Name="PHIEUNHAPs" EntityType="Self.PHIEUNHAP" />
           <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
-          <AssociationSet Name="FK_CTPN_PN" Association="Self.FK_CTPN_PN">
-            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
-            <End Role="CTPN" EntitySet="CTPNs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTPN_SP" Association="Self.FK_CTPN_SP">
-            <End Role="SANPHAM" EntitySet="SANPHAMs" />
-            <End Role="CTPN" EntitySet="CTPNs" />
-          </AssociationSet>
           <AssociationSet Name="FK_CTHD_HD" Association="Self.FK_CTHD_HD">
             <End Role="HOADON" EntitySet="HOADONs" />
             <End Role="CTHD" EntitySet="CTHDs" />
@@ -584,6 +576,14 @@
           <AssociationSet Name="FK_CTHD_SP" Association="Self.FK_CTHD_SP">
             <End Role="SANPHAM" EntitySet="SANPHAMs" />
             <End Role="CTHD" EntitySet="CTHDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPN_PN" Association="Self.FK_CTPN_PN">
+            <End Role="PHIEUNHAP" EntitySet="PHIEUNHAPs" />
+            <End Role="CTPN" EntitySet="CTPNs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPN_SP" Association="Self.FK_CTPN_SP">
+            <End Role="SANPHAM" EntitySet="SANPHAMs" />
+            <End Role="CTPN" EntitySet="CTPNs" />
           </AssociationSet>
           <AssociationSet Name="FK_HD_KH" Association="Self.FK_HD_KH">
             <End Role="KHACHHANG" EntitySet="KHACHHANGs" />
@@ -615,7 +615,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="QUANLYSUAModelStoreContainer" CdmEntityContainer="QUANLYSUAEntities1">
+        <EntityContainerMapping StorageEntityContainer="QUANLYSUAModelStoreContainer" CdmEntityContainer="QUANLYSUAEntities3">
+          <EntitySetMapping Name="CTHDs">
+            <EntityTypeMapping TypeName="QUANLYSUAModel.CTHD">
+              <MappingFragment StoreEntitySet="CTHD">
+                <ScalarProperty Name="SOHD" ColumnName="SOHD" />
+                <ScalarProperty Name="MASP" ColumnName="MASP" />
+                <ScalarProperty Name="SLMUA" ColumnName="SLMUA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="CTPNs">
             <EntityTypeMapping TypeName="QUANLYSUAModel.CTPN">
               <MappingFragment StoreEntitySet="CTPN">
@@ -623,15 +632,6 @@
                 <ScalarProperty Name="MASP" ColumnName="MASP" />
                 <ScalarProperty Name="SLNHAP" ColumnName="SLNHAP" />
                 <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CTHDs">
-            <EntityTypeMapping TypeName="QUANLYSUAModel.CTHD">
-              <MappingFragment StoreEntitySet="CTHD">
-                <ScalarProperty Name="SOHD" ColumnName="SOHD" />
-                <ScalarProperty Name="MASP" ColumnName="MASP" />
-                <ScalarProperty Name="SLMUA" ColumnName="SLMUA" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
