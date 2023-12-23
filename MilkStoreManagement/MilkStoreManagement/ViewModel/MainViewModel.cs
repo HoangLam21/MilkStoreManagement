@@ -125,7 +125,7 @@ namespace MilkStoreManagement.ViewModel
                 case 6:
                     {
                         _Loadwd(p);
-                        //p.Main.NavigationService.Navigate(new );
+                        p.Main.NavigationService.Navigate(new RevenueView());
                         break;
                     }
                 case 7:
