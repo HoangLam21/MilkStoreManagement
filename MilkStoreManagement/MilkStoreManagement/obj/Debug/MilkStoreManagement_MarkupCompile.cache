@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\QLYSUA\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\obj\Debug\
+C:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn3\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\obj\Debug\
 MilkStoreManagement
 none
 false
 DEBUG;TRACE
-C:\QLYSUA\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml
+C:\Users\Lenovo\Documents\HK3\LTTQ\LT\DoAn3\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml
 27123320889
 2739969757
 68-1390788398
-39-2722018
+39219897282
 Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddCustomerView.xaml;View\AddImportView.xaml;View\AddOrderView.xaml;View\AddProductView.xaml;View\AddStaffView.xaml;View\ChangePassword.xaml;View\CustomerView.xaml;View\DetailCustomerView.xaml;View\DetailProduct.xaml;View\DetailStaffView.xaml;View\ForgetPassView.xaml;View\HomeView.xaml;View\ImportView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\PrintImport.xaml;View\PrintOrderView.xaml;View\PrintScheduleView.xaml;View\ProductsView.xaml;View\ScheduleView.xaml;View\SettingView.xaml;View\SplitSchedule.xaml;View\StaffView.xaml;View\UpdateStaffView.xaml;
 
 False

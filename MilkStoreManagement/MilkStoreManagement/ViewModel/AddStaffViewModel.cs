@@ -133,14 +133,15 @@ namespace MilkStoreManagement.ViewModel
                 temp.NGAYNGHI = int.TryParse(addNVView.NnNv.Text, out int ngayNghiInt) ? ngayNghiInt : 0;
                 temp.LUONG = (decimal)Convert.ToDouble(addNVView.luongNV.Text);
                 temp.NGVL = (DateTime)addNVView.NgayvlNv.SelectedDate;
+                string rd = StringGenerator();
                 if (Ava == "/Resource/ImageNV/imageava.png")
                     temp.AVA = "/Resource/ImageNV/imageava.png";
                 else
-                    temp.AVA = @"Resource\Ava\" + addNVView.MaNv.Text + ((Ava.Contains(".jpg")) ? ".jpg" : ".png").ToString();
+                    temp.AVA = @"Resource\Ava\" + rd + ((Ava.Contains(".jpg")) ? ".jpg" : ".png").ToString();
                 DataProvider.Ins.DB.NHANVIENs.Add(temp);
                 try
                 {
-                    File.Copy(Ava, Const._localLink + @"Resource\Ava\" + temp.MANV + ((Ava.Contains(".jpg")) ? ".jpg" : ".png").ToString(), true);
+                    File.Copy(Ava, Const._localLink + @"Resource\Ava\" +rd + ((Ava.Contains(".jpg")) ? ".jpg" : ".png").ToString(), true);
                 }
                 catch { }
                 DataProvider.Ins.DB.SaveChanges();
@@ -162,6 +163,23 @@ namespace MilkStoreManagement.ViewModel
                 Uri fileUri = new Uri(Ava, UriKind.Relative);
                 addNVView.HinhAnh1.ImageSource = new BitmapImage(fileUri);
             }
+
+        }
+        static string StringGenerator()
+        {
+            Random rd = new Random();
+            int length = rd.Next(5, 20);
+            StringBuilder str_build = new StringBuilder();
+            Random random = new Random();
+            char letter;
+            for (int i = 0; i < length; i++)
+            {
+                double flt = random.NextDouble();
+                int shift = Convert.ToInt32(Math.Floor(25 * flt));
+                letter = Convert.ToChar(shift + 65);
+                str_build.Append(letter);
+            }
+            return str_build.ToString();
         }
     }
 }

@@ -11,10 +11,25 @@ using System.Windows.Media.Imaging;
 
 namespace MilkStoreManagement.ViewModel
 {
-    public class DetailStaffViewModel:BaseViewModel
+    public class DetailStaffViewModel : BaseViewModel
     {
         private string _Ava;
         public string Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
+
+        private string _linkimage;
+        public string linkimage
+        {
+            get { return _linkimage; }
+            set
+            {
+                if (_linkimage != value)
+                {
+                    _linkimage = value;
+                    OnPropertyChanged(nameof(linkimage));
+                }
+            }
+        }
+
         public ICommand Closewd { get; set; }
         public ICommand Minimizewd { get; set; }
         public ICommand MoveWindow { get; set; }
@@ -58,7 +73,7 @@ namespace MilkStoreManagement.ViewModel
             parmater.LuongNV.IsEnabled = false;
             parmater.QlcnNV.IsEnabled = false;
             parmater.NnNV.IsEnabled = false;
-            
+
 
         }
 
@@ -69,6 +84,7 @@ namespace MilkStoreManagement.ViewModel
         void Close(DetailStaffView p)
         {
             p.Close();
+
         }
         void Minimize(DetailStaffView p)
         {
@@ -100,24 +116,25 @@ namespace MilkStoreManagement.ViewModel
 
                 Ava = selectedNhanVien.AVA;
                 Uri fileUri = new Uri(Ava);
-                updateNV.Ava.ImageSource = new BitmapImage(fileUri);
+                updateNV.Img.ImageSource = new BitmapImage(fileUri);
 
-                updateNV.Closing += (sender, e) =>
-                {
-                    paramater.MaNV.Text = selectedNhanVien.MANV;
-                    paramater.TenNV.Text = selectedNhanVien.TENNV;
-                    paramater.MailNV.Text = selectedNhanVien.EMAIL;
-                    paramater.GtNV.Text = selectedNhanVien.GIOI;
-                    paramater.NsNV.Text = selectedNhanVien.NGSINH.ToString();
-                    paramater.SdtNV.Text = selectedNhanVien.SDT;
-                    paramater.DcNV.Text = selectedNhanVien.DIACHI;
-                    paramater.CvNV.Text = selectedNhanVien.CHUCVU;
-                    paramater.NvlNV.Text = selectedNhanVien.NGVL.ToString();
-                    paramater.LuongNV.Text = selectedNhanVien.LUONG.ToString();
-                    paramater.QlcnNV.Text = selectedNhanVien.ID_QLY;
-                    paramater.Activate();
-                };
+               
                 updateNV.ShowDialog();
+                paramater.MaNV.Text = selectedNhanVien.MANV;
+                paramater.TenNV.Text = selectedNhanVien.TENNV;
+                paramater.MailNV.Text = selectedNhanVien.EMAIL;
+                paramater.GtNV.Text = selectedNhanVien.GIOI;
+                paramater.NsNV.Text = selectedNhanVien.NGSINH.ToString();
+                paramater.SdtNV.Text = selectedNhanVien.SDT;
+                paramater.DcNV.Text = selectedNhanVien.DIACHI;
+                linkimage = selectedNhanVien.AVA;
+                Uri fileuri = new Uri(linkimage);
+                paramater.Ava.ImageSource = new BitmapImage(fileuri);
+                paramater.CvNV.Text = selectedNhanVien.CHUCVU;
+                paramater.NvlNV.Text = selectedNhanVien.NGVL.ToString();
+                paramater.LuongNV.Text = selectedNhanVien.LUONG.ToString();
+                paramater.QlcnNV.Text = selectedNhanVien.ID_QLY;
+                paramater.Activate();
             }
         }
         void _DeleteNhanVien(DetailStaffView paramater)

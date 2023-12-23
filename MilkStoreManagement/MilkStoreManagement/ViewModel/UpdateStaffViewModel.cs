@@ -16,7 +16,7 @@ using MilkStoreManagement.View;
 
 namespace MilkStoreManagement.ViewModel
 {
-    public class UpdateStaffViewModel:BaseViewModel
+    public class UpdateStaffViewModel : BaseViewModel
     {
         private string _Ava;
         public string Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
@@ -103,19 +103,44 @@ namespace MilkStoreManagement.ViewModel
                 temp.NGAYNGHI = int.TryParse(NV.NnNv.Text, out int ngayNghiInt) ? ngayNghiInt : 0;
                 temp.LUONG = (decimal)Convert.ToDouble(NV.luongNV.Text);
                 temp.NGVL = (DateTime)NV.NgayvlNv.SelectedDate;
-                if (Ava == "/Resource/ImageNV/imageava.png")
-                    temp.AVA = "/Resource/ImageNV/imageava.png";
-                else
-                    temp.AVA = @"Resource\Ava\" + NV.MaNv.Text + ((Ava.Contains(".jpg")) ? ".jpg" : ".png").ToString();
-                try
+                string rd = StringGenerator();
+                if (Ava != null)
                 {
-                    File.Copy(Ava, Const._localLink + @"Resource\Ava\" + temp.MANV + ((Ava.Contains(".jpg")) ? ".jpg" : ".png").ToString(), true);
+                    if (temp.AVA != Ava)
+                        temp.AVA = @"Resource\Ava\" + rd + (Ava.Contains(".jpg") ? ".jpg" : ".png").ToString();
+
+                    DataProvider.Ins.DB.SaveChanges();
+                    try
+                    {
+                        if (temp.AVA != Ava)
+                            File.Copy(Ava, Const._localLink + @"Resource\Ava\" + rd + (Ava.Contains(".jpg") ? ".jpg" : ".png").ToString(), true);
+                    }
+                    catch { }
                 }
-                catch { }
                 DataProvider.Ins.DB.SaveChanges();
-                MessageBox.Show("Cập nhật nhân viên thành công !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBoxResult a = System.Windows.MessageBox.Show("Cập nhật nhân viên thành công !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.None);
+                if(a==MessageBoxResult.OK)
+                {
+                    NV.Close();
+                }    
 
             }
+        }
+        static string StringGenerator()
+        {
+            Random rd = new Random();
+            int length = rd.Next(5, 20);
+            StringBuilder str_build = new StringBuilder();
+            Random random = new Random();
+            char letter;
+            for (int i = 0; i < length; i++)
+            {
+                double flt = random.NextDouble();
+                int shift = Convert.ToInt32(Math.Floor(25 * flt));
+                letter = Convert.ToChar(shift + 65);
+                str_build.Append(letter);
+            }
+            return str_build.ToString();
         }
         void _Loadwd(UpdateStaffView parmater)
         {

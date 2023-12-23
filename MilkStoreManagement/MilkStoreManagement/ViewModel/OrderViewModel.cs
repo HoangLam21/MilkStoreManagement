@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace MilkStoreManagement.ViewModel
 {
@@ -30,13 +31,48 @@ namespace MilkStoreManagement.ViewModel
 
             }
         }
+        private readonly string _localLink = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug"));
+        private string _linkimage;
+        public string linkimage
+        {
+            get { return _linkimage; }
+            set
+            {
+                if (_linkimage != value)
+                {
+                    _linkimage = value;
+                    OnPropertyChanged(nameof(linkimage));
+                }
+            }
+        }
+        private string _AVA;
+        public string AVA
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_AVA))
+                {
+                    return Const._localLink + @"Resource\Ava\Ava_Default.jpg";
+                }
+                else if (_AVA.Contains(Const._localLink))
+                {
+                    return _AVA;
+                }
+                else
+                {
+                    return Const._localLink + _AVA;
+                }
+            }
+            set { _AVA = value; }
+        }
         private ObservableCollection<HOADON> _listHD;
         public ObservableCollection<HOADON> listHD { get => _listHD; set { _listHD = value; OnPropertyChanged(); } }
         public ICommand OpenAddOrder { get; set; }
         public ICommand SearchCommand { get; set; }
         public ICommand Detail { get; set; }
 
-        private string _localLink = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug"));
+
+
         public ICommand LoadCsCommand { get; set; }
         private ObservableCollection<string> _listTK;
         public ObservableCollection<string> listTK { get => _listTK; set { _listTK = value; OnPropertyChanged(); } }
@@ -55,7 +91,7 @@ namespace MilkStoreManagement.ViewModel
         //}
         void _LoadCsCommand(OrderView parameter)
         {
-            parameter.cbxChon.SelectedIndex = 3;
+            parameter.cbxChon.SelectedIndex = 0;
             listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
 
         }
@@ -159,9 +195,22 @@ namespace MilkStoreManagement.ViewModel
                     parameter.MANV.Text = temp.NHANVIEN.MANV;
                     parameter.NGHD.Text = temp.NGHD.ToString();
                     parameter.SOHD.Text = temp.SOHD.ToString();
-                    parameter.MAKH.Text = temp.MAKH.ToString();
-                    parameter.TENKH.Text = temp.KHACHHANG.TENKH;
-                    parameter.SDT.Text = temp.KHACHHANG.SDT;
+                    if (temp.MAKH != null)
+                    {
+                        parameter.MAKH.Text = temp.MAKH.ToString();
+                        parameter.TENKH.Text = temp.KHACHHANG.TENKH;
+                        parameter.SDT.Text = temp.KHACHHANG.SDT;
+                    }
+                    else
+                    {
+                        parameter.MAKH.Text = "";
+                        parameter.TENKH.Text = "";
+                        parameter.SDT.Text = "";
+                    }
+
+                    linkimage = temp.AVA;
+                    Uri fileUri = new Uri(linkimage);
+                    parameter.AVA.ImageSource = new BitmapImage(fileUri);
                     parameter.GIAM.Text = temp.KHUYENMAI.ToString() + "%";
 
                     List<HienThi> list = new List<HienThi>();
