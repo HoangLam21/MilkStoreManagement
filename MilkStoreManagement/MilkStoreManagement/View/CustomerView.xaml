@@ -1,0 +1,176 @@
+﻿<Page x:Class="MilkStoreManagement.View.CustomerView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MilkStoreManagement.View"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1170"
+      DataContext="{StaticResource CsVM}"
+      x:Name="Cswd">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCsCommand}"
+                                                   CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Border
+                Background="White"
+                CornerRadius="40" Margin="15,100,15,15" BorderThickness="0.75" 
+                >
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+        </Border.Effect>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="64"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.ColumnSpan="2">
+                <Border Grid.Row="0" >
+                    <Label Content="Khách hàng" FontSize="24" Foreground="#747474" FontWeight="Bold"  FontFamily="lexend" Margin="41 10"/>
+
+                </Border>
+                <Separator Height="3" Width="1050" Background="#fff2c1" HorizontalAlignment="Left" Margin="50 61 0 0"/>
+                <Separator Height="3" Width="1050" Background="#fff2c1" HorizontalAlignment="Left" Margin="50 143 0 -82"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="25,0,0,0">
+
+                <StackPanel Orientation="Horizontal" Grid.ColumnSpan="3">
+                    <Border
+                    Margin="0,0,0,0"
+                    Height="54"
+                    Width="200"
+                    CornerRadius="10"
+                    Background="White"
+                         BorderBrush="#FFCA08"
+                    >
+
+                        <ComboBox
+                             x:Name="cbxChon"
+                             Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                             materialDesign:HintAssist.Hint="Tìm Kiếm"
+                             BorderThickness="0"
+                             materialDesign:HintAssist.Foreground="#ffca08"
+                            
+                             Height="40"
+                             
+                             FontSize="14" 
+                             ItemsSource="{Binding listTK}"
+                             Width="110">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </Border>
+                    <Border CornerRadius="20" Background="White" Height="54" Width="262">
+                        <Border.Effect>
+                            <DropShadowEffect Color="#ffca08" Direction="270" ShadowDepth="5" Opacity="0.15"/>
+                        </Border.Effect>
+                        <TextBox
+                            VerticalContentAlignment="Center"
+                            x:Name="txbSearch"
+                             Width="232"
+                             Height="40"
+                                             Background="White"
+                             Foreground="#383838"
+                             FontSize="14"
+                             FontWeight="SemiBold"
+                             VerticalAlignment="Center" CaretBrush="#ffca08">
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="TextChanged">
+                                    <i:InvokeCommandAction Command="{Binding SearchCommand}"
+                                                   CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </TextBox>
+                    </Border>
+                    <Button Style="{StaticResource addButton}"
+                    Margin="20,0,0,0"
+                    Width="190"
+                    Height="54"
+                    FontFamily="{StaticResource Custom}"
+                    BorderBrush="Transparent"
+                    Foreground="#ffffff"
+                    materialDesign:ButtonAssist.CornerRadius="6"
+                    Background="#FFCA08"
+                    
+                    >
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Plus" Margin="-8,0,0,0" Width="18" RenderTransformOrigin="0.572,0.486" />
+                            <TextBlock Text="Thêm khách hàng " HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16"/>
+                        </StackPanel>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding AddCsCommand}"
+                                                   CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2" Grid.ColumnSpan="2">
+
+                <StackPanel Margin="50,0,50,50">
+
+                    <DataGrid x:Name="DatagridNV" Margin="0 10 0 70" AutoGenerateColumns="False" ItemsSource="{Binding listKH}">
+
+                        <DataGrid.Columns >
+
+                            <DataGridTextColumn Width="200"
+           IsReadOnly="True"
+           Binding="{Binding MAKH}"
+           Header="Mã khách hàng"
+           EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+
+                            <DataGridTextColumn Width="250"
+           IsReadOnly="True"
+           Binding="{Binding TENKH}"
+           Header="Tên khách hàng"
+           EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                            <!--<DataGridTextColumn
+           Binding="{Binding SDT}"
+           Header="Số điện thoại"
+           EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />-->
+
+                            <DataGridTextColumn Width="250"
+           IsReadOnly="True"
+           Binding="{Binding NGSINH}"
+           Header="Ngày sinh"
+           EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                            <DataGridTextColumn Width="200"
+           IsReadOnly="True"
+           Binding="{Binding DOANHSO}"
+           Header="Doanh số"
+           EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                            <DataGridTextColumn
+           IsReadOnly="True"
+           Binding="{Binding GHICHU}"
+           Header="Ghi chú"
+           EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
+                        </DataGrid.Columns>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding Detail}"
+                  CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+
+
+                    </DataGrid>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
+</Page>

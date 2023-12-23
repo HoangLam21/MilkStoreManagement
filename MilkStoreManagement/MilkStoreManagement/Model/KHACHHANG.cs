@@ -19,14 +19,14 @@ namespace MilkStoreManagement.Model
         {
             this.HOADONs = new HashSet<HOADON>();
         }
-
+    
         public string MAKH { get; set; }
         public string TENKH { get; set; }
         public DateTime NGSINH { get; set; }
         public string SDT { get; set; }
         public decimal DOANHSO { get; set; }
         public string GHICHU { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
     }

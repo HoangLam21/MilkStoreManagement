@@ -1,15 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="QUANLYSUAModelStoreContainer" CdmEntityContainer="QUANLYSUAEntities">
-    <EntitySetMapping Name="CTHDs">
-      <EntityTypeMapping TypeName="QUANLYSUAModel.CTHD">
-        <MappingFragment StoreEntitySet="CTHD">
-          <ScalarProperty Name="SOHD" ColumnName="SOHD" />
-          <ScalarProperty Name="MASP" ColumnName="MASP" />
-          <ScalarProperty Name="SLMUA" ColumnName="SLMUA" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+  <EntityContainerMapping StorageEntityContainer="QUANLYSUAModelStoreContainer" CdmEntityContainer="QUANLYSUAEntities1">
     <EntitySetMapping Name="CTPNs">
       <EntityTypeMapping TypeName="QUANLYSUAModel.CTPN">
         <MappingFragment StoreEntitySet="CTPN">
@@ -17,6 +8,15 @@
           <ScalarProperty Name="MASP" ColumnName="MASP" />
           <ScalarProperty Name="SLNHAP" ColumnName="SLNHAP" />
           <ScalarProperty Name="GIANHAP" ColumnName="GIANHAP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CTHDs">
+      <EntityTypeMapping TypeName="QUANLYSUAModel.CTHD">
+        <MappingFragment StoreEntitySet="CTHD">
+          <ScalarProperty Name="SOHD" ColumnName="SOHD" />
+          <ScalarProperty Name="MASP" ColumnName="MASP" />
+          <ScalarProperty Name="SLMUA" ColumnName="SLMUA" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
