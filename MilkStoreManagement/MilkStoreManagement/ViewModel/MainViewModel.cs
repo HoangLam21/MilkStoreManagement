@@ -101,7 +101,7 @@ namespace MilkStoreManagement.ViewModel
                 case 2:
                     {
                         _Loadwd(p);
-                        //p.Main.NavigationService.Navigate(new );
+                        p.Main.NavigationService.Navigate(new CustomerView());
                         break;
                     }
                 case 3:

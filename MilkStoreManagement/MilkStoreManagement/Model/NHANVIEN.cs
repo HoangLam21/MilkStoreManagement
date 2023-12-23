@@ -41,7 +41,7 @@ namespace MilkStoreManagement.Model
             {
                 if (string.IsNullOrEmpty(_AVA))
                 {
-                    return Const._localLink + @"Resource\Ava\Ava_Default.jpg";
+                    return Const._localLink + @"Resource\ImgProducts\ava1.jpg";
                 }
                 else if (_AVA.Contains(Const._localLink))
                 {

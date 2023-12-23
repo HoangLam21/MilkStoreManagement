@@ -19,4 +19,11 @@
     <viewmodel:ImportViewModel x:Key="ImportVM"></viewmodel:ImportViewModel>
     <viewmodel:ScheduleViewModel x:Key="ScheduleVM"></viewmodel:ScheduleViewModel>
     <viewmodel:SplitScheduleViewModel x:Key="SplitScheVM"></viewmodel:SplitScheduleViewModel>
+    <viewmodel:CustomerViewModel x:Key="CsVM"></viewmodel:CustomerViewModel>
+    <viewmodel:AddCsView x:Key="AddCsVM"></viewmodel:AddCsView>
+    <viewmodel:DetailCustomer x:Key="DetailCsVM"></viewmodel:DetailCustomer>
+    <viewmodel:AddOrderViewModel x:Key="AddOrderVM"></viewmodel:AddOrderViewModel>
+
+
+
 </ResourceDictionary>

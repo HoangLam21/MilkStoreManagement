@@ -173,10 +173,14 @@
     <Compile Include="Model\SANPHAM.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AddCsViewModel.cs" />
     <Compile Include="ViewModel\AddImportViewModel.cs" />
+    <Compile Include="ViewModel\AddOrderViewModel.cs" />
     <Compile Include="ViewModel\AddProductViewModel.cs" />
     <Compile Include="ViewModel\AddStaffViewModel.cs" />
     <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\DetailCustomer.cs" />
     <Compile Include="ViewModel\DetailProductViewModel.cs" />
     <Compile Include="ViewModel\DetailStaffViewModel.cs" />
     <Compile Include="ViewModel\ImportViewModel.cs" />
@@ -187,8 +191,14 @@
     <Compile Include="ViewModel\SplitScheduleViewModel.cs" />
     <Compile Include="ViewModel\StaffViewModel.cs" />
     <Compile Include="ViewModel\UpdateStaffViewModel.cs" />
+    <Compile Include="View\AddCustomerView.xaml.cs">
+      <DependentUpon>AddCustomerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddImportView.xaml.cs">
       <DependentUpon>AddImportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddOrderView.xaml.cs">
+      <DependentUpon>AddOrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddProductView.xaml.cs">
       <DependentUpon>AddProductView.xaml</DependentUpon>
@@ -198,6 +208,12 @@
     </Compile>
     <Compile Include="View\ChangePassword.xaml.cs">
       <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\CustomerView.xaml.cs">
+      <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DetailCustomerView.xaml.cs">
+      <DependentUpon>DetailCustomerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DetailProduct.xaml.cs">
       <DependentUpon>DetailProduct.xaml</DependentUpon>
@@ -213,6 +229,9 @@
     </Compile>
     <Compile Include="View\PrintImport.xaml.cs">
       <DependentUpon>PrintImport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PrintOrderView.xaml.cs">
+      <DependentUpon>PrintOrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PrintScheduleView.xaml.cs">
       <DependentUpon>PrintScheduleView.xaml</DependentUpon>
@@ -243,7 +262,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AddCustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\AddImportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddOrderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -256,6 +283,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ChangePassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\CustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\DetailCustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -317,6 +352,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PrintImport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PrintOrderView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

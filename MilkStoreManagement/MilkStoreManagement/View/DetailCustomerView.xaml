@@ -1,0 +1,206 @@
+﻿<Window x:Class="MilkStoreManagement.View.DetailCustomerView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MilkStoreManagement.View"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        
+        AllowsTransparency="True"
+        x:Name="DetailCswd"
+        DataContext="{StaticResource DetailCsVM}"
+        Height="600" 
+        Background="Transparent"
+        Width="450" WindowStartupLocation="CenterScreen">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding GetMAKH}"
+                                      CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Border
+        Background="White"
+       CornerRadius="20"
+       BorderBrush="#ffca08"
+        BorderThickness="2"
+        
+       >
+
+
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseLeftButtonDown">
+                <i:InvokeCommandAction Command="{Binding MoveWindow}"
+                                      CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Background="Transparent">
+                    <StackPanel 
+                               Orientation="Horizontal" 
+                               HorizontalAlignment="Right" 
+                               VerticalAlignment="Center"
+                               Margin="0,0,10,0"
+                               >
+                        <materialDesign:PackIcon Kind="WindowMinimize" Foreground="Black" Height="24" Width="24" Margin="0,0,8,0">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding Minimizewd}"
+                                                      CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </materialDesign:PackIcon>
+                        <materialDesign:PackIcon Kind="CloseThick" Foreground="Black" Height="24" Width="24">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="MouseLeftButtonDown">
+                                    <i:InvokeCommandAction Command="{Binding Closewd}"
+                                                      CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </materialDesign:PackIcon>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <StackPanel Orientation="Vertical"
+                              Margin="0,20,10,10"
+                               >
+                        <TextBlock
+                           Margin="-15,20,0,0"
+                           HorizontalAlignment="Center"
+                           Text="Thông tin khách hàng"
+                           FontSize="24"
+                           Foreground="#8B8989"
+                           FontFamily="{StaticResource Custom}"
+                           />
+
+                        <StackPanel Orientation="Horizontal" Margin="0,40,0,0">
+                            <StackPanel Orientation="Vertical" Margin="30,0,0,0">
+
+                                <TextBox 
+          Margin="10,0,0,0"  Width="160"
+          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+          materialDesign:HintAssist.Foreground="Black"
+          materialDesign:TextFieldAssist.UnderlineBrush="#ffca08"
+          VerticalAlignment="Top"
+          AcceptsReturn="True"
+          TextWrapping="Wrap"
+                                    IsReadOnly="true"
+          HorizontalAlignment="Left" x:Name="MAKH"
+          FontFamily="{StaticResource Custom}"
+          materialDesign:HintAssist.Hint="Mã khách hàng" />
+
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical"
+                 Margin="40,0,0,0"
+                 >
+                                <TextBox 
+           Margin="10,0,0,0"  Width="160"
+           Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+           materialDesign:HintAssist.Foreground="Black"
+           materialDesign:TextFieldAssist.UnderlineBrush="#ffca08"
+           VerticalAlignment="Top"
+           AcceptsReturn="True"
+           TextWrapping="Wrap"
+           HorizontalAlignment="Left" x:Name="TenKH"
+           FontFamily="{StaticResource Custom}"
+           materialDesign:HintAssist.Hint="Tên khách hàng" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" 
+             Margin="0,50,0,0"
+             >
+                            <StackPanel Orientation="Vertical" Margin="30,0,0,0">
+
+                                <TextBox 
+          Margin="10,0,0,0"  Width="160"
+          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+          materialDesign:HintAssist.Foreground="Black"
+          materialDesign:TextFieldAssist.UnderlineBrush="#ffca08"
+          VerticalAlignment="Top"
+          AcceptsReturn="True"
+          TextWrapping="Wrap"
+          HorizontalAlignment="Left" x:Name="NGSINH"
+          FontFamily="{StaticResource Custom}"
+          materialDesign:HintAssist.Hint="Ngày sinh " />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical"
+                 Margin="40,0,0,0"
+                 >
+                                <TextBox 
+          Margin="10,0,0,0"  Width="160"
+          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+          materialDesign:HintAssist.Foreground="Black"
+          materialDesign:TextFieldAssist.UnderlineBrush="#ffca08"
+          VerticalAlignment="Top"
+          AcceptsReturn="True"
+          TextWrapping="Wrap"
+          HorizontalAlignment="Left" x:Name="SDT"
+          FontFamily="{StaticResource Custom}"
+          materialDesign:HintAssist.Hint="SDT" />
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
+                            <StackPanel Orientation="Vertical" Margin="30,0,0,0">
+                                <TextBox
+          Margin="10,0,0,0"  Width="160"
+          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+          materialDesign:HintAssist.Foreground="Black"
+          materialDesign:TextFieldAssist.UnderlineBrush="#ffca08"
+          VerticalAlignment="Top"
+          AcceptsReturn="True"
+          TextWrapping="Wrap"
+          IsReadOnly="true"
+          HorizontalAlignment="Left" x:Name="DOANHSO"
+          FontFamily="{StaticResource Custom}"
+          materialDesign:HintAssist.Hint="Doanh số" />
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical"
+                 Margin="40,0,0,0"
+                 >
+                                <TextBox 
+          Margin="10,0,0,0"  Width="160"
+          Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+          materialDesign:HintAssist.Foreground="Black"
+          materialDesign:TextFieldAssist.UnderlineBrush="#ffca08"
+          VerticalAlignment="Top"
+          AcceptsReturn="True"
+          TextWrapping="Wrap"
+                                    IsReadOnly="TRUE"
+          HorizontalAlignment="Left" x:Name="GHICHU"
+          FontFamily="{StaticResource Custom}"
+          materialDesign:HintAssist.Hint="Ghi chú" />
+                            </StackPanel>
+                        </StackPanel>
+                        <Button Content="CẬP NHẬT"
+                              Margin="0,70,0,0"
+                              Width="250" Height="50"
+                              BorderThickness="0"
+                              FontSize="18"
+                              x:Name="btnupdate"
+                              Background="#FFCA08" 
+                         >
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding Update}"
+                             CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

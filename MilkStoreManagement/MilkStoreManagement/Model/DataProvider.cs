@@ -23,11 +23,11 @@ namespace MilkStoreManagement.Model
                 _ins = value;
             }
         }
-        public QUANLYSUAEntities DB { get; set; }
+        public QUANLYSUAEntities1 DB { get; set; }
 
         private DataProvider()
         {
-            DB = new QUANLYSUAEntities();
+            DB = new QUANLYSUAEntities1();
         }
 
     }

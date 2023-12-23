@@ -20,12 +20,14 @@ namespace MilkStoreManagement.ViewModel
             public int SL { get; set; }
             public Decimal Dongia { get; set; }
             public Decimal Tong { get; set; }
-            public HienThi( string TenSP = "",  Decimal Dongia = 0, int SL = 0, Decimal Tong = 0)
+
+            public HienThi(string TenSP = "", Decimal Dongia = 0, int SL = 0, Decimal Tong = 0)
             {
                 this.TenSP = TenSP;
                 this.SL = SL;
                 this.Tong = Tong;
                 this.Dongia = Dongia;
+
             }
         }
         private ObservableCollection<HOADON> _listHD;
@@ -42,7 +44,7 @@ namespace MilkStoreManagement.ViewModel
         {
             listTK = new ObservableCollection<string>() { "Số hóa đơn", "Mã nhân viên", "Mã khách hàng" };
             listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
-            //OpenAddOrder = new RelayCommand<OrderView>((p) => true, (p) => _OpenAdd(p));
+            OpenAddOrder = new RelayCommand<OrderView>((p) => true, (p) => _OpenAdd(p));
             SearchCommand = new RelayCommand<OrderView>((p) => true, (p) => _SearchCommand(p));
             Detail = new RelayCommand<OrderView>((p) => { return p?.DatagridHD?.SelectedItem != null; }, (p) => _Detail(p));
             LoadCsCommand = new RelayCommand<OrderView>((p) => true, (p) => _LoadCsCommand(p));
@@ -76,15 +78,15 @@ namespace MilkStoreManagement.ViewModel
             } while (check(ma));
             return ma;
         }
-        //void _OpenAdd(OrderView paramater)
-        //{
-        //    AddOrderView addOrder = new AddOrderView();
-        //    addOrder.SoHD.Text = rdma().ToString();
-        //    addOrder.ShowDialog();
-        //    listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
-        //    paramater.ListViewHD.ItemsSource = listHD;
-        //    paramater.ListViewHD.Items.Refresh();
-        //}
+        void _OpenAdd(OrderView paramater)
+        {
+            AddOrderView addOrder = new AddOrderView();
+            addOrder.SOHD.Text = rdma().ToString();
+            addOrder.ShowDialog();
+            listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
+            paramater.DatagridHD.ItemsSource = listHD;
+            paramater.DatagridHD.Items.Refresh();
+        }
         void _SearchCommand(OrderView paramater)
         {
             ObservableCollection<HOADON> temp = new ObservableCollection<HOADON>();
@@ -178,7 +180,7 @@ namespace MilkStoreManagement.ViewModel
                 }
             }
             else
-                MessageBox.Show("khong tim thay hoa dơn");
+                MessageBox.Show("Không tìm thấy hóa đơn!");
 
         }
 

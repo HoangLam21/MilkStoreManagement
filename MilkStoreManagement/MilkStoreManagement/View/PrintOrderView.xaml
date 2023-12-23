@@ -1,0 +1,142 @@
+﻿<Window x:Class="MilkStoreManagement.View.PrintOrderView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MilkStoreManagement.View"
+        mc:Ignorable="d"
+        Title="PrintOrderView" Height="800" Width="560">
+    <Grid x:Name="PrintView">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Orientation="Vertical">
+                <StackPanel>
+                    <TextBlock Margin="0,20,0,0" Text="MILK STORE" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="lexend" FontWeight="SemiBold"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="HÓA ĐƠN BÁN HÀNG" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="--------*--------" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+
+                <StackPanel Margin="30,0,0,0">
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Số hóa đơn: " FontSize="14"/>
+                        <TextBlock x:Name="sohd" FontSize="14"/>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Ngày tạo: " FontSize="14"/>
+                        <TextBlock x:Name="ngay" FontSize="14"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Mã nhân viên: " FontSize="14"/>
+                        <TextBlock x:Name="manv" FontSize="14"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Tên khách hàng: " FontSize="14" FontFamily="lexend" Foreground="#383838"/>
+                        <TextBlock x:Name="TenKH" FontSize="14" FontFamily="lexend" Foreground="#383838"/>
+                    </StackPanel>
+
+                    <!--<StackPanel Orientation="Horizontal">
+    <TextBlock Text="Địa chỉ: " FontSize="14"/>
+    <TextBlock x:Name="dc" FontSize="14"/>
+</StackPanel>-->
+                    <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                        <TextBlock Text="SĐT khách hàng: " FontSize="14"  FontFamily="lexend" Foreground="#383838"/>
+                        <TextBlock x:Name="sdt" FontSize="14" FontFamily="lexend" Foreground="#383838"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <TextBlock Text="CHI TIẾT MUA HÀNG" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" FontFamily="lexend" FontWeight="SemiBold"/>
+        </Grid>
+        <Grid Grid.Row="3">
+            <ListView x:Name="ListSP"
+                     Background="Transparent"
+                     Height="auto">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="100"
+                                       Header="Mã SP" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Margin="20,0,0,0" Text="{Binding MASP}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="200"
+                                          Header="Tên Sản Phẩm" >
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Margin="18,0,0,0" Text="{Binding TenSP}"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="120"
+                                          Header="Số lượng">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding SL}" Margin="40,0,0,0"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Width="130"
+                                          Header="Đơn giá">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Dongia}" Margin="20,0,0,0"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Margin="0,10,0,0">
+                    <TextBlock Text="Tổng Tiền:" FontWeight="SemiBold" FontSize="16" FontFamily="lexend" Foreground="#383838" Margin="5"/>
+                    <TextBlock Text="Khuyến mãi:" FontWeight="SemiBold" FontSize="16" FontFamily="lexend" Foreground="#383838" Margin="5"/>
+                    <TextBlock Text="Thành tiền:" FontWeight="SemiBold" FontSize="16" FontFamily="lexend" Foreground="#383838" Margin="5"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="2" Grid.Row="4">
+                <StackPanel Margin="0,10,0,0">
+                    <TextBlock x:Name="tt" FontSize="16" HorizontalAlignment="Right" Margin="5,5,20,5"/>
+                    <TextBlock x:Name="gg" FontSize="16" HorizontalAlignment="Right" Margin="5,5,20,5"/>
+                    <TextBlock x:Name="tt1" FontSize="16" HorizontalAlignment="Right" Margin="5,5,20,5"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

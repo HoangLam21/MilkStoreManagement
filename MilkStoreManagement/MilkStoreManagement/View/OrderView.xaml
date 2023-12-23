@@ -97,7 +97,7 @@ CornerRadius="30">
                 </StackPanel>
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="Click">
-                        <i:InvokeCommandAction Command="{Binding AddNVCommand}"
+                        <i:InvokeCommandAction Command="{Binding OpenAddOrder}"
                           CommandParameter="{Binding ElementName=Orderwd}"></i:InvokeCommandAction>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>

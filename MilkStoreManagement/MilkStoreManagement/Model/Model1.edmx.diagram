@@ -4,21 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fee162a4b6794d06b127727a839f7c35" Name="Diagram1">
-        <EntityTypeShape EntityType="QUANLYSUAModel.CTHD" Width="1.5" PointX="5.25" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYSUAModel.CTPN" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYSUAModel.HOADON" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYSUAModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYSUAModel.LICHLAMVIEC" Width="1.5" PointX="3" PointY="18.875" IsExpanded="true" />
+      <Diagram DiagramId="d7a0e46fdfe34974bb2f04345cf14886" Name="Diagram1">
+        <EntityTypeShape EntityType="QUANLYSUAModel.CTPN" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYSUAModel.CTHD" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYSUAModel.HOADON" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYSUAModel.KHACHHANG" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYSUAModel.LICHLAMVIEC" Width="1.5" PointX="3" PointY="14.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QUANLYSUAModel.LOAISANPHAM" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="QUANLYSUAModel.NHACUNGCAP" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYSUAModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYSUAModel.PHIEUNHAP" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYSUAModel.NHANVIEN" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QUANLYSUAModel.PHIEUNHAP" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QUANLYSUAModel.SANPHAM" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
-        <AssociationConnector Association="QUANLYSUAModel.FK_CTHD_HD" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYSUAModel.FK_CTHD_SP" ManuallyRouted="false" />
         <AssociationConnector Association="QUANLYSUAModel.FK_CTPN_PN" ManuallyRouted="false" />
         <AssociationConnector Association="QUANLYSUAModel.FK_CTPN_SP" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYSUAModel.FK_CTHD_HD" ManuallyRouted="false" />
+        <AssociationConnector Association="QUANLYSUAModel.FK_CTHD_SP" ManuallyRouted="false" />
         <AssociationConnector Association="QUANLYSUAModel.FK_HD_KH" ManuallyRouted="false" />
         <AssociationConnector Association="QUANLYSUAModel.FK_HD_NV" ManuallyRouted="false" />
         <AssociationConnector Association="QUANLYSUAModel.FK_LLV_NV" ManuallyRouted="false" />

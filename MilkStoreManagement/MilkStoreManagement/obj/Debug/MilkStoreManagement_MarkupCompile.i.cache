@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Giang\HK3\Lập trình trực quan\TH Lí thuyết\DOAN CHINH\git\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\obj\Debug\
+C:\QLYSUA\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\obj\Debug\
 MilkStoreManagement
 none
 false
 DEBUG;TRACE
-D:\Giang\HK3\Lập trình trực quan\TH Lí thuyết\DOAN CHINH\git\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml
-22819695897
+C:\QLYSUA\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml
+27123320889
 2739969757
-60-177107048
-391863463654
-Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddImportView.xaml;View\AddProductView.xaml;View\AddStaffView.xaml;View\ChangePassword.xaml;View\DetailProduct.xaml;View\DetailStaffView.xaml;View\ForgetPassView.xaml;View\HomeView.xaml;View\ImportView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\PrintImport.xaml;View\PrintScheduleView.xaml;View\ProductsView.xaml;View\ScheduleView.xaml;View\SettingView.xaml;View\SplitSchedule.xaml;View\StaffView.xaml;View\UpdateStaffView.xaml;
+69530989723
+39-2722018
+Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddCustomerView.xaml;View\AddImportView.xaml;View\AddOrderView.xaml;View\AddProductView.xaml;View\AddStaffView.xaml;View\ChangePassword.xaml;View\CustomerView.xaml;View\DetailCustomerView.xaml;View\DetailProduct.xaml;View\DetailStaffView.xaml;View\ForgetPassView.xaml;View\HomeView.xaml;View\ImportView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\PrintImport.xaml;View\PrintOrderView.xaml;View\PrintScheduleView.xaml;View\ProductsView.xaml;View\ScheduleView.xaml;View\SettingView.xaml;View\SplitSchedule.xaml;View\StaffView.xaml;View\UpdateStaffView.xaml;
 
 True
 
