@@ -186,6 +186,7 @@
     <Compile Include="ViewModel\ImportViewModel.cs" />
     <Compile Include="ViewModel\OrderViewModel.cs" />
     <Compile Include="ViewModel\ProductsViewModel.cs" />
+    <Compile Include="ViewModel\RevenueViewModel.cs" />
     <Compile Include="ViewModel\ScheduleViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="ViewModel\SplitScheduleViewModel.cs" />
@@ -233,11 +234,17 @@
     <Compile Include="View\PrintOrderView.xaml.cs">
       <DependentUpon>PrintOrderView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PrintRevenueReport.xaml.cs">
+      <DependentUpon>PrintRevenueReport.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PrintScheduleView.xaml.cs">
       <DependentUpon>PrintScheduleView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RevenueView.xaml.cs">
+      <DependentUpon>RevenueView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ScheduleView.xaml.cs">
       <DependentUpon>ScheduleView.xaml</DependentUpon>
@@ -359,6 +366,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\PrintRevenueReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\PrintScheduleView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -366,6 +377,10 @@
     <Page Include="View\ProductsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RevenueView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\ScheduleView.xaml">
       <SubType>Designer</SubType>
