@@ -23,7 +23,7 @@
     <viewmodel:AddCsView x:Key="AddCsVM"></viewmodel:AddCsView>
     <viewmodel:DetailCustomer x:Key="DetailCsVM"></viewmodel:DetailCustomer>
     <viewmodel:AddOrderViewModel x:Key="AddOrderVM"></viewmodel:AddOrderViewModel>
-
+    <viewmodel:RevenueViewModel x:Key="RevenueVM"></viewmodel:RevenueViewModel>
 
 
 </ResourceDictionary>
