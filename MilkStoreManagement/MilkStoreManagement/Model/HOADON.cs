@@ -19,7 +19,7 @@ namespace MilkStoreManagement.Model
         {
             this.CTHDs = new HashSet<CTHD>();
         }
-    
+
         public int SOHD { get; set; }
         public DateTime NGHD { get; set; }
         public string MAKH { get; set; }
@@ -27,7 +27,7 @@ namespace MilkStoreManagement.Model
         public decimal TRIGIA { get; set; }
         public decimal KHUYENMAI { get; set; }
         public decimal THANHTIEN { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }
         public virtual KHACHHANG KHACHHANG { get; set; }

@@ -21,7 +21,7 @@ namespace MilkStoreManagement.Model
             this.LICHLAMVIECs = new HashSet<LICHLAMVIEC>();
             this.PHIEUNHAPs = new HashSet<PHIEUNHAP>();
         }
-    
+
         public string MANV { get; set; }
         public string TENNV { get; set; }
         public string GIOI { get; set; }
@@ -56,7 +56,7 @@ namespace MilkStoreManagement.Model
         }
         public string EMAIL { get; set; }
         public DateTime? NGAYNGHIVIEC { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

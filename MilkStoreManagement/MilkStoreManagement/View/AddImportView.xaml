@@ -97,7 +97,7 @@
                                 </i:Interaction.Triggers>
                             </TextBox>
                         </Border>
-                       
+
                         <Button Width="47" Height="39"  Background="Transparent" BorderThickness="0">
                             <Button.Content>
                                 <StackPanel Margin="-4,-5,-20,-5" >
@@ -472,18 +472,13 @@
                     </StackPanel>
 
                     <Button Content="NHẬP"
-                        Margin="235,85,65,33"
-                        Width="150"
+                        Margin="225,95,65,33"
+                        Width="160"
                         FontFamily="{StaticResource Custom}"
+                        Style="{StaticResource addButton}"
                         materialDesign:ButtonAssist.CornerRadius="10"
                         BorderThickness="0" FontWeight="Bold"
                         x:Name="btnnhap" >
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
-                                <GradientStop Color="#FFCA08" Offset="0"/>
-                                <GradientStop Color="#FFCA08" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding ChooseCTPN}" CommandParameter="{Binding ElementName=AddImportwd}" />
@@ -491,9 +486,10 @@
                         </i:Interaction.Triggers>
                     </Button>
                     <Button Content="THÊM SP MỚI"
-                        Margin="60,85,229,33"
-                        Width="162"
+                        Margin="50,95,229,33"
+                        Width="160"
                         FontFamily="{StaticResource Custom}"
+                        Style="{StaticResource addButton}"
                         materialDesign:ButtonAssist.CornerRadius="10"
                         BorderThickness="0" FontWeight="Bold"
                         x:Name="btnthemspmoi">
@@ -834,18 +830,13 @@
                         </TextBox>
                     </StackPanel>
                     <Button Content="THÊM"
-                        Margin="232,75,60,43"
-                        Width="150"
+                        Margin="310,75,0,33"
+                        Width="160"
                         FontFamily="{StaticResource Custom}"
+                        Style="{StaticResource addButton}"
                         materialDesign:ButtonAssist.CornerRadius="10"
                         BorderThickness="0" FontWeight="Bold"
                         x:Name="btnthem" >
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
-                                <GradientStop Color="#FFCA08" Offset="0"/>
-                                <GradientStop Color="#FFCA08" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding AddCTPN}" CommandParameter="{Binding ElementName=AddImportwd}" />
@@ -853,18 +844,13 @@
                         </i:Interaction.Triggers>
                     </Button>
                     <Button Content="XÓA"
-                        Margin="60,75,227,43"
-                        Width="162"
+                        Margin="90,75,0,33"
+                        Width="160"
                         FontFamily="{StaticResource Custom}"
+                        Style="{StaticResource addButton}"
                         materialDesign:ButtonAssist.CornerRadius="10"
                         BorderThickness="0" FontWeight="Bold"
                         x:Name="btnxoa">
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
-                                <GradientStop Color="DarkGray" Offset="0"/>
-                                <GradientStop Color="DarkGray" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding Delete}" CommandParameter="{Binding ElementName=AddImportwd}" />
