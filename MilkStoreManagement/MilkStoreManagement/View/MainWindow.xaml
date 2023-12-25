@@ -312,6 +312,26 @@
                             </DockPanel>
                         </Grid>
                     </Border>
+                    <Canvas Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left">
+                        <Border x:Name="borderGreet"
+                        Width="934" Height="56" 
+                        Background="Transparent"
+                        BorderThickness="0.75" 
+                        CornerRadius="30" HorizontalAlignment="Left" Canvas.Left="6" Canvas.Top="22" VerticalAlignment="Center">
+                            <Grid ClipToBounds="True" Margin="0,0,-22,0" >
+                                <TextBlock x:Name="txtGreet" 
+                                           Text="Chúc bạn một ngày vui vẻ và thuận lợi ! Cảm ơn bạn (• ε •)" 
+                                           FontSize="23"
+                                           Foreground="#ffca08" 
+                                           VerticalAlignment="Center"
+                                           FontFamily="{StaticResource Custom}">
+                                    <TextBlock.RenderTransform>
+                                        <TranslateTransform x:Name="txtGreetTranslateTransform"/>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                            </Grid>
+                        </Border>
+                    </Canvas>
                 </Grid>
             </Grid>
         </Grid>

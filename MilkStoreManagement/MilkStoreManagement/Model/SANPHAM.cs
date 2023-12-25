@@ -11,14 +11,14 @@ namespace MilkStoreManagement.Model
 {
     using System;
     using System.Collections.Generic;
-
+    
     public partial class SANPHAM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SANPHAM()
         {
-            this.CTPNs = new HashSet<CTPN>();
             this.CTHDs = new HashSet<CTHD>();
+            this.CTPNs = new HashSet<CTPN>();
         }
 
         public string MASP { get; set; }
@@ -55,9 +55,9 @@ namespace MilkStoreManagement.Model
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTPN> CTPNs { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CTPN> CTPNs { get; set; }
         public virtual LOAISANPHAM LOAISANPHAM { get; set; }
         public virtual NHACUNGCAP NHACUNGCAP { get; set; }
     }

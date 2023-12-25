@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
+using System.Windows.Media;
 
 namespace MilkStoreManagement.ViewModel
 {
@@ -65,6 +67,14 @@ namespace MilkStoreManagement.ViewModel
                 Const.Admin = User.CHUCVU == "Quản lý";
                 Ava = User.AVA;
                 LoadTenND(p);
+
+                DoubleAnimation animation = new DoubleAnimation();
+                animation.From = p.borderGreet.ActualWidth;
+                animation.To = -650;
+                animation.RepeatBehavior = RepeatBehavior.Forever;
+                animation.Duration = TimeSpan.FromSeconds(12);
+
+                p.txtGreetTranslateTransform.BeginAnimation(TranslateTransform.XProperty, animation);
             }
         }
         void LogOut(MainWindow p)

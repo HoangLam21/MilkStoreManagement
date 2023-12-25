@@ -421,10 +421,10 @@
             <Grid Grid.Row="2">
                 <Border
                     CornerRadius="30"
-                    Height="270" Width="1130"
+                    Width="1130"
                     Background="White"
                     VerticalAlignment="Center"
-                    BorderThickness="0.75" HorizontalAlignment="Left" Margin="10,0,0,0" >
+                    BorderThickness="0.75" HorizontalAlignment="Left" Margin="10,-9,0,0" >
                     <Border.Effect>
                         <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
                     </Border.Effect>
