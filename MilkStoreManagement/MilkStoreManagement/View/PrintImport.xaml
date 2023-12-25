@@ -97,7 +97,7 @@
                 <Border
         Margin="10,15,10,0"
         Width="670"
-        Height="40"
+        Height="35"
         CornerRadius="10"
         Background="#FFF7DA"
         >

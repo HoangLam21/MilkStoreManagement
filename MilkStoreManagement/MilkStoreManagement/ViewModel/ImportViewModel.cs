@@ -29,7 +29,7 @@ namespace MilkStoreManagement.ViewModel
         public ICommand Print { get; set; }
         public ICommand AddPN { get; set; }
         public ICommand Search { get; set; }
-
+        public ICommand ChooseCbo { get; set; }
         private ObservableCollection<string> _listTK;
         public ObservableCollection<string> listTK { get => _listTK; set { _listTK = value; OnPropertyChanged(); } }
 
@@ -42,7 +42,7 @@ namespace MilkStoreManagement.ViewModel
             Print = new RelayCommand<ImportView>((p) => true, (p) => _Print(p));
             AddPN = new RelayCommand<ImportView>((p) => { return p == null ? false : true; }, (p) => _AddPN(p));
             Search = new RelayCommand<ImportView>((p) => true, (p) => _Search(p));
-
+            ChooseCbo = new RelayCommand<ImportView>((p) => true, (p) => _ChooseCbo(p));
         }
         void _LoadListPN(ImportView p)
         {
@@ -66,6 +66,21 @@ namespace MilkStoreManagement.ViewModel
                 NGAYNHAP = e.NGAYNHAP.ToShortDateString(),
             }));
             p.DatagridPN.ItemsSource = listPN;
+        }
+        void _ChooseCbo(ImportView p)
+        {
+            if (p.cbxChon.SelectedIndex == 1)
+            {
+                p.txbSearch.Visibility = Visibility.Hidden;
+                p.FromDate.Visibility = Visibility.Visible;
+                p.ToDate.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                p.FromDate.Visibility = Visibility.Hidden;
+                p.ToDate.Visibility = Visibility.Hidden;
+                p.txbSearch.Visibility = Visibility.Visible;
+            }
         }
         void _Detail(ImportView p)
         {
@@ -114,241 +129,185 @@ namespace MilkStoreManagement.ViewModel
         }
         void _Print(ImportView p)
         {
-            PrintImport printImport = new PrintImport();
-            if (p.DatagridPN.SelectedItem != null)
+            if (p.DatagridPN.SelectedItem == null)
             {
-                var selectedItem = (dynamic)p.DatagridPN.SelectedItem;
-                printImport.MAPNHAP.Text = selectedItem.MAPNHAP;
-                printImport.NGAYNHAP.Text = selectedItem.NGAYNHAP.ToString();
-                printImport.TENNV.Text = selectedItem.TENNV;
+                MessageBox.Show("  Bạn chưa chọn phiếu nhập để xuất !", "THÔNG BÁO");
+                return;
             }
-            var query = (from ctpn in DataProvider.Ins.DB.CTPNs
-                         join sp in DataProvider.Ins.DB.SANPHAMs on ctpn.MASP equals sp.MASP
-                         orderby sp.MASP
-                         select new
-                         {
-                             MAPNHAP = ctpn.MAPNHAP,
-                             MASP = sp.MASP,
-                             TENSP = sp.TENSP,
-                             MANCC = sp.MANCC,
-                             SL = ctpn.SLNHAP,
-                             GIANHAP = ctpn.GIANHAP
-                         }).Where(e => e.MAPNHAP == p.MAPNHAP.Text);
-
-            var list = query.ToList();
-            var listSPNHAP = new ObservableCollection<object>(list.Select(e => new
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn có muốn in phiểu nhập ? .", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            if (h == MessageBoxResult.Yes)
             {
-                MASP = e.MASP,
-                TENSP = e.TENSP,
-                MANCC = e.MANCC,
-                SL = e.SL,
-                GIANHAP = e.GIANHAP
-            }));
-            printImport.ListViewSP.ItemsSource = listSPNHAP;
-            p.DatagridPN.SelectedItem = null;
-
-            var query1 = (from ctpn in DataProvider.Ins.DB.CTPNs
-                          group ctpn by ctpn.MAPNHAP into g
-                          select new
-                          {
-                              MAPNHAP = g.Key,
-                              THANHTIEN = g.Sum(ctpn => ctpn.SLNHAP * ctpn.GIANHAP)
-                          }).Where(e => e.MAPNHAP == p.MAPNHAP.Text);
-            foreach (var item in query1)
-            {
-                printImport.THANHTIEN.Text = string.Format("{0:0,0} VNĐ", item.THANHTIEN);
-            }
-            try
-            {
-                PrintDialog printDialog = new PrintDialog();
-                if (printDialog.ShowDialog() == true)
+                PrintImport printImport = new PrintImport();
+                if (p.DatagridPN.SelectedItem != null)
                 {
-                    printDialog.PrintVisual(printImport.PrintView, "IMPORT");
+                    var selectedItem = (dynamic)p.DatagridPN.SelectedItem;
+                    printImport.MAPNHAP.Text = selectedItem.MAPNHAP;
+                    printImport.NGAYNHAP.Text = selectedItem.NGAYNHAP.ToString();
+                    printImport.TENNV.Text = selectedItem.TENNV;
+                }
+                var query = (from ctpn in DataProvider.Ins.DB.CTPNs
+                             join sp in DataProvider.Ins.DB.SANPHAMs on ctpn.MASP equals sp.MASP
+                             orderby sp.MASP
+                             select new
+                             {
+                                 MAPNHAP = ctpn.MAPNHAP,
+                                 MASP = sp.MASP,
+                                 TENSP = sp.TENSP,
+                                 MANCC = sp.MANCC,
+                                 SL = ctpn.SLNHAP,
+                                 GIANHAP = ctpn.GIANHAP
+                             }).Where(e => e.MAPNHAP == p.MAPNHAP.Text);
+
+                var list = query.ToList();
+                var listSPNHAP = new ObservableCollection<object>(list.Select(e => new
+                {
+                    MASP = e.MASP,
+                    TENSP = e.TENSP,
+                    MANCC = e.MANCC,
+                    SL = e.SL,
+                    GIANHAP = e.GIANHAP
+                }));
+                printImport.ListViewSP.ItemsSource = listSPNHAP;
+                p.DatagridPN.SelectedItem = null;
+
+                var query1 = (from ctpn in DataProvider.Ins.DB.CTPNs
+                              group ctpn by ctpn.MAPNHAP into g
+                              select new
+                              {
+                                  MAPNHAP = g.Key,
+                                  THANHTIEN = g.Sum(ctpn => ctpn.SLNHAP * ctpn.GIANHAP)
+                              }).Where(e => e.MAPNHAP == p.MAPNHAP.Text);
+                foreach (var item in query1)
+                {
+                    printImport.THANHTIEN.Text = string.Format("{0:0,0} VNĐ", item.THANHTIEN);
+                }
+                bool isPrintButtonClicked = false;
+
+                try
+                {
+                    PrintDialog printDialog = new PrintDialog();
+                    if (printDialog.ShowDialog() == true)
+                    {
+                        printDialog.PrintVisual(printImport.PrintView, "IMPORT");
+                        isPrintButtonClicked = true;
+                    }
+                }
+                finally
+                {
+                    if (isPrintButtonClicked)
+                    {
+                        MessageBox.Show("In Phiếu nhập thành công!", "THÔNG BÁO");
+                    }
                 }
             }
-            finally
-            {
-
-            }
-            MessageBox.Show("In Phiếu nhập thành công !", "THÔNG BÁO");
         }
-        //void _Search(ImportView p)
-        //{
-        //    ObservableCollection<object> temp = new ObservableCollection<object>();
-        //    var query = (from pn in DataProvider.Ins.DB.PHIEUNHAPs
-        //                 join nv in DataProvider.Ins.DB.NHANVIENs on pn.MANV equals nv.MANV
-        //                 orderby pn.MAPNHAP ascending
-        //                 select new
-        //                 {
-        //                     MAPNHAP = pn.MAPNHAP,
-        //                     TENNV = nv.TENNV,
-        //                     MANV = pn.MANV,
-        //                     NGAYNHAP = pn.NGAYNHAP,
-        //                 });
-        //    if (p.txbSearch.Text != "")
-        //    {
-        //        switch (listTK[p.cbxChon.SelectedIndex])
-        //        {
-        //            case "Mã PN":
-        //                {
-        //                    var list = query.ToList().Where(e => e.MAPNHAP.ToLower().Contains(p.txbSearch.Text.ToLower())).ToList();
-        //                    temp = new ObservableCollection<object>(list.Select(e => new
-        //                    {
-        //                        MAPNHAP = e.MAPNHAP,
-        //                        MANV = e.MANV,
-        //                        TENNV = e.TENNV,
-        //                        NGAYNHAP = e.NGAYNHAP.ToShortDateString(),
-        //                    }));
-        //                    p.DatagridPN.ItemsSource = temp;    
-        //                    break;
-        //                }
-        //            case "Tên NQL":
-        //                {
-        //                    var list = query.ToList().Where(e => e.TENNV.ToLower().Contains(p.txbSearch.Text.ToLower())).ToList();
-        //                    temp = new ObservableCollection<object>(list.Select(e => new
-        //                    {
-        //                        MAPNHAP = e.MAPNHAP,
-        //                        MANV = e.MANV,
-        //                        TENNV = e.TENNV,
-        //                        NGAYNHAP = e.NGAYNHAP.ToShortDateString(),
-        //                    }));
-        //                    p.DatagridPN.ItemsSource = temp;
-        //                    break;
-        //                }
-        //            case "Ngày":
-        //                {
-        //                    var list = query.ToList().Where(e => e.NGAYNHAP.ToString().Contains(p.txbSearch.Text.ToLower())).ToList();
-        //                    temp = new ObservableCollection<object>(list.Select(e => new
-        //                    {
-        //                        MAPNHAP = e.MAPNHAP,
-        //                        MANV = e.MANV,
-        //                        TENNV = e.TENNV,
-        //                        NGAYNHAP = e.NGAYNHAP.ToShortDateString(),
-        //                    }));
-        //                    p.DatagridPN.ItemsSource = temp;
-        //                    break;
-        //                }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        _LoadListPN(p);
-        //    }
-        //}
         void _Search(ImportView p)
         {
+            if (p.cbxChon.SelectedIndex == 1)
+            {
+                if (p.FromDate.SelectedDate != null && p.ToDate.SelectedDate != null)
+                {
+
+                    var query = (from pn in DataProvider.Ins.DB.PHIEUNHAPs
+                                 join nv in DataProvider.Ins.DB.NHANVIENs on pn.MANV equals nv.MANV
+                                 orderby pn.MAPNHAP ascending
+                                 select new
+                                 {
+                                     MAPNHAP = pn.MAPNHAP,
+                                     TENNV = nv.TENNV,
+                                     MANV = pn.MANV,
+                                     NGAYNHAP = pn.NGAYNHAP,
+                                 }).Where(e => p.FromDate.SelectedDate.Value <= e.NGAYNHAP && e.NGAYNHAP <= p.ToDate.SelectedDate.Value);
+                    var list = query.ToList();
+                    var listPN = new ObservableCollection<object>(list.Select(e => new
+                    {
+                        MAPNHAP = e.MAPNHAP,
+                        MANV = e.MANV,
+                        TENNV = e.TENNV,
+                        NGAYNHAP = e.NGAYNHAP.ToShortDateString(),
+                    }));
+                    p.DatagridPN.ItemsSource = listPN;
+                    p.FromDate.SelectedDate = null;
+                    p.ToDate.SelectedDate = null;
+                    return;
+                }
+                else { return; }
+            }
             if (p.txbSearch.Text != "")
             {
-                switch (p.cbxChon.SelectedItem.ToString())
+                if (p.cbxChon.SelectedItem != null)
                 {
-                    case "Mã PN":
-                        {
-                            var query = (from pn in DataProvider.Ins.DB.PHIEUNHAPs
-                                         join nv in DataProvider.Ins.DB.NHANVIENs on pn.MANV equals nv.MANV
-                                         orderby pn.MAPNHAP ascending
-                                         select new
-                                         {
-                                             MAPNHAP = pn.MAPNHAP,
-                                             TENNV = nv.TENNV,
-                                             MANV = pn.MANV,
-                                             NGAYNHAP = pn.NGAYNHAP,
-                                         }).Where(e => e.MAPNHAP.ToLower().Contains(p.txbSearch.Text.ToLower()));
-                            var list = query.ToList();
-                            var listPN = new ObservableCollection<object>(list.Select(e => new
+                    switch (p.cbxChon.SelectedItem.ToString())
+                    {
+                        case "Mã PN":
                             {
-                                MAPNHAP = e.MAPNHAP,
-                                MANV = e.MANV,
-                                TENNV = e.TENNV,
-                                NGAYNHAP = e.NGAYNHAP.ToShortDateString(),
-                            }));
-                            p.DatagridPN.ItemsSource = listPN;
-                            break;
-                        }
-                    case "Ngày":
-                        {
-                            string searchText = p.txbSearch.Text;
-                            string[] dateComponents = searchText.Split('/');
-
-                            int? day = null;
-                            int? month = null;
-                            int? year = null;
-
-                            if (dateComponents.Length >= 1)
-                            {
-                                int parsedDay;
-                                if (int.TryParse(dateComponents[0], out parsedDay))
+                                var query = (from pn in DataProvider.Ins.DB.PHIEUNHAPs
+                                             join nv in DataProvider.Ins.DB.NHANVIENs on pn.MANV equals nv.MANV
+                                             orderby pn.MAPNHAP ascending
+                                             select new
+                                             {
+                                                 MAPNHAP = pn.MAPNHAP,
+                                                 TENNV = nv.TENNV,
+                                                 MANV = pn.MANV,
+                                                 NGAYNHAP = pn.NGAYNHAP,
+                                             }).Where(e => e.MAPNHAP.ToLower().Contains(p.txbSearch.Text.ToLower()));
+                                var list = query.ToList();
+                                var listPN = new ObservableCollection<object>(list.Select(e => new
                                 {
-                                    day = parsedDay;
-                                }
+                                    MAPNHAP = e.MAPNHAP,
+                                    MANV = e.MANV,
+                                    TENNV = e.TENNV,
+                                    NGAYNHAP = e.NGAYNHAP.ToShortDateString(),
+                                }));
+                                p.DatagridPN.ItemsSource = listPN;
+                                break;
                             }
-
-                            if (dateComponents.Length >= 2)
+                        default:
                             {
-                                int parsedMonth;
-                                if (int.TryParse(dateComponents[1], out parsedMonth))
+                                var query = (from pn in DataProvider.Ins.DB.PHIEUNHAPs
+                                             join nv in DataProvider.Ins.DB.NHANVIENs on pn.MANV equals nv.MANV
+                                             orderby pn.MAPNHAP ascending
+                                             select new
+                                             {
+                                                 MAPNHAP = pn.MAPNHAP,
+                                                 TENNV = nv.TENNV,
+                                                 MANV = pn.MANV,
+                                                 NGAYNHAP = pn.NGAYNHAP,
+                                             }).Where(e => e.MAPNHAP.ToLower().Contains(p.txbSearch.Text.ToLower()));
+                                var list = query.ToList();
+                                var listPN = new ObservableCollection<object>(list.Select(e => new
                                 {
-                                    month = parsedMonth;
-                                }
+                                    MAPNHAP = e.MAPNHAP,
+                                    MANV = e.MANV,
+                                    TENNV = e.TENNV,
+                                    NGAYNHAP = e.NGAYNHAP.ToShortDateString(),
+                                }));
+                                p.DatagridPN.ItemsSource = listPN;
+                                break;
                             }
-
-                            if (dateComponents.Length >= 3)
-                            {
-                                int parsedYear;
-                                if (int.TryParse(dateComponents[2], out parsedYear))
-                                {
-                                    year = parsedYear;
-                                }
-                            }
-
-                            var query = (from pn in DataProvider.Ins.DB.PHIEUNHAPs
-                                         join nv in DataProvider.Ins.DB.NHANVIENs on pn.MANV equals nv.MANV
-                                         orderby pn.MAPNHAP ascending
-                                         where (day == null || pn.NGAYNHAP.Day == day) &&
-                                               (month == null || pn.NGAYNHAP.Month == month) &&
-                                               (year == null || pn.NGAYNHAP.Year == year)
-                                         select new
-                                         {
-                                             MAPNHAP = pn.MAPNHAP,
-                                             TENNV = nv.TENNV,
-                                             MANV = pn.MANV,
-                                             NGAYNHAP = pn.NGAYNHAP,
-                                         });
-
-                            var list = query.ToList();
-                            var listPN = new ObservableCollection<object>(list.Select(e => new
-                            {
-                                MAPNHAP = e.MAPNHAP,
-                                MANV = e.MANV,
-                                TENNV = e.TENNV,
-                                NGAYNHAP = e.NGAYNHAP.ToShortDateString(),
-                            }));
-
-                            p.DatagridPN.ItemsSource = listPN;
-                            break;
-                        }
-                    default:
-                        {
-                            var query = (from pn in DataProvider.Ins.DB.PHIEUNHAPs
-                                         join nv in DataProvider.Ins.DB.NHANVIENs on pn.MANV equals nv.MANV
-                                         orderby pn.MAPNHAP ascending
-                                         select new
-                                         {
-                                             MAPNHAP = pn.MAPNHAP,
-                                             TENNV = nv.TENNV,
-                                             MANV = pn.MANV,
-                                             NGAYNHAP = pn.NGAYNHAP,
-                                         }).Where(e => e.MAPNHAP.ToLower().Contains(p.txbSearch.Text.ToLower()));
-                            var list = query.ToList();
-                            var listPN = new ObservableCollection<object>(list.Select(e => new
-                            {
-                                MAPNHAP = e.MAPNHAP,
-                                MANV = e.MANV,
-                                TENNV = e.TENNV,
-                                NGAYNHAP = e.NGAYNHAP.ToShortDateString(),
-                            }));
-                            p.DatagridPN.ItemsSource = listPN;
-                            break;
-                        }
+                    }
+                }
+                else
+                {
+                    var query = (from pn in DataProvider.Ins.DB.PHIEUNHAPs
+                                 join nv in DataProvider.Ins.DB.NHANVIENs on pn.MANV equals nv.MANV
+                                 orderby pn.MAPNHAP ascending
+                                 select new
+                                 {
+                                     MAPNHAP = pn.MAPNHAP,
+                                     TENNV = nv.TENNV,
+                                     MANV = pn.MANV,
+                                     NGAYNHAP = pn.NGAYNHAP,
+                                 }).Where(e => e.MAPNHAP.ToLower().Contains(p.txbSearch.Text.ToLower()));
+                    var list = query.ToList();
+                    var listPN = new ObservableCollection<object>(list.Select(e => new
+                    {
+                        MAPNHAP = e.MAPNHAP,
+                        MANV = e.MANV,
+                        TENNV = e.TENNV,
+                        NGAYNHAP = e.NGAYNHAP.ToShortDateString(),
+                    }));
+                    p.DatagridPN.ItemsSource = listPN;
                 }
             }
             else

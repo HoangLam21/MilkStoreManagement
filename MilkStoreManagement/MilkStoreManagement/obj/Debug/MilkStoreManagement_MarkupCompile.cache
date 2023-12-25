@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\University's document\Kì 3\C#\Code TH\Test1\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\obj\Debug\
+E:\Document\ME\HK3\3. Lập trình trực quan\New folder (3)\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\obj\Debug\
 MilkStoreManagement
 none
 false
 DEBUG;TRACE
-D:\University's document\Kì 3\C#\Code TH\Test1\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml
+E:\Document\ME\HK3\3. Lập trình trực quan\New folder (3)\MilkStoreManagement\MilkStoreManagement\MilkStoreManagement\App.xaml
 29-1462295803
 2739969757
 711930215756
-39-1659337836
+391912799608
 Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddCustomerView.xaml;View\AddImportView.xaml;View\AddOrderView.xaml;View\AddProductView.xaml;View\AddStaffView.xaml;View\ChangePassword.xaml;View\CustomerView.xaml;View\DetailCustomerView.xaml;View\DetailProduct.xaml;View\DetailStaffView.xaml;View\ForgetPassView.xaml;View\HomeView.xaml;View\ImportView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\PrintImport.xaml;View\PrintOrderView.xaml;View\PrintRevenueReport.xaml;View\PrintScheduleView.xaml;View\ProductsView.xaml;View\RevenueView.xaml;View\ScheduleView.xaml;View\SettingView.xaml;View\SplitSchedule.xaml;View\StaffView.xaml;View\UpdateStaffView.xaml;
 
 False

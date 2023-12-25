@@ -111,24 +111,20 @@
                          CornerRadius="10"
                          BorderThickness="2"
                          BorderBrush="gray"
-                         Height="30" 
-                                    Width="140"
+                         Height="30" Width="140"
                     >
                                     <TextBox
                                         Background="White"
-                             Margin="0"
                              x:Name="MaSp"
-                                        
                              HorizontalAlignment="Center"
-                             Height="50"
+                             Height="23"
                              Width="120"
                              BorderThickness="0"
                              FontFamily="{StaticResource Custom}"
                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                              materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                             materialDesign:HintAssist.Hint="  Mã SP..."
-                             materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                             materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+                              materialDesign:TextFieldAssist.TextBoxViewMargin="0,2,0,0"
+                             materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08" Margin="0,0,0,0"
                      />
                                 </Border>
                             </StackPanel>
@@ -149,19 +145,17 @@
 >
                                     <TextBox
                     Background="White"
-         Margin="0"
          x:Name="TenSp"
                     
-         HorizontalAlignment="Center"
-         Height="50"
-         Width="120"
-         BorderThickness="0"
-         FontFamily="{StaticResource Custom}"
-         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-         materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-         materialDesign:HintAssist.Hint="  Mã SP..."
-         materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-         materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+HorizontalAlignment="Center"
+Height="23"
+Width="120"
+BorderThickness="0"
+FontFamily="{StaticResource Custom}"
+materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+ materialDesign:TextFieldAssist.TextBoxViewMargin="0,2,0,0"
+materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08" Margin="0,0,0,0"
  />
                                 </Border>
                             </StackPanel>
@@ -187,16 +181,15 @@
          Margin="0"
          x:Name="GiaSp"
                     
-         HorizontalAlignment="Center"
-         Height="50"
-         Width="120"
-         BorderThickness="0"
-         FontFamily="{StaticResource Custom}"
-         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-         materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-         materialDesign:HintAssist.Hint="  Mã SP..."
-         materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-         materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+HorizontalAlignment="Center"
+Height="23"
+Width="120"
+BorderThickness="0"
+FontFamily="{StaticResource Custom}"
+materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+ materialDesign:TextFieldAssist.TextBoxViewMargin="0,2,0,0"
+materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
  />
                                 </Border>
                             </StackPanel>
@@ -219,15 +212,15 @@
             >
                                     <ComboBox
                     x:Name="LoaiSp"
-                    materialDesign:TextFieldAssist.TextBoxViewMargin="0,-10,0,0"
+                    materialDesign:TextFieldAssist.TextBoxViewMargin="0,-1,0,0" 
                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                     BorderThickness="0"
                     materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
                     materialDesign:HintAssist.Foreground="White"
                     Background="Transparent"
                     FontFamily="{StaticResource Custom}"
-                    FontSize="12" Margin="8,-4,8,-7" >
-                                        <ComboBoxItem Content="Sữa bột"/>
+                    FontSize="12" Margin="8,0,8,0" Height="23" Foreground="Gray">
+                                        <ComboBoxItem Content="Sữa bột" />
                                         <ComboBoxItem Content="Sữa tăng cân"/>
                                         <ComboBoxItem Content="Sữa tăng chiều cao"/>
                                         <ComboBoxItem Content="Sữa đặc"/>
@@ -259,16 +252,15 @@
          Margin="0"
          x:Name="SlSp"
                     
-         HorizontalAlignment="Center"
-         Height="50"
-         Width="120"
-         BorderThickness="0"
-         FontFamily="{StaticResource Custom}"
-         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-         materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-         materialDesign:HintAssist.Hint="  Mã SP..."
-         materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-         materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+HorizontalAlignment="Center"
+Height="23"
+Width="120"
+BorderThickness="0"
+FontFamily="{StaticResource Custom}"
+materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+ materialDesign:TextFieldAssist.TextBoxViewMargin="0,2,0,0"
+materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08" 
  />
                                 </Border>
                             </StackPanel>
@@ -291,15 +283,14 @@
          x:Name="KLG"
                     
          HorizontalAlignment="Center"
-         Height="30"
+         Height="23"
          Width="60"
-         BorderThickness="0"
-         FontFamily="{StaticResource Custom}"
-         materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-         materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-         materialDesign:HintAssist.Hint="  Mã SP..."
-         materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-         materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
+         BorderThickness="0" 
+FontFamily="{StaticResource Custom}"
+materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+ materialDesign:TextFieldAssist.TextBoxViewMargin="0,2,0,0"
+materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08" 
  />
                                 </Border>
                             </StackPanel>
@@ -322,17 +313,16 @@
                                     <ComboBox
                                 x:Name="DVT"
                                 Style="{StaticResource MaterialDesignFilledComboBox}"
-                                materialDesign:TextFieldAssist.TextBoxViewMargin="0,-10,0,0"
+                                materialDesign:TextFieldAssist.TextBoxViewMargin="-10,-4,0,0"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                 BorderThickness="0"
                                 materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
                                 materialDesign:HintAssist.Foreground="White"
                                 Background="Transparent"
                                 FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                Width="60" Margin="3,-6,3,-6">
-                                        <ComboBoxItem Content="gr"/>
-                                        <ComboBoxItem Content="ml"/>
+                                FontSize="12" Foreground="Gray" Margin="7,-12,-4,-4">
+                                        <ComboBoxItem Content="gr" />
+                                        <ComboBoxItem Content="ml" />
                                         <ComboBoxItem Content="kg"/>
                                         <ComboBoxItem Content="l"/>
                                     </ComboBox>
@@ -530,16 +520,14 @@
                                 </Grid>
                             </UniformGrid>
                         </Expander>
-
                         <Button
                 Width="162"
                 Height="42"
                 FontFamily="{StaticResource Custom}"
+                Style="{StaticResource addButton}"
                 materialDesign:ButtonAssist.CornerRadius="6"
                 BorderThickness="0"
-                Background="#FFCA08"
-                 Margin="25,20,0,0"
-                RenderTransformOrigin="-0.162,0.621"
+                Background="#FFCA08" VerticalAlignment="Center" HorizontalAlignment="Center"
             >
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
