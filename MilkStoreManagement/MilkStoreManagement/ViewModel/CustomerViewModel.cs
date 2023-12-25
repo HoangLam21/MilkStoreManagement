@@ -118,7 +118,7 @@ namespace MilkStoreManagement.ViewModel
             KHACHHANG temp = (KHACHHANG)paramater.DatagridNV.SelectedItem;
             detailCustomerView.MAKH.Text = temp.MAKH;
             detailCustomerView.TenKH.Text = temp.TENKH;
-            detailCustomerView.NGSINH.Text = temp.NGSINH.ToString();
+            detailCustomerView.NGSINH.Text = temp.NGSINH.ToShortDateString();
             detailCustomerView.SDT.Text = temp.SDT;
             detailCustomerView.DOANHSO.Text = temp.DOANHSO.ToString();
             detailCustomerView.GHICHU.Text = temp.GHICHU;

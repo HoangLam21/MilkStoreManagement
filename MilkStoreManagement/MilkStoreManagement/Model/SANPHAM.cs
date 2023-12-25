@@ -11,7 +11,7 @@ namespace MilkStoreManagement.Model
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class SANPHAM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,7 +20,7 @@ namespace MilkStoreManagement.Model
             this.CTPNs = new HashSet<CTPN>();
             this.CTHDs = new HashSet<CTHD>();
         }
-    
+
         public string MASP { get; set; }
         public string TENSP { get; set; }
         public DateTime NSX { get; set; }

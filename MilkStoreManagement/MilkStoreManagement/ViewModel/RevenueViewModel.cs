@@ -256,14 +256,14 @@ namespace MilkStoreManagement.ViewModel
                         join SP in DataProvider.Ins.DB.SANPHAMs on CT.MASP equals SP.MASP
                         join HD in DataProvider.Ins.DB.HOADONs on CT.SOHD equals HD.SOHD
                         where (HD.NGHD.Year == year && Math.Abs(HD.NGHD.Month - quy) <= 1)
-                        group CT by new { CT.MASP, SP.TENSP, SP.GIABAN } into g
+                        group CT by new { CT.MASP, SP.TENSP, SP.GIABAN, CT.SLMUA } into g
                         select new
                         {
                             masp = g.Key.MASP,
                             tensp = g.Key.TENSP,
-                            soluong = g.Count(),
+                            soluong = g.Key.SLMUA,
                             giaban = g.Key.GIABAN,
-                            tongthu = g.Count() * g.Key.GIABAN
+                            tongthu = g.Key.SLMUA * g.Key.GIABAN
                         };
             List<SP> sps = new List<SP>();
             foreach (var field in query.ToList())
@@ -338,6 +338,8 @@ namespace MilkStoreManagement.ViewModel
                 i++;
                 Labels.Add(y.ToString());
             }
+            Labels.Reverse();
+            ValuesOut.Reverse();
 
 
         }
