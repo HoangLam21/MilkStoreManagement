@@ -23,7 +23,7 @@
                 CornerRadius="40" Margin="15,100,15,15" BorderThickness="0.75" 
                 >
         <Border.Effect>
-            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+            <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
         </Border.Effect>
         <Grid Height="680" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
@@ -38,7 +38,7 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2">
                 <Border Grid.Row="0" >
-                    <Label Content="Sản phẩm" FontSize="24" Foreground="#747474" FontWeight="Bold"  FontFamily="lexend" Margin="41 10"/>
+                    <Label Content="Sản phẩm" FontSize="24" Foreground="#747474" FontWeight="Bold"  FontFamily="{StaticResource Custom}" Margin="41 10"/>
 
                 </Border>
 

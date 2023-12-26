@@ -30,7 +30,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Margin="0,0,0,15">
-                <materialDesign:ColorZone Background="#f7f7df" CornerRadius="15" Height="50" Mode="PrimaryMid" Margin="0,0,4,0" VerticalAlignment="Center">
+                <materialDesign:ColorZone Background="#f7f7df" CornerRadius="15" Height="50" Mode="PrimaryMid" Margin="0,0,10,0" VerticalAlignment="Center">
                     <TextBlock VerticalAlignment="Center" FontSize="27" 
                                Margin="35,0,10,0" 
                                FontWeight="DemiBold"
@@ -41,7 +41,7 @@
                 </materialDesign:ColorZone>
             </Grid>
             <Grid Grid.Row="1">
-                <Border CornerRadius="30" Background="White" BorderThickness="0.75" Margin="0,0,7,20">
+                <Border CornerRadius="40" Background="White" BorderThickness="0.75" Margin="0,0,7,20">
                     <Border.Effect>
                         <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
                     </Border.Effect>
@@ -260,7 +260,7 @@
                 </materialDesign:ColorZone>
             </Grid>
             <Grid Grid.Row="3">
-                <Border CornerRadius="30" Background="White" Margin="0,0,7,0">
+                <Border CornerRadius="40" Background="White" Margin="0,0,7,0">
                     <Border.Effect>
                         <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
                     </Border.Effect>

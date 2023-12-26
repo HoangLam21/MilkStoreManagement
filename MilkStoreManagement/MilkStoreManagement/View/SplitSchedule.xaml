@@ -37,9 +37,9 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <TextBlock Text="LỊCH LÀM VIỆC"
-                            Foreground="BLACK"
-                            FontFamily="{StaticResource Custom}"
-                            FontSize="30"
+                            Foreground="#747474"
+                            FontFamily="{StaticResource Custom}" 
+                            FontSize="28" Margin="0,-5,0,0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"/>
                 <StackPanel Orientation="Horizontal" 
@@ -64,7 +64,7 @@
                     </materialDesign:PackIcon>
                 </StackPanel>
             </Grid>
-            <Border Height="0.75" Margin="0,0,0,7" VerticalAlignment="Bottom"  Background="black" />
+            <Border Height="0.75" Margin="0,0,0,7" VerticalAlignment="Bottom"  Background="#ffca08" />
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="450"></ColumnDefinition>
