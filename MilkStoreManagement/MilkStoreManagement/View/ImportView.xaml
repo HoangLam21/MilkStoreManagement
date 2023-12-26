@@ -26,7 +26,7 @@
         Background="#ffffff"
         CornerRadius="40" Margin="15 100 15 15">
         <Border.Effect>
-            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+            <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
         </Border.Effect>
         <Grid>
             <Grid.RowDefinitions>
@@ -152,7 +152,7 @@
                 </StackPanel>
             </Grid >
             <Border Grid.Row="0" >
-                <Label Content="Phiếu nhập" FontSize="24" Foreground="#747474" FontWeight="Bold"  FontFamily="lexend" Margin="41 10"/>
+                <Label Content="Phiếu nhập" FontSize="24" Foreground="#747474" FontWeight="Bold"  FontFamily="{StaticResource Custom}" Margin="41 10"/>
 
             </Border>
             <Separator Height="3" Width="650" Background="#fff2c1" HorizontalAlignment="Left" Margin="50 61 0 0"/>

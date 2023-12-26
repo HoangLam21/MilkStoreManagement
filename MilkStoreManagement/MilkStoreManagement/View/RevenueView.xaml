@@ -42,7 +42,7 @@
                     VerticalAlignment="Top"
                     BorderThickness="0.75" Canvas.Left="278" Canvas.Top="5" HorizontalAlignment="Center" Margin="0,30,0,0">
                         <Border.Effect>
-                            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                            <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
                         </Border.Effect>
                         <Grid HorizontalAlignment="Center" VerticalAlignment="Center" ClipToBounds="False">
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -124,7 +124,7 @@
                     VerticalAlignment="Top"
                     BorderThickness="0.75" Canvas.Right="0" Canvas.Top="5" HorizontalAlignment="Center" Margin="0,30,0,0">
                         <Border.Effect>
-                            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                            <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
                         </Border.Effect>
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Grid Height="135" Width="204" RenderTransformOrigin="0.602,0.454">
@@ -229,7 +229,7 @@
                     VerticalAlignment="Top"
                     BorderThickness="0.75" Canvas.Right="0" Canvas.Top="5" HorizontalAlignment="Center" Margin="0,30,0,0">
                         <Border.Effect>
-                            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                            <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
                         </Border.Effect>
                         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                             <Grid Height="135" Width="204" RenderTransformOrigin="0.602,0.454">
@@ -305,7 +305,7 @@
                     VerticalAlignment="Center"
                     BorderThickness="0.75" HorizontalAlignment="Center" >
                         <Border.Effect>
-                            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                            <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
                         </Border.Effect>
                         <StackPanel Height="260" Width="780" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Grid Height="41">
@@ -314,8 +314,8 @@
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0" x:Name="ThongKeThu"
-                                Margin="166,18,254,0" Text="Chi tiết thu"
-                                Foreground="#383838"
+                                Margin="150,10,254,0" Text="Chi tiết thu"
+                                Foreground="#383838" FontFamily="{StaticResource Custom}"
                                 FontSize="16" FontWeight="DemiBold"
                                 VerticalAlignment="Top" Grid.ColumnSpan="2" Height="23">
                                 </TextBlock>
@@ -365,7 +365,7 @@
                     VerticalAlignment="Center"
                     BorderThickness="0.75" HorizontalAlignment="Center" >
                         <Border.Effect>
-                            <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                            <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
                         </Border.Effect>
                         <StackPanel Height="260" Width="780" VerticalAlignment="Center" HorizontalAlignment="Center">
                             <Grid Height="35">
@@ -374,8 +374,8 @@
                                     <ColumnDefinition></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0" x:Name="ThongKeChi"
-                                Margin="152,14,268,0" Text="Chi tiết chi"
-                                Foreground="#383838"
+                                Margin="150,14,268,0" Text="Chi tiết chi"
+                                Foreground="#383838" FontFamily="{StaticResource Custom}"
                                 FontSize="16" FontWeight="DemiBold"
                                 VerticalAlignment="Top" Grid.ColumnSpan="2" Height="21">
                                 </TextBlock>
@@ -426,7 +426,7 @@
                     VerticalAlignment="Center"
                     BorderThickness="0.75" HorizontalAlignment="Left" Margin="10,-9,0,0" >
                     <Border.Effect>
-                        <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                        <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
                     </Border.Effect>
                     <StackPanel Height="260" Width="1130" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Grid Height="35">
@@ -435,8 +435,8 @@
                                 <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" x:Name="ThongKeDoanhThu"
-                                Margin="30,5,0,0" Text="Thống Kê Doanh Thu"
-                                Foreground="#383838"
+                                Margin="30,10,0,0" Text="Thống Kê Doanh Thu"
+                                Foreground="#383838" FontFamily="{StaticResource Custom}"
                                 FontSize="15" FontWeight="DemiBold">
                             </TextBlock>
 

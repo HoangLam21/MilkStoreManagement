@@ -54,8 +54,8 @@
             >
                             <TextBlock.Foreground>
                                 <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
-                                    <GradientStop Color="#EEE8AA" Offset="0"/>
-                                    <GradientStop Color="#FFCA08" Offset="1"/>
+                                    <GradientStop Color="#ffca08" Offset="0"/>
+                                    <GradientStop Color="#EEE8AA" Offset="1"/>
                                 </LinearGradientBrush>
                             </TextBlock.Foreground>
                         </TextBlock>

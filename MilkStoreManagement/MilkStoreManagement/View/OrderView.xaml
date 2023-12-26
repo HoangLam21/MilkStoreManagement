@@ -14,18 +14,19 @@
       TextElement.FontSize="13"
       TextOptions.TextFormattingMode="Ideal"
       TextOptions.TextRenderingMode="Auto"
-       Height="704" Width="1144" Margin="15 82 15 15" >
+       Height="800" Width="1170">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction  Command="{Binding LoadCsCommand}"
                        CommandParameter="{Binding ElementName=Orderwd}"></i:InvokeCommandAction>
         </i:EventTrigger>
     </i:Interaction.Triggers>
-
     <Border
-Height="678" Width="1138"
-Background="#ffffff"
-CornerRadius="30">
+        Background="#ffffff"
+        CornerRadius="40" Margin="15 100 15 15">
+        <Border.Effect>
+            <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
+        </Border.Effect>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="64"/>
@@ -85,7 +86,7 @@ CornerRadius="30">
                 </StackPanel>
             </Grid >
             <Border Grid.Row="0" >
-                <Label Content="Hóa đơn" FontSize="24" Foreground="#747474" FontWeight="Bold"  FontFamily="lexend" Margin="41 10"/>
+                <Label Content="Hóa đơn" FontSize="24" Foreground="#747474" FontWeight="Bold"  FontFamily="{StaticResource Custom}" Margin="41 10"/>
 
             </Border>
             <Separator Height="3" Width="650" Background="#fff2c1" HorizontalAlignment="Left" Margin="50 61 0 0"/>

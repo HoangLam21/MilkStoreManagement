@@ -328,8 +328,8 @@
                             <Grid Grid.Row="0">
                                 <TextBlock Text="Nhân viên ưu tú"
                                    Margin="0,5,0,0"
-                                   FontSize="18"
-                                   Foreground="Black"
+                                   FontSize="18" FontFamily="{StaticResource Custom}" 
+                                   Foreground="Gray"
                                    FontWeight="DemiBold"
                                    VerticalAlignment="Top" HorizontalAlignment="Center">
                                 </TextBlock>
@@ -469,8 +469,8 @@
                             <Grid Grid.Row="0">
                                 <TextBlock Text="Khách hàng thân thiết"
                                    Margin="0,5,0,0"
-                                   FontSize="18"
-                                   Foreground="Black"
+                                   FontSize="18" FontFamily="{StaticResource Custom}" 
+                                   Foreground="Gray"
                                    FontWeight="DemiBold"
                                    VerticalAlignment="Top" HorizontalAlignment="Center">
                                 </TextBlock>
@@ -638,8 +638,8 @@
                         <Grid Grid.Row="0">
                             <TextBlock Text="Sản phẩm bán chạy"
                                    Margin="20,5,0,0"
-                                   FontSize="20"
-                                   Foreground="Black"
+                                   FontSize="20" FontFamily="{StaticResource Custom}" 
+                                   Foreground="Gray"
                                    FontWeight="DemiBold"
                                    VerticalAlignment="Top" HorizontalAlignment="Left">
                             </TextBlock>

@@ -24,7 +24,7 @@
                 <ColumnDefinition Width="400"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Border CornerRadius="30"
+                <Border CornerRadius="40"
                     Height="685"
                     Background="White"
                     VerticalAlignment="Top"
@@ -34,18 +34,17 @@
                     </Border.Effect>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition Height="65"></RowDefinition>
                             <RowDefinition Height="80"></RowDefinition>
                             <RowDefinition Height="60"></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <TextBlock Text="Lịch làm việc" 
-                                FontSize="30" FontFamily="{StaticResource Custom}"
-                                Foreground="Black" Margin="30,20,30,0">
+                                FontSize="24" FontFamily="{StaticResource Custom}"
+                                Foreground="#747474" Margin="41 10">
                             </TextBlock>
                         </Grid>
-                        <Border Height="0.75" VerticalAlignment="Bottom"  Background="#ffca08" />
                         <Grid Grid.Row="1">
                             <Border CornerRadius="30"
                                     Height="60" Width="130"
@@ -295,7 +294,7 @@
                 </Border>
             </Grid>
             <Grid Grid.Column="1">
-                <Border CornerRadius="30"
+                <Border CornerRadius="40"
                     Height="685"
                     Background="White"
                     VerticalAlignment="Top"
@@ -305,17 +304,15 @@
                     </Border.Effect>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="70"></RowDefinition>
+                            <RowDefinition Height="65"></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <TextBlock Text="Lịch" 
-                                FontSize="30" FontFamily="{StaticResource Custom}"
-                                Foreground="Black" Margin="30,20,30,0">
+                                FontSize="24" FontFamily="{StaticResource Custom}"
+                                Foreground="#747474" Margin="41 10">
                             </TextBlock>
                         </Grid>
-                        <Border Height="0.75" VerticalAlignment="Bottom"  Background="#ffca08" />
-
                         <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="390"></RowDefinition>
