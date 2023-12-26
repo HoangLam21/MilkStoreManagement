@@ -48,8 +48,9 @@ namespace MilkStoreManagement.ViewModel
             if (open.ShowDialog() == true)
             {
                 Ava = open.FileName;
+                p.ImageSource = new BitmapImage(new Uri(Ava));
             }
-            p.ImageSource = new BitmapImage(new Uri(Ava));
+           
         }
 
         void _GetName(UpdateStaffView p)
