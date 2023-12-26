@@ -55,9 +55,10 @@ namespace MilkStoreManagement.ViewModel
             open.Filter = "Image Files(*.jpg; *.png)|*.jpg; *.png";
             if (open.ShowDialog() == true)
             {
-                Ava = open.FileName;
+                Ava = open.FileName; 
+                img.ImageSource = new BitmapImage(new Uri(Ava));
             }
-            img.ImageSource = new BitmapImage(new Uri(Ava));
+            
         }
         bool check(string m)
         {
