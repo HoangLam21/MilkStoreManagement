@@ -44,6 +44,7 @@
                                 FontSize="24" FontFamily="{StaticResource Custom}"
                                 Foreground="#747474" Margin="41 10">
                             </TextBlock>
+                            <Border Height="1.75" Width="670" VerticalAlignment="Bottom"  Background="#fff2c1" />
                         </Grid>
                         <Grid Grid.Row="1">
                             <Border CornerRadius="30"
@@ -52,7 +53,7 @@
                                     Background="White" Margin="20,0,0,0"
                                     HorizontalAlignment="Left">
                                 <Border.Effect>
-                                    <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                                    <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
                                 </Border.Effect>
                                 <ComboBox x:Name="cbxChon"
                                     Style="{StaticResource MaterialDesignFilledComboBox}"
@@ -81,7 +82,7 @@
                                 VerticalAlignment="Center"
                                 BorderThickness="0.75" Margin="170,0,0,0" >
                                 <Border.Effect>
-                                    <DropShadowEffect ShadowDepth="5"  Color="#FFCA08" Opacity="0.5" BlurRadius="10"/>
+                                    <DropShadowEffect Direction="320" ShadowDepth="5" BlurRadius="10" Color="#FFCA08" Opacity="0.25"/>
                                 </Border.Effect>
                                 <TextBox x:Name="txbSearch"
                                     Background="Transparent"
@@ -89,7 +90,6 @@
                                     Margin="40,0,45,0"
                                     BorderBrush="White"
                                     Foreground="Black"
-                                    TextAlignment="Center"
                                     FontSize="20" VerticalAlignment="Center"
                                     materialDesign:HintAssist.Hint="Tìm Kiếm"
                                     materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
@@ -117,6 +117,7 @@
                                 BorderThickness="0" 
                                 Margin="512,0,0,0"
                                 FontSize="20" 
+                                Visibility="Hidden"
                                 Foreground="#FF777777"
                                 HorizontalAlignment="Left"
                                 materialDesign:ButtonAssist.CornerRadius="15"
@@ -312,6 +313,7 @@
                                 FontSize="24" FontFamily="{StaticResource Custom}"
                                 Foreground="#747474" Margin="41 10">
                             </TextBlock>
+                            <Border Height="1.75" Width="320" VerticalAlignment="Bottom"  Background="#fff2c1" />
                         </Grid>
                         <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
