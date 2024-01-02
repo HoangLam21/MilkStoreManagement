@@ -128,28 +128,28 @@
 
                         <DataGrid.Columns >
 
-                            <DataGridTextColumn Width="200"
+                            <DataGridTextColumn Width="180"
            IsReadOnly="True"
            Binding="{Binding MAKH}"
            Header="Mã khách hàng"
            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
 
-                            <DataGridTextColumn Width="250"
+                            <DataGridTextColumn Width="230"
            IsReadOnly="True"
            Binding="{Binding TENKH}"
            Header="Tên khách hàng"
            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
-                            <!--<DataGridTextColumn
+                            <DataGridTextColumn Width="180"
            Binding="{Binding SDT}"
            Header="Số điện thoại"
-           EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />-->
+           EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
 
-                            <DataGridTextColumn Width="250"
+                            <DataGridTextColumn Width="180"
            IsReadOnly="True"
            Binding="{Binding NGSINH}"
            Header="Ngày sinh"
            EditingElementStyle="{StaticResource MaterialDesignDataGridTextColumnEditingStyle}" />
-                            <DataGridTextColumn Width="200"
+                            <DataGridTextColumn Width="180"
            IsReadOnly="True"
            Binding="{Binding DOANHSO}"
            Header="Doanh số"

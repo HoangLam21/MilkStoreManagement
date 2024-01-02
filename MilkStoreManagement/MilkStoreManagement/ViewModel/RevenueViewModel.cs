@@ -372,6 +372,7 @@ namespace MilkStoreManagement.ViewModel
             if (print.ShowDialog() == true)
             {
                 print.PrintVisual(printRevenueReport.RevenueViewReport, "Report");
+                MessageBox.Show("In báo cáo thành công !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }

@@ -178,43 +178,6 @@ CornerRadius="40">
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </DataGrid>
-                <!--<Border BorderBrush="#fff7da" BorderThickness="1"
-                   CornerRadius="5" Padding="5" Background="#ffffff" Margin="2,464,1,20" RenderTransformOrigin="0.5,0.5" Height="50">
-                    <StackPanel Orientation="Horizontal" Height="40" Margin="-3,0,51,-2">
-                        <TextBlock Text="Số nhân viên của trang"  VerticalAlignment="Center" />
-                        <ComboBox Margin="5 0 300 0" SelectedIndex="0"  SelectedItem="{Binding SelectedRecord, UpdateSourceTrigger=PropertyChanged}">
-                            <sys:Int32>2</sys:Int32>
-                            <sys:Int32>5</sys:Int32>
-                            <sys:Int32>10</sys:Int32>
-                            <sys:Int32>15</sys:Int32>
-                            <sys:Int32>20</sys:Int32>
-                            <sys:Int32>25</sys:Int32>
-                            
-                        </ComboBox>
-                        <Button Content= "&lt;&lt;" Height="30" Width="50" IsEnabled="{Binding IsFirstEnabled}" ToolTip="Trang đầu" Background="#ffca08" BorderBrush="#ffca08" 
-                                Command="{Binding FirstCommand}"/>
-                        <Button Content="&lt;"  Height="30" Width="50" IsEnabled="{Binding IsPreviousEnabled}" ToolTip="Trang trước"  Background="#ffca08" BorderBrush="#ffca08"
-                                 Command="{Binding Previouscommand}"/>
-                        <TextBlock VerticalAlignment="Center" Width="50">
-                            <TextBlock.Text>
-                                <MultiBinding StringFormat="{} {1} of {2}">
-                                    <Binding Path="CurrentPage"/>
-                                    <Binding Path="NumberOfPages"/>
-                                </MultiBinding>
-                            </TextBlock.Text>
-                        </TextBlock>
-
-                        <Button Content=">"  Height="30" Width="50" IsEnabled="{Binding IsNextEnabled}" ToolTip="Trang tiếp" Background="#ffca08" BorderBrush="#ffca08"
-                                 Command="{Binding NextCommand}"/>
-                        <Button Content=">>"  Height="30" Width="50" IsEnabled="{Binding IsLastEnabled}" ToolTip="Trang cuối" Background="#ffca08" BorderBrush="#ffca08"
-                                Command="{Binding LastCommand}"/>
-
-
-                    </StackPanel>
-
-                </Border>-->
-
-
             </Grid>
 
         </Grid>

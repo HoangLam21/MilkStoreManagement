@@ -61,7 +61,6 @@ namespace MilkStoreManagement.ViewModel
         }
         void _Loadwd(DetailStaffView parmater)
         {
-
             parmater.TenNV.IsEnabled = false;
             parmater.MaNV.IsEnabled = false;
             parmater.GtNV.IsEnabled = false;
@@ -73,8 +72,6 @@ namespace MilkStoreManagement.ViewModel
             parmater.LuongNV.IsEnabled = false;
             parmater.QlcnNV.IsEnabled = false;
             parmater.NnNV.IsEnabled = false;
-
-
         }
 
         void moveWindow(DetailStaffView p)
@@ -104,7 +101,14 @@ namespace MilkStoreManagement.ViewModel
                 updateNV.MaNv.Text = selectedNhanVien.MANV;
                 updateNV.TenNv.Text = selectedNhanVien.TENNV;
                 updateNV.EmailNv.Text = selectedNhanVien.EMAIL;
-                updateNV.GioitinhNv.Text = selectedNhanVien.GIOI;
+                if (selectedNhanVien.GIOI.Trim() == "Nữ")
+                {
+                    updateNV.GioitinhNv.SelectedIndex = 0;
+                }
+                else
+                {
+                    updateNV.GioitinhNv.SelectedIndex = 1;
+                }
                 updateNV.NgaysinhNv.Text = selectedNhanVien.NGSINH.ToString();
                 updateNV.sdtNv.Text = selectedNhanVien.SDT;
                 updateNV.diachiNv.Text = selectedNhanVien.DIACHI;
@@ -117,8 +121,6 @@ namespace MilkStoreManagement.ViewModel
                 Ava = selectedNhanVien.AVA;
                 Uri fileUri = new Uri(Ava);
                 updateNV.Img.ImageSource = new BitmapImage(fileUri);
-
-               
                 updateNV.ShowDialog();
                 paramater.MaNV.Text = selectedNhanVien.MANV;
                 paramater.TenNV.Text = selectedNhanVien.TENNV;

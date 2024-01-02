@@ -83,7 +83,7 @@ namespace MilkStoreManagement.ViewModel
         void _LoadCsCommand(StaffView parameter)
         {
             parameter.cbxChon.SelectedIndex = 2;
-
+            parameter.DatagridNV.ItemsSource = ListNV1;
         }
         void _SearchCommand(StaffView paramater)
         {
@@ -191,8 +191,19 @@ namespace MilkStoreManagement.ViewModel
             paramater.DatagridNV.SelectedItem = null;
 
         }
+        void _AddNV(StaffView parameter)
+        {
+            AddStaffView addNVView = new AddStaffView();
+            addNVView.MaNv.Text = rdma();
+            addNVView.ShowDialog();
 
-
+            linkimage = Const._localLink + "/Resource/ImageNV/imageava.png";
+            Uri fileUri = new Uri(linkimage);
+            addNVView.HinhAnh1.ImageSource = new BitmapImage(fileUri);
+            ListNV1 = new ObservableCollection<NHANVIEN>(DataProvider.Ins.DB.NHANVIENs.Where(p => p.NGAYNGHIVIEC == null));
+            parameter.DatagridNV.ItemsSource = ListNV1;
+            parameter.DatagridNV.SelectedItem = null;
+        }
         bool check(string m)
         {
             foreach (NHANVIEN temp in DataProvider.Ins.DB.NHANVIENs)
@@ -211,21 +222,6 @@ namespace MilkStoreManagement.ViewModel
                 ma = "NV" + rand.Next(0, 99).ToString();
             } while (check(ma));
             return ma;
-        }
-        void _AddNV(StaffView parameter)
-        {
-            AddStaffView addNVView = new AddStaffView();
-            addNVView.MaNv.Text = rdma();
-            addNVView.Show();
-            addNVView.NnNv.Text = "0";
-            addNVView.PassNV.Text = "123";
-            addNVView.quanliNv.Text = "NV1";
-            linkimage = Const._localLink + "/Resource/ImageNV/imageava.png";
-            Uri fileUri = new Uri(linkimage);
-            addNVView.HinhAnh1.ImageSource = new BitmapImage(fileUri);
-            ListNV1 = new ObservableCollection<NHANVIEN>(DataProvider.Ins.DB.NHANVIENs.Where(p => p.NGAYNGHIVIEC == null));
-            parameter.DatagridNV.ItemsSource = ListNV1;
-            parameter.DatagridNV.SelectedItem = null;
         }
     }
 }

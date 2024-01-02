@@ -176,7 +176,7 @@
           VerticalAlignment="Top"
           AcceptsReturn="True"
           TextWrapping="Wrap"
-                                    IsReadOnly="TRUE"
+                                    IsReadOnly="False"
           HorizontalAlignment="Left" x:Name="GHICHU"
           FontFamily="{StaticResource Custom}"
           materialDesign:HintAssist.Hint="Ghi chú" />
