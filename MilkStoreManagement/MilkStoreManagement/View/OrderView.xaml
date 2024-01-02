@@ -314,7 +314,7 @@
                                 </StackPanel>
 
                             </Border>
-                            <ListView Height="88" x:Name="listCTHD" Foreground="#383838" FontSize="11" FontFamily="lexend"  MaxHeight="200" VerticalContentAlignment="Top">
+                            <ListView Margin="0,-45,0,0" Height="160" x:Name="listCTHD" Foreground="#383838" FontSize="11" FontFamily="lexend"   VerticalContentAlignment="Top">
                                 <ListView.View>
                                     <GridView>
                                         <GridViewColumn Width="120" DisplayMemberBinding="{Binding TenSP}" />
@@ -323,10 +323,9 @@
                                         <GridViewColumn  DisplayMemberBinding="{Binding Tong}" />
                                     </GridView>
                                 </ListView.View>
-
                             </ListView>
                         </StackPanel>
-                        <StackPanel Margin="30 20 0 0">
+                        <StackPanel Margin="30 10 0 0">
                             <StackPanel Orientation="Horizontal">
                                 <StackPanel>
                                     <TextBlock Text="Tổng tiền sản phẩm:" Height="30" VerticalAlignment="Center" Foreground="#9B9B9B"
@@ -362,7 +361,7 @@ x:Name="GIAM"></TextBlock>
 
                             </StackPanel>
                         </StackPanel>
-                        <StackPanel>
+                        <StackPanel Height="100">
                             <StackPanel Orientation="Horizontal">
                                 <StackPanel Margin="50">
                                     <TextBlock Text="Tổng cộng:" FontFamily="lexend" FontWeight="Medium" FontSize="15" Foreground="#383838"></TextBlock>

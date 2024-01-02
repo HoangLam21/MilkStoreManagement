@@ -520,6 +520,7 @@ namespace MilkStoreManagement.ViewModel
                     }
                 }
                 DataProvider.Ins.DB.HOADONs.Add(temp);
+                if (a != null) a.DOANHSO += temp.THANHTIEN;
                 DataProvider.Ins.DB.SaveChanges();
                 MessageBoxResult d = System.Windows.MessageBox.Show("  Bạn có muốn in hóa đơn ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
                 if (d == MessageBoxResult.Yes)

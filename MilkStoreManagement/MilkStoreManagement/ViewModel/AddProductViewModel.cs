@@ -43,7 +43,7 @@ namespace MilkStoreManagement.ViewModel
         }
         void _Loadwd(AddProductView paramater)
         {
-            linkimage = Path.Combine(_localLink, "Resource", "Image", "add.png");
+            linkimage = Path.Combine(_localLink, "Resource", "ImgProducts", "add.png");
         }
 
         void _AddImage(Image img)
@@ -54,7 +54,7 @@ namespace MilkStoreManagement.ViewModel
             {
                 linkimage = open.FileName;
             };
-            if (linkimage == "/Resource/Image/add.png")
+            if (linkimage == Path.Combine(_localLink, "Resource", "ImgProducts", "add.png"))
             {
                 Uri fileUri = new Uri(linkimage, UriKind.Relative);
                 img.Source = new BitmapImage(fileUri);
@@ -138,21 +138,6 @@ namespace MilkStoreManagement.ViewModel
                             {
                             }
                             a.MALOAISP = paramater.MALSP.Text;
-                            //a.SL = int.Parse(paramater.SlSp.Text);
-                            //try
-                            //{
-                            //    a.SL = int.Parse(paramater.SlSp.Text);
-                            //}
-                            //catch
-                            //{
-                            //    MessageBox.Show("Số lượng sản phẩm không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
-                            //    return;
-                            //}
-                            //if (a.SL < 0)
-                            //{
-                            //    MessageBox.Show("Số lượng sản phẩm không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
-                            //    return;
-                            //}
                             a.SL = 0;
                             string dateFormat = "yyyy-MM-dd";
 
@@ -175,7 +160,10 @@ namespace MilkStoreManagement.ViewModel
                             a.DVT = paramater.DVT.Text;
                             a.KLG = int.Parse(paramater.KLG.Text);
                             a.MOTA = paramater.MOTA.Text;
-                            a.HINHSP = paramater.TenSp.Text + ((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();
+                            if (linkimage == Path.Combine(_localLink, "Resource", "ImgProducts", "add.png"))
+                                a.HINHSP = Path.Combine(_localLink, "Resource", "ImgProducts", "add.png");
+                            else
+                                a.HINHSP = paramater.TenSp.Text + ((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();
 
                             DataProvider.Ins.DB.SANPHAMs.Add(a);
                             DataProvider.Ins.DB.SaveChanges();

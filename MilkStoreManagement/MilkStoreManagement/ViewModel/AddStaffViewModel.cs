@@ -26,6 +26,7 @@ namespace MilkStoreManagement.ViewModel
         public ICommand Closewd { get; set; }
         public ICommand Minimizewd { get; set; }
         public ICommand MoveWindow { get; set; }
+        public ICommand Loadwd { get; set; }
         public AddStaffViewModel()
         {
             Closewd = new RelayCommand<AddStaffView>((p) => true, (p) => _Close(p));
@@ -33,7 +34,14 @@ namespace MilkStoreManagement.ViewModel
             AddNVCommand = new RelayCommand<AddStaffView>((p) => true, (p) => _AddND(p));
             AddImage = new RelayCommand<ImageBrush>((p) => true, (p) => _AddImage(p));
             Minimizewd = new RelayCommand<AddStaffView>((p) => true, (p) => _Minimize(p));
-           
+            Loadwd = new RelayCommand<AddStaffView>((p) => true, (p) => _Loadwd(p));
+        }
+        void _Loadwd(AddStaffView p)
+        {
+            Ava = Const._localLink + "/Resource/ImageNV/imageava.png";
+            p.NnNv.Text = "0";
+            p.PassNV.Text = "123";
+            p.quanliNv.Text = "NV001";
         }
         void moveWindow(AddStaffView p)
         {

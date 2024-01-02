@@ -28,7 +28,7 @@
     <Border CornerRadius="20"
             Background="white"
             BorderBrush="#ffca08"
-            BorderThickness="5">
+            BorderThickness="3">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="80"></RowDefinition>

@@ -40,7 +40,7 @@ namespace MilkStoreManagement.Model
             {
                 if (string.IsNullOrEmpty(_HINHSP))
                 {
-                    return Const._localLink + @"Resource\ImgProducts\ava1.jpg";
+                    return Const._localLink + @"Resource\ImgProducts\add.png";
                 }
                 else if (_HINHSP.Contains(Const._localLink))
                 {

@@ -152,7 +152,7 @@
                 </StackPanel>
             </Grid >
             <Border Grid.Row="0" >
-                <Label Content="Phiếu nhập" FontSize="24" Foreground="#747474" FontWeight="Bold"  FontFamily="{StaticResource Custom}" Margin="41 10"/>
+                <Label Content="Phiếu nhập" FontSize="24" Foreground="#747474" FontWeight="Bold"  FontFamily="{StaticResource Custom}" Margin="41 8"/>
 
             </Border>
             <Separator Height="3" Width="650" Background="#fff2c1" HorizontalAlignment="Left" Margin="50 61 0 0"/>

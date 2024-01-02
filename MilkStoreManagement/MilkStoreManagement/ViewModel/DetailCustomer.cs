@@ -59,6 +59,7 @@ namespace MilkStoreManagement.ViewModel
                         a.TENKH = p.TenKH.Text;
                         a.NGSINH = DateTime.Parse(p.NGSINH.Text);
                         a.SDT = p.SDT.Text.ToString();
+                        a.GHICHU = p.GHICHU.Text;
                     }
                     DataProvider.Ins.DB.SaveChanges();
                     MessageBox.Show("Cập nhật thông tin thành công !", "THÔNG BÁO");
