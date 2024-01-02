@@ -43,6 +43,7 @@ namespace MilkStoreManagement.ViewModel
         }
         void _Loadwd(AddProductView paramater)
         {
+            paramater.SlSp.Text = "0";
             linkimage = Path.Combine(_localLink, "Resource", "ImgProducts", "add.png");
         }
 
@@ -163,8 +164,7 @@ namespace MilkStoreManagement.ViewModel
                             if (linkimage == Path.Combine(_localLink, "Resource", "ImgProducts", "add.png"))
                                 a.HINHSP = Path.Combine(_localLink, "Resource", "ImgProducts", "add.png");
                             else
-                                a.HINHSP = paramater.TenSp.Text + ((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();
-
+                                a.HINHSP = _localLink + @"Resource\ImgProducts\" + paramater.TenSp.Text + ((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();
                             DataProvider.Ins.DB.SANPHAMs.Add(a);
                             DataProvider.Ins.DB.SaveChanges();
 

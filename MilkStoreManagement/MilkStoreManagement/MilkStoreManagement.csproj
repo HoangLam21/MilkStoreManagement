@@ -479,6 +479,7 @@
     <Resource Include="Resource\ImgProducts\add.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resource\Ava\imageava.png" />
     <Resource Include="icon.ico" />
     <Content Include="Model\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

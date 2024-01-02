@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows;
 using System.IO;
 using MilkStoreManagement.View;
+using System.Net.Mail;
+using System.Net;
 
 namespace MilkStoreManagement.ViewModel
 {
@@ -38,9 +40,9 @@ namespace MilkStoreManagement.ViewModel
         }
         void _Loadwd(AddStaffView p)
         {
-            Ava = Const._localLink + "/Resource/ImageNV/imageava.png";
+            Ava = Const._localLink + "/Resource/Ava/imageava.png";
             p.NnNv.Text = "0";
-            p.PassNV.Text = "123";
+
             p.quanliNv.Text = "NV001";
         }
         void moveWindow(AddStaffView p)
@@ -137,14 +139,14 @@ namespace MilkStoreManagement.ViewModel
                 temp.NGSINH = (DateTime)addNVView.NgaysinhNv.SelectedDate;
                 temp.CHUCVU = addNVView.ChucvuNv.Text;
                 temp.ID_QLY = addNVView.quanliNv.Text;
-                temp.PASS = addNVView.PassNV.Text;
+                temp.PASS = LoginViewModel.MD5Hash(LoginViewModel.Base64Encode("123"));
                 temp.NGAYNGHIVIEC = null;
                 temp.NGAYNGHI = int.TryParse(addNVView.NnNv.Text, out int ngayNghiInt) ? ngayNghiInt : 0;
                 temp.LUONG = (decimal)Convert.ToDouble(addNVView.luongNV.Text);
                 temp.NGVL = (DateTime)addNVView.NgayvlNv.SelectedDate;
                 string rd = StringGenerator();
-                if (Ava == "/Resource/ImageNV/imageava.png")
-                    temp.AVA = "/Resource/ImageNV/imageava.png";
+                if (Ava == "/Resource/Ava/imageava.png")
+                    temp.AVA = "/Resource/Ava/imageava.png";
                 else
                     temp.AVA = @"Resource\Ava\" + rd + ((Ava.Contains(".jpg")) ? ".jpg" : ".png").ToString();
                 DataProvider.Ins.DB.NHANVIENs.Add(temp);
@@ -156,6 +158,21 @@ namespace MilkStoreManagement.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
 
                 MessageBox.Show("Thêm nhân viên thành công !", "THÔNG BÁO");
+                string nd = "Tài khoản của bạn là <strong>" + temp.MANV + "</strong>.<br>" + "Mật khẩu hiện tại của bạn là <strong>123</strong> <br> Trân trọng !";
+                MailMessage message = new MailMessage("milkstoremanagement@gmail.com", temp.EMAIL, "CHÚC MỪNG BẠN ĐÃ ĐƯỢC VÀO CÔNG TY", nd);
+                message.IsBodyHtml = true;
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.EnableSsl = true;
+                smtpClient.Credentials = new NetworkCredential("milkstoremanagement@gmail.com", "dadg mfzv zppx baot");
+                try
+                {
+                    smtpClient.Send(message);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Lỗi kết nối không an toàn !", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
                 addNVView.TenNv.Clear();
                 addNVView.GioitinhNv.SelectedItem = null;
                 addNVView.GioitinhNv.Items.Refresh();
@@ -168,7 +185,7 @@ namespace MilkStoreManagement.ViewModel
                 addNVView.luongNV.Clear();
                 addNVView.NgayvlNv.SelectedDate = null;
                 addNVView.quanliNv.Clear();
-                Ava = Const._localLink + "/Resource/ImageNV/imageava.png";
+                Ava = Const._localLink + "/Resource/Ava/imageava.png";
                 Uri fileUri = new Uri(Ava, UriKind.Relative);
                 addNVView.HinhAnh1.ImageSource = new BitmapImage(fileUri);
             }

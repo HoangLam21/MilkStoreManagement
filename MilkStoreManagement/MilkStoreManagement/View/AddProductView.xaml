@@ -250,7 +250,7 @@ materialDesign:TextFieldAssist.UnderlineBrush="#FFCA08"
                                     <TextBox
                     Background="White"
          Margin="0"
-         x:Name="SlSp"
+         x:Name="SlSp" IsReadOnly="true"
                     
 HorizontalAlignment="Center"
 Height="23"
