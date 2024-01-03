@@ -1,6 +1,6 @@
 UIT MilkStoreManagement
 
-LOGO: 
+LOGO: https://drive.google.com/file/d/1hJD949Oh9aTTywnlBAGcdrF1tpyEVVd7/view?usp=sharing
 
 Contributors: Leader: Mai Tuấn An - 22520018 - https://github.com/HoangLam21 Member: Gia Bảo Anh - 22520044 - https://github.com/GiaBaoAnh04 Member: Vũ Hồ Quỳnh Anh - 22520086 - https://github.com/Vhquynhanh Member: Phan nguyễn Trà Giang - 22520360 - https://github.com/GiangPhanNguyenTra Member: Nguyễn Thị Như Huỳnh - 22520592 - https://github.com/22520592
 
